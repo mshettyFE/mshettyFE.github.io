@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on mushetty.me</title>
+    <link>https://mushetty.me/posts/</link>
+    <description>Recent content in Posts on mushetty.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Dec 2022 17:09:41 -0500</lastBuildDate><atom:link href="https://mushetty.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Set Up a Webserver Pt. 1</title>
+      <link>https://mushetty.me/posts/webserver/</link>
+      <pubDate>Tue, 27 Dec 2022 17:09:41 -0500</pubDate>
+      
+      <guid>https://mushetty.me/posts/webserver/</guid>
+      <description>I&amp;rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.
+I decide to do it the hard way and run my own webserver.
+Do I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage).</description>
+    </item>
+    
+  </channel>
+</rss>

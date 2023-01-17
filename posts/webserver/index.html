@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How to Set Up a Webserver Pt. 1 | mushetty.me</title>
+<meta name="keywords" content="">
+<meta name="description" content="I&rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.
+I decide to do it the hard way and run my own webserver.
+Do I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage).">
+<meta name="author" content="">
+<link rel="canonical" href="https://mushetty.me/posts/webserver/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c5e8fb7cf778d88f94a46c567e365d250dace54446141434726dce09e8036474.css" integrity="sha256-xej7fPd42I&#43;UpGxWfjZdJQ2s5URGFBQ0cm3OCegDZHQ=" rel="preload stylesheet" as="style">
+<link rel="stylesheet" href="" />
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://mushetty.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://mushetty.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mushetty.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://mushetty.me/apple-touch-icon.png">
+<link rel="mask-icon" href="https://mushetty.me/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<meta property="og:title" content="How to Set Up a Webserver Pt. 1" />
+<meta property="og:description" content="I&rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.
+I decide to do it the hard way and run my own webserver.
+Do I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mushetty.me/posts/webserver/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-27T17:09:41-05:00" />
+<meta property="article:modified_time" content="2023-01-17T12:55:37-05:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Set Up a Webserver Pt. 1"/>
+<meta name="twitter:description" content="I&rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.
+I decide to do it the hard way and run my own webserver.
+Do I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage)."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "How to Set Up a Webserver Pt. 1",
+      "item": "https://mushetty.me/posts/webserver/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Set Up a Webserver Pt. 1",
+  "name": "How to Set Up a Webserver Pt. 1",
+  "description": "I\u0026rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.\nI decide to do it the hard way and run my own webserver.\nDo I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage).",
+  "keywords": [
+    
+  ],
+  "articleBody": "I’ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.\nI decide to do it the hard way and run my own webserver.\nDo I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage). But overall, it was a good learning experience. This post will chronicle what I did to secure and set up everything. Like most things, it’s not difficult if you know what to do, but a pain if you are clueless.\nIn this post, I will be going over what hardware you need, as well how to secure a Ubuntu server.\nOf note is that I am running this off of Windows 11 with WSL installed. The exact procedure might differ between operating systems, but the overall structure is the same.\nMaterials Hardware The essential hardware to get started includes:\n Any SBC with Ethernet/USB access running some flavor of Linux  I used the Le Potato, since Raspberry Pis cost an arm, a leg and my soul, but feel free to use whatever SBC you like I also used Armbian since I’m already familiar with Debian-based Linux flavors   a microSD card with the correct adapter  by adapter, I mean a normal SD card with a port for the microSD card. This probably comes with the microSD, but for completeness I’m explicitly including this. For the read speed, you want a Class 10 or better (this is a pretty low benchmark in the year 2022) If you have direct access to your router’s Ethernet ports, then you all you need is an Ethernet cable.    If you don’t have direct access to your router (say, for instance, that you are running the server out of your dorm room), then you will need\n a Wifi dongle like this (either 2.4 GHz or 5 GHz depending on your network) if your SBC doesn’t have innate internet access. any compatible keyboard any compatible monitor that can be connected to your SBC (typically HDMI works)  Startup Software You need a variety of software in order to even get the SBC to turn on, let along act as a webserver. Luckily, all the required/useful software is free! You’ll need:\n An image of the os (Ubuntu 20.04), which can be found right here; download the CLI version. There are also images for other knock-off Raspberry Pi boards. 7Zip, or other decompressing software. You need this extract the .xy file. Balena Etcher, which is a cross-platform etcher that is used to burn the os onto the microSD. AngryIPScanner, which pings all the addresses on your LAN and return all the living connections. Once Armbian is setup and you can access the SBC, the rest of the software can be installed via the command line.  Twofold Path There are two ways of going about setting up the server, depending on the hardware you have.\nEthernet Let’s start with the ideal case: you have direct Ethernet access to your router. This gives you the best speed and is the least annoying to setup.\n  Use Etcher in order to burn and verify the Armbian image. Don’t forget to extract the image first.\n  Safely eject the SD card once the validation is done\n  Plug in the microSD to the SBC\n  Power it on. Look for the verification signal (SBC dependent. for the LePotato, the green light is solid and the blue light blinks). Give it a couple of minutes since the first boot might be slow.\n  Plug in the Ethernet cable between the router and the SBC. Give it a couple of second to assign an IP address to the server.\n  Run AngryIP Scanner across your LAN, click on Hostname to Sort By Hostname, then look for your server (for LePotato, the default is potato.local). Take note of the IP address.\n In the event that your internet provider anonymizes all connections, you will need to plug in the keyboard and monitor, then jump to Step 8.    Open any command line application and type in\n ssh [User]@[Ip-address]  Where User is name of the root account and Ip-address is the server IP address. For LePotato, User is root. If all goes well, you should get a message asking if you are sure that you want to connect. Type ‘yes’ and hit Enter.\n  You should get prompted for the password (Password is 1234 for LePotato). You then need to set the root password (doesn’t matter since root will be disabled), choose your bash shell (doesn’t matter which), choose your username and password (these are actually important, so don’t forget them), and choose your language, time zone, and region. Proceed to Securing the Server.\n  Wireless Setup In order to connect to wifi, the server needs some tweaking in its configuration files. Assuming that you have the peripherals, then this is relatively straight forward to do.\n  Use Etcher in order to burn and verify the Armbian image. Don’t forget to extract the image first.\n  Safely eject the SD card once the validation is done\n  Plug in the microSD, keyboard and monitor to the SBC, as well as the Wifi dongle if needed\n  Power it on. Look for the verification signal (SBC dependent. for the LePotato, the green light is solid and the blue light blinks). Give it a couple of minutes since the first boot might be slow.\n  Follow the start up sequence by inputting a root password, a admin username and password.\n  You should get prompted here to set up wireless since Armbian detected no Internet connection. Agree, and you will be taken to a GUI wireless setup. You can navigate with the arrow keys and enter.\n  Look for your wifi network and select it. You will get prompted with the password; input it, then press enter.\n  Make sure that there is a * next to your network. If you highlight your network, then you should see “” on the right hand side. This means that you are connected.\n  Navigate to “” at the bottom by pressing right and down. Then hit Enter.\n  You will get prompted for your time zone,language and region preferences like in Step 8 of Ethernet. Fill those out.\n  Once you are logged in as root, type in\nping google.com  What this does is pass packets back and forth between the server and google. This is a good test to see if you actually are connected to your LAN. If you don’t get any errors and you should get a continuous stream that consists of lines like\n64 bytes from [server_info]: icmp_seq=[#] ttl=[#] time=[#] ms  Hit Ctrl+C to stop pinging.\n  Type in\nhostname -I  and take note of the ip address.\n  Proceed to Securing the Server.\n  Securing the Server So you’re in your server. Now you need to setup secure access to the server.\nSSH   Type\n su [User]  To switch to the admin account\n  From your home directory, type\n sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config_backup  You’ll need to input the admin password. This command makes a backup of the defaults incase anything goes wrong (good practice whenever you are screwing around with configurations).\n  Type in\n sudo nano /etc/ssh/sshd_config  and change/add the following lines:\n PermitRootLogin yes - PermitRootLogin no Uncomment and change the following lines  PasswordAuthentication yes - PasswordAuthentication no PermitEmptyPasswords no Port 22 - Port # (This is optional. A bit unnecessary)    Save and exit the file.\n  On your original computer that you used to SSH into the server, open up another terminal and type in\n ssh-keygen  This create a public private keypair that enables authentication without a password\n you can save the keys wherever you want, although /home/[User]/.ssh/ is a good standard location. You can also include a passphrase as well, although optional    You then can use ssh-copy-id to transfer the public key over:\n ssh-copy-id -i [location] [user]@[ip-address]  where [location] is where you saved the public key (the files ends with .pub)\n You will be prompted for the admin password    Run the following\n eval `ssh-agent` ssh-add [location]  where [location] is where you saved the private key (should be same directory as public, but no .pub file type)\n  Run the following on the server:\n service ssh restart    If all goes well, you should be able to SSH into the server without a password. In addition, the only computers that can access the server are ones that have the correct private key.\nUFW UFW is a simple firewall that can dictate which connections are allowed into and out of the server. It should come preinstalled in most linux distros.\nRun the following commands:\n apt-get update \u0026\u0026 apt-get upgrade -y sudo apt install ufw -y sudo ufw default deny incoming sudo ufw default allow outgoing  This installs ufw if it is not already present, denys all incoming traffic and allows all outgoing traffic. Now, we need to add the rules that enable SSH and HTTP requests from the outside:\n sudo ufw allow [port]/tcp sudo ufw allow 80/tcp sudo ufw allow 443/tcp  Where [port] is the port that SSH goes to (defaults to 22 is you didn’t change this). 80 and 443 are HTTP and HTTPS requests respectively. Eventually, you will need to add an SSL certificate to have a valid https connection, which will be covered in part 2.\nYou can then start ufw with:\n sudo ufw enable  and you can check the rules with:\n sudo ufw status  an easy way to remove moves is by typing:\n sudo ufw status numbered  and then inputting\n sudo ufw delete [#]  where # is the rule number.\nufw can be turned off by\n sudo ufw disable  Fail2Ban Fail2Ban is a service that can help prevent DDOS attacks, amongst other things. Linode.com has a good tutorial on how to install and configure Fail2Ban.\nJust installing Fail2Ban\n apt-get install fail2ban  and not messing with the defaults is probably good enough for a small personal webserver since you’ve already disabled password login and enabled key authentication. Fail2ban only servers to deter invalid users from throttling the server. If you want to mess with the default settings, be my guest.\nApache At this point, we need to download the software needed to actually serve webpages to the internet. Apache2 is a commonly used webserver that can be downloaded from the command line. Digital Ocean has a good tutorial on how to get apache2 up and running.\nThe essentials are:\n  Download apache2:\n sudo apt update sudo apt install apache2    Since you have already configured ufw, run\n sudo systemctl status apache2    to check if apache is running. Hit Ctrl-C to escape. Now enter your private ip address of the server (run hostname -I) into the web browser to check if everything works. If you can access the default apache webpage, then it works!\nConclusion This concludes part 1 of how to set up a webserver. What we’ve done so far is set up a SBC to run some flavor of Linux, enable internet connection, secure the server with key authentication, ufw and fail2ban and download apache2.\nThe next steps are connecting a domain name to your public ip address. This will be done through Cloudflared Tunnel in Part 2.\n",
+  "wordCount" : "1879",
+  "inLanguage": "en",
+  "datePublished": "2022-12-27T17:09:41-05:00",
+  "dateModified": "2023-01-17T12:55:37-05:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://mushetty.me/posts/webserver/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "mushetty.me",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://mushetty.me/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://mushetty.me" accesskey="h" title="mushetty.me (Alt + H)">mushetty.me</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://mushetty.me/simulations/" title="Simulationss">
+                    <span>Simulationss</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://mushetty.me/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://mushetty.me/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      How to Set Up a Webserver Pt. 1
+    </h1>
+    <div class="post-meta"><span title='2022-12-27 17:09:41 -0500 EST'>Date Created: December 27, 2022</span>&nbsp;·&nbsp;<span title='2023-01-17 12:55:37 -0500 EST'>Last Modified: January 17, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>I&rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that.
+I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.</p>
+<p>I decide to do it the hard way and run my own webserver.</p>
+<p>Do I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage). But overall, it was a good learning experience. This post will chronicle what I did to secure and set up everything. Like most things, it&rsquo;s not difficult if you know what to do, but a pain if you are clueless.</p>
+<p>In this post, I will be going over what hardware you need, as well how to secure a Ubuntu server.</p>
+<p>Of note is that I am running this off of Windows 11 with WSL installed. The exact procedure might differ between operating systems, but the overall structure is the same.</p>
+<h2 id="materials">Materials<a hidden class="anchor" aria-hidden="true" href="#materials">#</a></h2>
+<h3 id="hardware">Hardware<a hidden class="anchor" aria-hidden="true" href="#hardware">#</a></h3>
+<p>The essential hardware to get started includes:</p>
+<ul>
+<li>Any SBC with Ethernet/USB access running some flavor of Linux
+<ul>
+<li>I used the <a href="https://libre.computer/products/aml-s905x-cc/">Le Potato</a>, since Raspberry Pis cost an arm, a leg and my soul, but feel free to use whatever SBC you like</li>
+<li>I also used Armbian since I&rsquo;m already familiar with Debian-based Linux flavors</li>
+</ul>
+</li>
+<li>a microSD card with the correct adapter
+<ul>
+<li>by adapter, I mean a normal SD card with a port for the microSD card. This probably comes with the microSD, but for completeness I&rsquo;m explicitly including this.</li>
+<li>For the read speed, you want a Class 10 or better (this is a pretty low benchmark in the year 2022)
+If you have direct access to your router&rsquo;s Ethernet ports, then you all you need is an Ethernet cable.</li>
+</ul>
+</li>
+</ul>
+<p>If you don&rsquo;t have direct access to your router (say, for instance, that you are running the server out of your dorm room), then you will need</p>
+<ul>
+<li>a Wifi dongle like <a href="https://www.amazon.com/wifi-adapter-usb-pc-network/dp/B008IFXQFU">this</a> (either 2.4 GHz or 5 GHz depending on your network) if your SBC doesn&rsquo;t have innate internet access.</li>
+<li>any compatible keyboard</li>
+<li>any compatible monitor that can be connected to your SBC (typically HDMI works)</li>
+</ul>
+<h3 id="startup-software">Startup Software<a hidden class="anchor" aria-hidden="true" href="#startup-software">#</a></h3>
+<p>You need a variety of software in order to even get the SBC to turn on, let along act as a webserver. Luckily, all the required/useful software is free! You&rsquo;ll need:</p>
+<ul>
+<li>An image of the os (Ubuntu 20.04), which can be found right <a href="https://www.armbian.com/download/">here</a>; download the CLI version. There are also images for other knock-off Raspberry Pi boards.</li>
+<li>7Zip, or other decompressing software. You need this extract the .xy file.</li>
+<li><a href="https://www.balena.io/etcher/">Balena Etcher</a>, which is a cross-platform etcher that is used to burn the os onto the microSD.</li>
+<li><a href="https://angryip.org/">AngryIPScanner</a>, which pings all the addresses on your LAN and return all the living connections.</li>
+<li>Once Armbian is setup and you can access the SBC, the rest of the software can be installed via the command line.</li>
+</ul>
+<h2 id="twofold-path">Twofold Path<a hidden class="anchor" aria-hidden="true" href="#twofold-path">#</a></h2>
+<p>There are two ways of going about setting up the server, depending on the hardware you have.</p>
+<h3 id="ethernet">Ethernet<a hidden class="anchor" aria-hidden="true" href="#ethernet">#</a></h3>
+<p>Let&rsquo;s start with the ideal case: you have direct Ethernet access to your router. This gives you the best speed and is the least annoying to setup.</p>
+<ol>
+<li>
+<p>Use Etcher in order to burn and verify the Armbian image. Don&rsquo;t forget to extract the image first.</p>
+</li>
+<li>
+<p>Safely eject the SD card once the validation is done</p>
+</li>
+<li>
+<p>Plug in the microSD to the SBC</p>
+</li>
+<li>
+<p>Power it on. Look for the verification signal (SBC dependent. for the LePotato, the green light is solid and the blue light blinks). Give it a couple of minutes since the first boot might be slow.</p>
+</li>
+<li>
+<p>Plug in the Ethernet cable between the router and the SBC. Give it a couple of second to assign an IP address to the server.</p>
+</li>
+<li>
+<p>Run AngryIP Scanner across your LAN, click on Hostname to Sort By Hostname, then look for your server (for LePotato, the default is potato.local). Take note of the IP address.</p>
+<ul>
+<li>In the event that your internet provider anonymizes all connections, you will need to plug in the keyboard and monitor, then jump to Step 8.</li>
+</ul>
+</li>
+<li>
+<p>Open any command line application and type in</p>
+<pre><code> ssh [User]@[Ip-address]
+</code></pre>
+<p>Where <em>User</em> is name of the root account and <em>Ip-address</em> is the server IP address. For LePotato, User is root.  If all goes well, you should get a message asking if you are sure that you want to connect. Type &lsquo;yes&rsquo; and hit Enter.</p>
+</li>
+<li>
+<p>You should get prompted for the password (Password is 1234 for LePotato). You then need to set the root password (doesn&rsquo;t matter since root will be disabled), choose your bash shell (doesn&rsquo;t matter which), choose your username and password (these are actually important, so don&rsquo;t forget them), and choose your language, time zone, and region. Proceed to <a href="#securing-the-server">Securing the Server</a>.</p>
+</li>
+</ol>
+<h2 id="wireless-setup">Wireless Setup<a hidden class="anchor" aria-hidden="true" href="#wireless-setup">#</a></h2>
+<p>In order to connect to wifi, the server needs some tweaking in its configuration files. Assuming that you have the peripherals, then this is relatively straight forward to do.</p>
+<ol>
+<li>
+<p>Use Etcher in order to burn and verify the Armbian image. Don&rsquo;t forget to extract the image first.</p>
+</li>
+<li>
+<p>Safely eject the SD card once the validation is done</p>
+</li>
+<li>
+<p>Plug in the microSD, keyboard and monitor to the SBC, as well as the Wifi dongle if needed</p>
+</li>
+<li>
+<p>Power it on. Look for the verification signal (SBC dependent. for the LePotato, the green light is solid and the blue light blinks). Give it a couple of minutes since the first boot might be slow.</p>
+</li>
+<li>
+<p>Follow the start up sequence by inputting a root password, a admin username and password.</p>
+</li>
+<li>
+<p>You should get prompted here to set up wireless since Armbian detected no Internet connection. Agree, and you will be taken to a GUI wireless setup. You can navigate with the arrow keys and enter.</p>
+</li>
+<li>
+<p>Look for your wifi network and select it. You will get prompted with the password; input it, then press enter.</p>
+</li>
+<li>
+<p>Make sure that there is a * next to your network. If you highlight your network, then you should see &ldquo;&lt;Deactivate&gt;&rdquo; on the right hand side. This means that you are connected.</p>
+</li>
+<li>
+<p>Navigate to &ldquo;&lt;Quit&gt;&rdquo; at the bottom by pressing right and down. Then hit Enter.</p>
+</li>
+<li>
+<p>You will get prompted for your time zone,language and region preferences like in Step 8 of <a href="#ethernet">Ethernet</a>. Fill those out.</p>
+</li>
+<li>
+<p>Once you are logged in as root, type in</p>
+<pre><code>ping google.com
+</code></pre>
+<p>What this does is pass packets back and forth between the server and google. This is a good test to see if you actually are connected to your LAN. If you don&rsquo;t get any errors and you should get a continuous stream that consists of lines like</p>
+<pre><code>64 bytes from [server_info]: icmp_seq=[#] ttl=[#] time=[#] ms
+</code></pre>
+<p>Hit Ctrl+C to stop pinging.</p>
+</li>
+<li>
+<p>Type in</p>
+<pre><code>hostname -I
+</code></pre>
+<p>and take note of the ip address.</p>
+</li>
+<li>
+<p>Proceed to <a href="#securing-the-server">Securing the Server</a>.</p>
+</li>
+</ol>
+<h2 id="securing-the-server">Securing the Server<a hidden class="anchor" aria-hidden="true" href="#securing-the-server">#</a></h2>
+<p>So you&rsquo;re in your server. Now you need to setup secure access to the server.</p>
+<h3 id="ssh">SSH<a hidden class="anchor" aria-hidden="true" href="#ssh">#</a></h3>
+<ol>
+<li>
+<p>Type</p>
+<pre><code> su [User]
+</code></pre>
+<p>To switch to the admin account</p>
+</li>
+<li>
+<p>From your home directory, type</p>
+<pre><code> sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config_backup
+</code></pre>
+<p>You&rsquo;ll need to input the admin password. This command makes a backup of the defaults incase anything goes wrong (good practice whenever you are screwing around with configurations).</p>
+</li>
+<li>
+<p>Type in</p>
+<pre><code> sudo nano /etc/ssh/sshd_config 
+</code></pre>
+<p>and change/add the following lines:</p>
+<ul>
+<li>PermitRootLogin yes -&gt; PermitRootLogin no</li>
+<li>Uncomment and change the following lines
+<ul>
+<li>PasswordAuthentication yes -&gt; PasswordAuthentication no</li>
+<li>PermitEmptyPasswords no</li>
+<li>Port 22 -&gt; Port # (This is optional. A bit unnecessary)</li>
+</ul>
+</li>
+</ul>
+<p>Save and exit the file.</p>
+</li>
+<li>
+<p>On your original computer that you used to SSH into the server, open up another terminal and type in</p>
+<pre><code> ssh-keygen
+</code></pre>
+<p>This create a public private keypair that enables authentication without a password</p>
+<ul>
+<li>you can save the keys wherever you want, although /home/[User]/.ssh/ is a good standard location.</li>
+<li>You can also include a passphrase as well, although optional</li>
+</ul>
+</li>
+<li>
+<p>You then can use ssh-copy-id to transfer the public key over:</p>
+<pre><code> ssh-copy-id -i [location] [user]@[ip-address]
+</code></pre>
+<p>where [location] is where you saved the public key (the files ends with .pub)</p>
+<ul>
+<li>You will be prompted for the admin password</li>
+</ul>
+</li>
+<li>
+<p>Run the following</p>
+<pre><code> eval `ssh-agent`
+ ssh-add [location]
+</code></pre>
+<p>where [location] is where you saved the private key (should be same directory as public, but no .pub file type)</p>
+</li>
+<li>
+<p>Run the following on the server:</p>
+<pre><code> service ssh restart
+</code></pre>
+</li>
+</ol>
+<p>If all goes well, you should be able to SSH into the server without a password. In addition, the only computers that can access the server are ones that have the correct private key.</p>
+<h3 id="ufw">UFW<a hidden class="anchor" aria-hidden="true" href="#ufw">#</a></h3>
+<p>UFW is a simple firewall that can dictate which connections are allowed into and out of the server. It should come preinstalled in most linux distros.</p>
+<p>Run the following commands:</p>
+<pre><code>    apt-get update &amp;&amp; apt-get upgrade -y
+    sudo apt install ufw -y
+    sudo ufw default deny incoming
+    sudo ufw default allow outgoing
+</code></pre>
+<p>This installs ufw if it is not already present, denys all incoming traffic and allows all outgoing traffic. Now, we need to add the rules that enable SSH and HTTP requests from the outside:</p>
+<pre><code>    sudo ufw allow [port]/tcp
+    sudo ufw allow 80/tcp
+    sudo ufw allow 443/tcp
+</code></pre>
+<p>Where [port] is the port that SSH goes to (defaults to 22 is you didn&rsquo;t change this). 80 and 443 are HTTP and HTTPS requests respectively. Eventually, you will need to add an SSL certificate to have a valid https connection, which will be covered in part 2.</p>
+<p>You can then start ufw with:</p>
+<pre><code>    sudo ufw enable
+</code></pre>
+<p>and you can check the rules with:</p>
+<pre><code>    sudo ufw status
+</code></pre>
+<p>an easy way to remove moves is by typing:</p>
+<pre><code>    sudo ufw status numbered
+</code></pre>
+<p>and then inputting</p>
+<pre><code>    sudo ufw delete [#]
+</code></pre>
+<p>where # is the rule number.</p>
+<p>ufw can be turned off by</p>
+<pre><code>    sudo ufw disable
+</code></pre>
+<h3 id="fail2ban">Fail2Ban<a hidden class="anchor" aria-hidden="true" href="#fail2ban">#</a></h3>
+<p>Fail2Ban is a service that can help prevent DDOS attacks, amongst other things. <a href="https://www.linode.com/docs/guides/using-fail2ban-to-secure-your-server-a-tutorial/">Linode.com</a> has a good tutorial on how to install and configure Fail2Ban.</p>
+<p>Just installing Fail2Ban</p>
+<pre><code>    apt-get install fail2ban
+</code></pre>
+<p>and not messing with the defaults is probably good enough for a small personal webserver since you&rsquo;ve already disabled password login and enabled key authentication. Fail2ban only servers to deter invalid users from throttling the server. If you want to mess with the default settings, be my guest.</p>
+<h3 id="apache">Apache<a hidden class="anchor" aria-hidden="true" href="#apache">#</a></h3>
+<p>At this point, we need to download the software needed to actually serve webpages to the internet. Apache2 is a commonly used webserver that can be downloaded from the command line. <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-22-04">Digital Ocean</a> has a good tutorial on how to get apache2 up and running.</p>
+<p>The essentials are:</p>
+<ul>
+<li>
+<p>Download apache2:</p>
+<pre><code>  sudo apt update
+  sudo apt install apache2
+</code></pre>
+</li>
+<li>
+<p>Since you have already configured ufw, run</p>
+<pre><code>  sudo systemctl status apache2
+</code></pre>
+</li>
+</ul>
+<p>to check if apache is running. Hit Ctrl-C to escape. Now enter your private ip address of the server (run hostname -I) into the web browser to check if everything works. If you can access the default apache webpage, then it works!</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>This concludes part 1 of how to set up a webserver. What we&rsquo;ve done so far is set up a SBC to run some flavor of Linux, enable internet connection, secure the server with key authentication, ufw and fail2ban and download apache2.</p>
+<p>The next steps are connecting a domain name to your public ip address. This will be done through Cloudflared Tunnel in Part 2.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://mushetty.me">mushetty.me</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+---
+title: "ML Refresher Notes"
+date: 2023-01-07T17:29:54-05:00
+lastmod: .Date.Format
+draft: false
+math: true
+---
+
+Here is a compendium of my notes that I took to review for Machine Learning. This was meant to be a quick refresher on concepts and to put everything in one place. For a less cursory version, see the background section under Resources at the course [website](https://www.cs.columbia.edu/~verma/classes/ml/index.html).
+
+- [Probability and Statistics](#probability-and-statistics)
+  - [Basic Concepts](#basic-concepts)
+    - [Axioms of Probability](#axioms-of-probability)
+    - [Definitions](#definitions)
+    - [Baye's Rule](#bayes-rule)
+    - [Expectation](#expectation)
+  - [Common Probability Distributions](#common-probability-distributions)
+    - [Bernoulli Distribution](#bernoulli-distribution)
+    - [Binomial Distribution](#binomial-distribution)
+    - [Poisson Distribution](#poisson-distribution)
+    - [Categorical Distribution](#categorical-distribution)
+    - [Multinomial Distribution](#multinomial-distribution)
+    - [Guassian(Normal) Distribution](#guassiannormal-distribution)
+    - [Multivariate Gaussian Distribution](#multivariate-gaussian-distribution)
+    - [Laplace distribution](#laplace-distribution)
+    - [Dirac Delta Distribution](#dirac-delta-distribution)
+    - [Mixtures of Distributions](#mixtures-of-distributions)
+  - [Common Functions](#common-functions)
+    - [Logistic sigmoid $\\sigma(x)$](#logistic-sigmoid-sigmax)
+    - [Softplus Function $\\Zeta(x)$](#softplus-function-zetax)
+  - [Information Theory](#information-theory)
+    - [Self-Information](#self-information)
+    - [Shannon Entropy](#shannon-entropy)
+    - [Kullback-Leibler (KL) divergence](#kullback-leibler-kl-divergence)
+    - [Cross-entropy](#cross-entropy)
+    - [Exponential Distribution](#exponential-distribution)
+  - [Chi-squared Distribution](#chi-squared-distribution)
+    - [Basics](#basics)
+    - [Goodness of Fit (GOF)](#goodness-of-fit-gof)
+    - [Independence](#independence)
+  - [T-test](#t-test)
+    - [One Sample](#one-sample)
+    - [Two Sample](#two-sample)
+      - [Paired](#paired)
+      - [Unpaired](#unpaired)
+- [Linear Algebra](#linear-algebra)
+- [Calculus](#calculus)
+- [Algorithms](#algorithms)
+- [Convex Optimization](#convex-optimization)
+
+
+## Probability and Statistics
+### Basic Concepts
+#### Axioms of Probability
+* Probability Measure $P: \mathbb{F} \rightarrow \mathbb{{R}}$ such that
+  * $P(A) \geq 0$ for all $A \in \mathbb{F}$
+  * $P(\Omega) = 1$
+  * If $A_{1},A_{2}...$ are disjoint events, then
+    * $P(\cup A_{i}) = \Sigma_{i} P(A_{i})$
+ #### Definitions
+* Sample space $\Omega$: The set of all possible outcomes
+* Event space $\mathbb{F}:A$ is a subset of $\Omega$
+* a **random variable** quantity that has an uncertain value. 
+    * Examples include coin flips (discrete), daily temperature (continuous)
+* An ensemble sampled from a random variable forms a **probability distribution**
+* The **probability density/mass function (pdf,pmf)** denote the probability distribution of continuous and discrete functions respectively. Integral/sum must be 1.
+* **Joint probability p(x,y)** denotes the probability of pair (x,y) occurring. Can be a mix of discrete and continuous. X and y can also be vectors.
+*  **Marginalization** refers to the "summing out" of a variable from a probability distribution ($p(x) = \int p(x,y) dy$ for instance). This removes dependence of distribution on summed variables. This can be extended to discrete ($\\int \rightarrow \Sigma$) or to multiple variables ($p(x,y) = \Sigma_w \int p(w,x,y,z) dz$ ).
+*  **Conditional Probability** is the probability of x given a fixed y* value. Written as p(x|y = y*). Like taking a cross section of a CAD model
+   *  p(x|y = y*) is a relative probability, since the sum does not equal to 1. Need to normalize so that sum is 1.
+   * $p(x,y) = p(x|y)p(y) \rightarrow p(x,y) = p(y|x)p(x)$ from symmetry
+* **Chain Rule** $p(x_{1},x_{2},...x_{k} = \Pi_{i=1}^{k} p(x_{i}|x_{1},...,x_{i-1}) )$
+  * Note: when $i=1$, you get $p(x_{1})= p(x|x)$, which is trivial, but important to point out
+  * In words: the joint probabilities is the product of probability of the first, time probability of the second given the first, etc.
+  * $p(x|y)=p(x)$ and $p(y|x)=p(y)$ are the conditions for x and y to be independent.
+    * Substitute into conditional probability definition yields $p(x,y)= p(x)p(y)$
+* **Conditional Independence**: $p(x_{1}|x_{2},x_{3}) = p(x_{1}|x_{2})$ and $p(x_{1}|x_{2},x_{3}) = p(x_{1}|x_{2})$ are the conditions. Note the symmetry in $x_{1}$ and $x_{3}$
+  * In words: $x_{1}$ is conditionally independent of $x_{3}$ given $x_{2}$. Or, if we know $x_{2}$, then $x_{1}$ gives no information about $x_{3}$.
+  * Variance of a population $\sigma^{2} = \frac{\Sigma(x-\mu)^{2}}{n} = \frac{\Sigma x^{2}}{n}-\mu^{2}$
+  * Variance of sample: $s^{2} = \frac{\Sigma(x-\bar x)^{2}}{n-1} = \frac{\Sigma x^{2}-\frac{(\Sigma x)^{2}}{n}}{n-1}$
+  * Standard Deviation = $\sqrt(s^{2})$
+  * Standard Error = $\frac{s}{\sqrt{n}}$
+  * Null Hypothesis: There is no significant difference between two populations
+  * Type I error: Probability of rejecting a true null hypothesis
+    * Equals significance level $\alpha$
+  * Type II error: Probability of failing to reject a false null hypothesis
+#### Baye's Rule
+*  $p(x|y) = \frac{p(y|x) p(x)}{p(y)}$
+   * posterior: $p(x|y)$ or what we know about x given y
+   * prior: $p(x)$ or what we know about x before looking at y
+   * likelihood: $p(y|x)$ or the information gained about x of y
+   * Evidence: $p(y)$ knowledge of y
+     * Typical example: a diagnostic test for Covid is 95% accurate. This means that if the test correctly identifies the true state of the patient 95% of the time (ie. if she has Covid, the test returns true, is she doesn't, it returns false). Here X is the random variable of the true Covid state of the patient and Y is the random variable of the test result. Suppose the infection rate of Covid is 1 in 1000.
+       * What is $p(Covid|Pos)$? Not 95%.
+       * $p(Covid|Pos) = \frac{p(Pos|Covid)p(Covid)}{p(Pos|Covid)p(Covid)+p(Pos|NoCovid)p(NoCovid)}$
+       * Plugging in values yields about 2%
+     * A more conceptual way of thinking about Baye's rule is that it tells you how to eliminate impossible outcomes given some information about the world.
+#### Expectation
+* $E[f(x)] =\int f(x) \cdot p(x)dx$ ($\\int \rightarrow \Sigma$ for discrete)
+    * p(x) is the weight assigned to each value of f(x)
+  
+    |       Function       |     Expectation       |
+    |  ------------------- | -------------------   |
+    | $x$                  |     mean  $\mu_x$     |
+    | $x^k$                |  k-th moment about 0  |
+    | $(x-\mu_x)^k$        |  k-th central moment  |
+    | $(x-\mu_x)^2$        |  variance  (spread)   |
+    | $(x-\mu_x)^3$        |      skew (lean)      |
+    | $(x-\mu_x)^4$        | kurtosis (peakedness) |
+    | $(x-\mu_x)(y-\mu_y)$ | covariance of x and y |
+    * **Expectation Manipulation Rules**. Let a be a constant
+      * $E[a] = a$
+      * $E[a\cdot x] = aE\[x\]$
+      * $E[x + y] = E\[x\]+E\[y\]$
+      * $E[x \cdot y] = E\[x\]\cdot E[y]$ if x,y are independent
+    * **Variance Manipulation Rules**
+      * $Var[a\cdot x+b] = a^{2}\cdot Var\[x\]$
+      * $Var[x+y] = Var\[x\]+Var[y]$ if x,y are independent
+### Common Probability Distributions
+#### Bernoulli Distribution
+* Simple success or failure experiment
+* let $\lambda$ denote the probability of success. x=0 denotes failure and x=1 denotes success
+  * $Bern_{x}(\lambda) = \lambda^{x}(1-\lambda)^{1-x}$
+    * $p(x=0) = 1-\lambda$
+    * $p(x=1) = \lambda$
+    * $E\[x\] = \lambda$
+    * $Var\[x\] = \lambda(1-\lambda)$
+#### Binomial Distribution
+* Given a sequence of $N$ **independent** Bernoulli experiments, the Binomial distribution enumerates the probability for $m$ successes in the sequence 
+* $Bin_{m}(N,\lambda) = {N \choose x} \lambda^{m}(1-\lambda)^{N-m}$
+* $E\[x\] = N\lambda$
+* $Var\[x\] = N\lambda(1-\lambda)$
+* For a fixed $N\lambda$, the Binomial converges to [Poisson](#poisson-distribution) as $N \rightarrow \infty$
+#### Poisson Distribution
+* Consider independent events that happen at an average rate $\lambda$ over time (ie. $\lambda$ has "units" of number of events per time)
+* Poisson distribution is discrete, and give the probability of a given number of events $k$ occurring in a fixed time interval
+* $p(k,\lambda) = \frac{\lambda^{k}e^{-\lambda}}{k!} = Pois_{k}(\lambda)$
+* $E\[x\] = \lambda$
+* $Var\[x\] = \lambda$
+#### Categorical Distribution
+* Suppose you run a single experiment with $K$ possible outcomes indexed from $K = {1,2,...k}$. Let $\lambda =\[\lambda_{1},\lambda_{2},..\lambda_{k}\]$ with $\Sigma_{k=1}^{K} \lambda_{k} = 1$
+* $p(x=k) = \lambda_{k}$
+* $Cat_{x}(\lambda) = p(x)$
+* $E\[x=k\] = \lambda$
+* $Var\[x=k\] = \lambda(1-\lambda)$
+#### Multinomial Distribution
+* Multinomial distribution give probability of a number of successes given a particular combination
+* Generalization of [Categorical Distribution](#categorical-distribution) to N trials and [Binomial Distribution](#binomial-distribution) to K outcomes. 
+* Let $m = \[m_1 m_2 ... m_K\]$ denote the observed counts in each category (total number of categories is $K$) over a sequence of $N$ trials
+* Let $\lambda = \[\lambda_1 \lambda_2 ... \lambda_K\]$ denote the probability of each category (subject to normalization of $\lambda_1+ \lambda_2 + ... + \lambda_K = 1$)
+* $p(m) = {N \choose m_1 m_2 ... m_K}\lambda_1^{m_1}\lambda_1^{m_1}...\lambda_1^{m_K}$
+* $E\[m_{k}\] = N\lambda$
+* $Var\[m_k\] = N\lambda(1-\lambda)$
+#### Guassian(Normal) Distribution
+* Useful because A Gaussian is fully specified by only two moments and **central limit theorem (CLT)** holds
+* CLT states that the mean of independently draw random variables is normally distributed (given enough samples), irrespective of original distribution
+* $E\[m_{k}\] = \mu$
+* $Var\[m_k\] = \sigma^{2}$
+* $p(x) = \frac{1}{2\pi \sigma}e^{\frac{-(x-\mu)^{2}}{2\sigma^{2}}}$
+* Standard normal distribution ($\mu=0$, $\sigma = 1$)
+#### Multivariate Gaussian Distribution
+* Let $d$ be the dimension of the space
+* Let $\mu$ be a d-dimensonal vector (Mean vector)
+* Let $\Sigma$ be a DxD symmetric and positive semi-definite matrix (covariance matrix)
+* $p(x) = \frac{1}{(2\pi)^{\frac{D}{2}}\|\Sigma\|^{\frac{1}{2}}} exp(-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu))$
+* $E\[m_{k}\] = \mu$
+* $Var\[m_k\] = \Sigma$
+* Alternatively, $p(x) = \frac{\|\beta\|^{\frac{1}{2}}}{(2\pi)^{\frac{D}{2}}} exp(-\frac{1}{2}(x-\mu)^{T}\beta(x-\mu))$ where $\beta = \Sigma^{-1}$ is a **precision matrix**
+#### Laplace distribution
+* $p(x) = \frac{1}{2\gamma}exp(-\frac{-\|x-\mu\|}{\gamma})$
+* Places sharp peak at arbitrary point $\mu$ with spread of $\gamma$
+#### Dirac Delta Distribution
+* $p(x) = \delta(x-\mu)$
+* Clusters all mass of the distribution function into a single point
+* Infinity high, infinity narrow peak
+* Exists to be integrated
+* Can be extended to an arbitrary number of points (empirical distribution):
+  * $p(x) = \frac{1}{m}\Sigma_{i-1}^{m} \delta(x-x_{i})$
+#### Mixtures of Distributions
+* Define a cluster of distributions. Define a probability distribution P(c) that selects which distribution is drawn from.
+* $P(x) = \Sigma_{i} P(c=i) P(x |c=i)$
+* c is a **latent variable**, or a random variable that can't be observed directly
+* Common types of mixture models are the empirical distribution and Gaussian mixture models, where the cluster consists of Gaussians.
+### Common Functions
+#### Logistic sigmoid $\sigma(x)$
+* $\sigma(x) = \frac{1}{1+exp(-x)}$
+* Defined on $\mathbb{R}$ and confined between 0 and 1
+* Saturates as $x \rightarrow \pm \infty$ (ie insensitive to changes in x)
+* Maximum slope at x=0
+* Useful to produce parameter of a Bernoulli distribution
+* Properties:
+  * $\sigma(x) = \frac{exp(x)}{exp(x)+exp(0)}$
+  * $\frac{d}{dx}\sigma(x) = \sigma(x)(1-\sigma(x))$
+  * $1-\sigma(x) = \sigma(-x)$
+#### Softplus Function $\Zeta(x)$
+* $\Zeta(x) = log(1+exp(x))$
+* Defined on $\mathbb{R}$ and confined between 0 and $\infty$
+* Produces $\sigma$ or $\beta$ of normal distribution
+* A smoother version of $f(x) = max(0,x)$
+* Properties:
+  * $log(\sigma(x)) = -\Zeta(-x)$
+  * $\frac{d}{dx} \Zeta(x) = \sigma(x)$
+  * $\forall x \in (0,1), \sigma^{-1}(x) = log(\frac{x}{1-x})$
+  * $\forall x>0, \Zeta^{-1}(x) = log(exp(x)-1)$
+  * $\Zeta(x) = \int_{-\infty}^{x} \sigma(y) dy$
+  * $\Zeta(x)-\Zeta(-x) = x$
+### Information Theory
+#### Self-Information
+* General Idea: knowing something unlikely has happened provides more information that knowing something likely has happened. Information theory quantifies this statement
+* Properties of Information
+  * Likely events have low information (extreme: guaranteed events contain no information)
+  * Less likely events should have more information
+  * Independent events should have additive information (ie. tossing a coin twice contains twice as much information as tossing a coin once)
+* The above motivate the definition of self-information. Let x be an event. Then $I(x) = -log(P(x))$ is the self-information of the event. The log typically is base 2 or base e, but in theory could have any base you want; a chance in base is effectively a change in scale/units.
+* **NOTE**: by definition, $lim_{x\rightarrow 0 } x log(x) = 0$
+#### Shannon Entropy
+* Extends I(x) to determine amount of uncertainty in a probability distribution:
+  * $H(x) = H(P) =  E[I(x)]$, or the expectation value of I(x)
+* In words, $H(x)$ gives the expect/average amount of information that you can gain from drawing from the probability distribution. Entropy is maximized for a uniform probability distribution (has a very direct connection to entropy in the thermodynamic sense)
+* When x is continuous, Shannon entropy is known as **differential entropy**
+#### Kullback-Leibler (KL) divergence
+* a metric of quantifying the difference in information between two distributions $P(x)$ and $Q(x)$
+  * $D_{KL}(P||Q) = E[log(P(x))-log(Q(x))]$
+* In words (for the discrete case), $D_{KL}$ is the extra information needed to send a message using the code P instead of the code Q.
+* KL divergence is non-negative
+* Only 0 iff P and Q are the same distribution
+* NOT symmetric in P and Q (not a true measure of distance)
+#### Cross-entropy
+* $H(P,Q) = H(P)+D_{KL}(P||Q) = -E[log(Q(x))]$
+* Minimizing cross-entropy w.r.t. Q is the same as minimizing KL divergence
+#### Exponential Distribution
+* Let $p(x,\lambda)$ be a piecewise function such that $p(x<0>,\lambda)=0$ and $p(x>0,\lambda) = \lambda exp(-\lambda x)$ where $\lambda$ is the decay parameter
+* Serves to put a sharp peak at x=0
+### Chi-squared Distribution
+#### Basics
+* Chi-squared is a continuous distribution of the sum of the squares of k standard normally distributed random variables.
+* k is called the number of "degrees of freedom"
+* $q = \Sigma_{i-1}^{k} x_{i}^{2}$ ($\chi^{2}$ parameter)
+* $p(x) = \frac{x^{\frac{k}{2}-1}e^{-\frac{x}{2}}}{2^{\frac{k}{2}}\Gamma(\frac{k}{2})}$
+* $E\[m_{k}\] = k$
+* $Var\[m_k\] = 2k$
+#### Goodness of Fit (GOF)
+* $\chi^{2} = \Sigma \frac{(O-E)^{2}}{E} $
+* degree of freedom (dof) = number of categories -1
+* Look up table for what p-value is. Determines if you accept or reject the null hypothesis by whether p-value is greater than (don't reject null) or less than (reject null) significance level $\alpha$
+#### Independence
+* Chech whether categorical data is independent
+* You are given observed data table O
+* expected data table E is calculated cellwise
+  * For a given row and column, the cell value is $E = \frac{(\text{row total})(\text{column total})}{(\text{grand total})}$
+  * Calculate $\chi^{2}$ as normal
+  * dof = (#rows-1)(#cols-1)
+### T-test
+#### One Sample
+* Tests whether the mean of a normally distributed population is different from a specific value
+* Let $\mu$ be the measured mean and $\mu_{o}$ be the specific mean value to be tested
+* $t = \frac{\bar{x}-\mu_{o}}{\frac{s}{\sqrt{n}}}$
+* dof = n-1
+* Using a lookup table find the corresponding p-value, with the following caveats depending on what your null hypothesis is:
+  * $\mu>\mu_{0} \rightarrow$ read table as given
+  * $\mu<\mu_{0} \rightarrow$ if t-statistic is negative, read table as though t-value was positive
+    * If t-statistic has the incorrect sign, read the $1-p$ value instead
+  * $\mu>\mu_{0} \rightarrow$ read table as given, but double p-value to take into account both tails
+* If p-value is less than $\alpha$, reject the null hypothesis
+#### Two Sample
+Test whether the means of two populations are significantly different from one another
+##### Paired
+* This means that each value in first group has a one to one mapping to the value in the second group
+* Subtract values in a pairwise manner and run one sample t-test with $\mu_{0}$ = 0
+##### Unpaired
+* $t = \frac{\bar x_{1} - \bar x_{2}}{\sqrt{(\frac{s_{1}^{2}}{n}+\frac{s^{2}}{n_{2}})}}$
+* dof = $(n_{1}-1)+(n_{2}-1)$
+* Read off p-value and compare to significance level
+## Linear Algebra 
+## Calculus
+## Algorithms
+## Convex Optimization

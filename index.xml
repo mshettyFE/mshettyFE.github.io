@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mushetty.me</title>
+    <link>https://mushetty.me/</link>
+    <description>Recent content on mushetty.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://mushetty.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ML Refresher Notes</title>
+      <link>https://mushetty.me/notes/mlnotes/ml_notes/</link>
+      <pubDate>Sat, 07 Jan 2023 17:29:54 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/mlnotes/ml_notes/</guid>
+      <description>Here is a compendium of my notes that I took to review for Machine Learning. This was meant to be a quick refresher on concepts and to put everything in one place. For a less cursory version, see the background section under Resources at the course website.
+ Probability and Statistics  Basic Concepts  Axioms of Probability Definitions Baye&amp;rsquo;s Rule Expectation   Common Probability Distributions  Bernoulli Distribution Binomial Distribution Poisson Distribution Categorical Distribution Multinomial Distribution Guassian(Normal) Distribution Multivariate Gaussian Distribution Laplace distribution Dirac Delta Distribution Mixtures of Distributions   Common Functions  Logistic sigmoid $\sigma(x)$ Softplus Function $\Zeta(x)$   Information Theory  Self-Information Shannon Entropy Kullback-Leibler (KL) divergence Cross-entropy Exponential Distribution   Chi-squared Distribution  Basics Goodness of Fit (GOF) Independence   T-test  One Sample Two Sample  Paired Unpaired       Linear Algebra  Types of Objects in Linear Algebra Matrix Operations Identity and Inverses Linear Dependence and Span Norms Eigendecomposition Singular Value Decomposition (SVD) Moore-Penrose Pseudoinverse Trace Determinant Special Matrices   Calculus  Probability and Statistics Basic Concepts Axioms of Probability  Probability Measure $P: \mathbb{F} \rightarrow \mathbb{{R}}$ such that  $P(A) \geq 0$ for all $A \in \mathbb{F}$ $P(\Omega) = 1$ If $A_{1},A_{2}&amp;hellip;$ are disjoint events, then  $P(\cup A_{i}) = \Sigma_{i} P(A_{i})$      Definitions  Sample space $\Omega$: The set of all possible outcomes Event space $\mathbb{F}:A$ is a subset of $\Omega$ a random variable quantity that has an uncertain value.</description>
+    </item>
+    
+    <item>
+      <title>2D Ising Model</title>
+      <link>https://mushetty.me/simulations/ising/</link>
+      <pubDate>Tue, 27 Dec 2022 17:09:41 -0500</pubDate>
+      
+      <guid>https://mushetty.me/simulations/ising/</guid>
+      <description>The Ising Model is a simple thermodynamic model of magnetic material that can visually demonstrate phase transitions. Attached is a client-side simulation of the Ising model that takes heavy inspiration from Daniel Schroeder. I modified his code to be asyncronous, allowed an arbitrary square lattice size, introduced more parameters that could be fiddled with, and added plots to visualize parameters of interest. I plan on adding more detail on the theory behind this model soon.</description>
+    </item>
+    
+    <item>
+      <title>How to Set Up a Webserver Pt. 1</title>
+      <link>https://mushetty.me/posts/webserver/</link>
+      <pubDate>Tue, 27 Dec 2022 17:09:41 -0500</pubDate>
+      
+      <guid>https://mushetty.me/posts/webserver/</guid>
+      <description>I&amp;rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.
+I decide to do it the hard way and run my own webserver.
+Do I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage).</description>
+    </item>
+    
+  </channel>
+</rss>

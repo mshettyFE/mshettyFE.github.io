@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mushetty.me</title>
+    <link>https://mushetty.me/notes/</link>
+    <description>Recent content on mushetty.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://mushetty.me/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ML Refresher Notes</title>
+      <link>https://mushetty.me/notes/mlnotes/ml_notes/</link>
+      <pubDate>Sat, 07 Jan 2023 17:29:54 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/mlnotes/ml_notes/</guid>
+      <description>Here is a compendium of my notes that I took to review for Machine Learning. This was meant to be a quick refresher on concepts and to put everything in one place. For a less cursory version, see the background section under Resources at the course website.
+ Probability and Statistics  Basic Concepts  Axioms of Probability Definitions Baye&amp;rsquo;s Rule Expectation   Common Probability Distributions  Bernoulli Distribution Binomial Distribution Poisson Distribution Categorical Distribution Multinomial Distribution Guassian(Normal) Distribution Multivariate Gaussian Distribution Laplace distribution Dirac Delta Distribution Mixtures of Distributions   Common Functions  Logistic sigmoid $\sigma(x)$ Softplus Function $\Zeta(x)$   Information Theory  Self-Information Shannon Entropy Kullback-Leibler (KL) divergence Cross-entropy Exponential Distribution   Chi-squared Distribution  Basics Goodness of Fit (GOF) Independence   T-test  One Sample Two Sample  Paired Unpaired       Linear Algebra  Types of Objects in Linear Algebra Matrix Operations Identity and Inverses Linear Dependence and Span Norms Eigendecomposition Singular Value Decomposition (SVD) Moore-Penrose Pseudoinverse Trace Determinant Special Matrices   Calculus  Probability and Statistics Basic Concepts Axioms of Probability  Probability Measure $P: \mathbb{F} \rightarrow \mathbb{{R}}$ such that  $P(A) \geq 0$ for all $A \in \mathbb{F}$ $P(\Omega) = 1$ If $A_{1},A_{2}&amp;hellip;$ are disjoint events, then  $P(\cup A_{i}) = \Sigma_{i} P(A_{i})$      Definitions  Sample space $\Omega$: The set of all possible outcomes Event space $\mathbb{F}:A$ is a subset of $\Omega$ a random variable quantity that has an uncertain value.</description>
+    </item>
+    
+  </channel>
+</rss>

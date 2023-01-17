@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>2D Ising Model | mushetty.me</title>
+<meta name="keywords" content="">
+<meta name="description" content="The Ising Model is a simple thermodynamic model of magnetic material that can visually demonstrate phase transitions. Attached is a client-side simulation of the Ising model that takes heavy inspiration from Daniel Schroeder. I modified his code to be asyncronous, allowed an arbitrary square lattice size, introduced more parameters that could be fiddled with, and added plots to visualize parameters of interest. I plan on adding more detail on the theory behind this model soon.">
+<meta name="author" content="">
+<link rel="canonical" href="https://mushetty.me/simulations/ising/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c5e8fb7cf778d88f94a46c567e365d250dace54446141434726dce09e8036474.css" integrity="sha256-xej7fPd42I&#43;UpGxWfjZdJQ2s5URGFBQ0cm3OCegDZHQ=" rel="preload stylesheet" as="style">
+<link rel="stylesheet" href="/css/Ising.css" />
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://mushetty.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://mushetty.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mushetty.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://mushetty.me/apple-touch-icon.png">
+<link rel="mask-icon" href="https://mushetty.me/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta property="og:title" content="2D Ising Model" />
+<meta property="og:description" content="The Ising Model is a simple thermodynamic model of magnetic material that can visually demonstrate phase transitions. Attached is a client-side simulation of the Ising model that takes heavy inspiration from Daniel Schroeder. I modified his code to be asyncronous, allowed an arbitrary square lattice size, introduced more parameters that could be fiddled with, and added plots to visualize parameters of interest. I plan on adding more detail on the theory behind this model soon." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mushetty.me/simulations/ising/" /><meta property="article:section" content="simulations" />
+<meta property="article:published_time" content="2022-12-27T17:09:41-05:00" />
+<meta property="article:modified_time" content="2023-01-10T21:58:01-05:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2D Ising Model"/>
+<meta name="twitter:description" content="The Ising Model is a simple thermodynamic model of magnetic material that can visually demonstrate phase transitions. Attached is a client-side simulation of the Ising model that takes heavy inspiration from Daniel Schroeder. I modified his code to be asyncronous, allowed an arbitrary square lattice size, introduced more parameters that could be fiddled with, and added plots to visualize parameters of interest. I plan on adding more detail on the theory behind this model soon."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "2D Ising Model",
+      "item": "https://mushetty.me/simulations/ising/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2D Ising Model",
+  "name": "2D Ising Model",
+  "description": "The Ising Model is a simple thermodynamic model of magnetic material that can visually demonstrate phase transitions. Attached is a client-side simulation of the Ising model that takes heavy inspiration from Daniel Schroeder. I modified his code to be asyncronous, allowed an arbitrary square lattice size, introduced more parameters that could be fiddled with, and added plots to visualize parameters of interest. I plan on adding more detail on the theory behind this model soon.",
+  "keywords": [
+    
+  ],
+  "articleBody": "The Ising Model is a simple thermodynamic model of magnetic material that can visually demonstrate phase transitions. Attached is a client-side simulation of the Ising model that takes heavy inspiration from Daniel Schroeder. I modified his code to be asyncronous, allowed an arbitrary square lattice size, introduced more parameters that could be fiddled with, and added plots to visualize parameters of interest. I plan on adding more detail on the theory behind this model soon.\n  Temp: 5  Coupling: 1  Field: 0  Steps Per Cycle: 1000  Size: 100   Start!     Energy:  Variance:    Magnetization:  Variance:    ",
+  "wordCount" : "92",
+  "inLanguage": "en",
+  "datePublished": "2022-12-27T17:09:41-05:00",
+  "dateModified": "2023-01-10T21:58:01-05:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://mushetty.me/simulations/ising/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "mushetty.me",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://mushetty.me/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://mushetty.me" accesskey="h" title="mushetty.me (Alt + H)">mushetty.me</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://mushetty.me/simulations/" title="Simulationss">
+                    <span>Simulationss</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://mushetty.me/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://mushetty.me/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      2D Ising Model
+    </h1>
+    <div class="post-meta"><span title='2022-12-27 17:09:41 -0500 EST'>Date Created: December 27, 2022</span>&nbsp;·&nbsp;<span title='2023-01-10 21:58:01 -0500 EST'>Last Modified: January 10, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>The Ising Model is a simple thermodynamic model of magnetic material that can visually demonstrate phase transitions. Attached is a client-side simulation of the Ising model that takes heavy inspiration from <a href="https://physics.weber.edu/schroeder/software/demos/IsingModel.html">Daniel Schroeder</a>. I modified his code to be asyncronous, allowed an arbitrary square lattice size, introduced more parameters that could be fiddled with,  and added plots to visualize parameters of interest. I plan on adding more detail on the theory behind this model soon.</p>
+<div class="grid-container">
+	<div class="grid-item">
+		<canvas id="Display" width="300" height="300" style="border:1px solid #000000;"></canvas>
+	</div>
+	<div class="grid-item">
+ 	  <div class="slidecontainer">
+		  <span id="temp_disp" > Temp: 5</span> 
+		  	<br>
+		  <input type="range" min="0.1" max="10" step=".01" value="5" class="slider" id="temp" oninput= update_temp()>
+	  </div>
+ 	  <div class="slidecontainer">
+		  <span id="coupling_disp" > Coupling: 1</span> 
+		  	<br>
+		  <input type="range" min="0" max="10" step=".01" value="1" class="slider" id="coupling" oninput= update_coupling()>
+	  </div>
+ 	  <div class="slidecontainer">
+		  <span id="field_disp" > Field: 0</span> 
+		  	<br>
+		  <input type="range" min="-5" max="5" step=".01" value="0" class="slider" id="field" oninput= update_field() >
+	  </div>
+	  <div class="slidecontainer">
+		  <span id="update_disp"> Steps Per Cycle: 1000</span> 
+		  	  <br>
+		  <input type="range" step="1000" min="1000" max="50000" value="1000" id="update" oninput= update_frames()>
+	  </div>
+	  <div class="slidecontainer">
+		  <span id="size_disp"> Size: 100 </span>
+		  <br>
+		  <input type="range" min="5" max="500" value="100" class="slider" id="size" oninput= update_size()>
+	  </div>
+	  <div class="StartButton">
+		  <button id="Start" type="button" onclick = "toggle_button()">Start!</button>
+	  </div>
+	</div>
+</div>
+<div class="grid-container">
+<div class="grid-canvas">
+	<canvas id="chart1"  style="border:1px solid #000000;"></canvas>
+	<span id="Energy"> Energy: </span> 
+	<br>
+	<span id="Energy_Var"> Variance: </span> 
+</div>
+<div class="grid-canvas">
+	<canvas id="chart2" style="border:1px solid #000000;"></canvas>
+	<span id="Mag"> Magnetization: </span> 
+	<br>
+	<span id="Mag_Var"> Variance: </span> 
+</div>
+</div>
+<script src="/js/Ising/Ising2D.js"></script>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://mushetty.me">mushetty.me</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
