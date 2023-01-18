@@ -7,6 +7,66 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://mushetty.me/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Mechanics: Fundamentals and Applications</title>
+      <link>https://mushetty.me/notes/mechanics/mech/</link>
+      <pubDate>Tue, 17 Jan 2023 22:19:47 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/mechanics/mech/</guid>
+      <description>Compilation of notes for Mechanics class for Spring 2023.
+ Administrative Stuff  Administrative Stuff  Two closed book quizzes (25% each)  One around March 27 One around April 17   One final exam (50%) HW not counted towards final grade  </description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of Computer Systems</title>
+      <link>https://mushetty.me/notes/fundies/fundies/</link>
+      <pubDate>Tue, 17 Jan 2023 22:19:34 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/fundies/fundies/</guid>
+      <description>Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.
+ Administrative Stuff  Administrative Stuff  Exams  Midterm: Either March 8 or March 9th between 6-9 pm End-of-term exam: Either April 27, or during finals week    </description>
+    </item>
+    
+    <item>
+      <title>Quantum I</title>
+      <link>https://mushetty.me/notes/quantumi/quantumi/</link>
+      <pubDate>Tue, 17 Jan 2023 22:19:25 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/quantumi/quantumi/</guid>
+      <description>Compilation of notes for Quantum I class for Spring 2023.
+ Administrative Stuff  Administrative Stuff  10-minute quizzes (1 weeks notice give ahead of time):  around February 8 around Around March 1 around April 26   Midterm  around March 22    </description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Notes</title>
+      <link>https://mushetty.me/notes/machinelearning/machine/</link>
+      <pubDate>Tue, 17 Jan 2023 22:19:16 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/machinelearning/machine/</guid>
+      <description>Compilation of notes for Machine Learning class for Spring 2023.
+ Administrative Stuff Topic 1 Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1 Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9 </description>
+    </item>
+    
+    <item>
+      <title>Geophysical Fluid Dynamics</title>
+      <link>https://mushetty.me/notes/geophysics/geophysics/</link>
+      <pubDate>Tue, 17 Jan 2023 22:19:05 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/geophysics/geophysics/</guid>
+      <description>Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
+ Administrative Stuff  Administrative Stuff </description>
+    </item>
+    
+    <item>
+      <title>Particle Astrophysics &amp; Cosmology</title>
+      <link>https://mushetty.me/notes/astroandcosmo/astrocosmo/</link>
+      <pubDate>Tue, 17 Jan 2023 22:16:41 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/astroandcosmo/astrocosmo/</guid>
+      <description>Compilation of notes for Astrophysics and Cosmology class for Spring 2023.
+ Administrative Stuff Special Relativity Non-Euclidean Geometry Classical Cosmology Particle Physics Theory Dark Matter Early Universe Physics Classical and Quantum Theory of the Scalar Field Inflationary cosmology revisited, and structure formation The Cosmic Microwave Background (CMB) Primordial Black Holes and Hawking Radiation  Administrative Stuff Special Relativity Non-Euclidean Geometry Classical Cosmology Particle Physics Theory Dark Matter Early Universe Physics Classical and Quantum Theory of the Scalar Field Inflationary cosmology revisited, and structure formation The Cosmic Microwave Background (CMB) Primordial Black Holes and Hawking Radiation </description>
+    </item>
+    
+    <item>
       <title>ML Refresher Notes</title>
       <link>https://mushetty.me/notes/mlnotes/ml_notes/</link>
       <pubDate>Sat, 07 Jan 2023 17:29:54 -0500</pubDate>
