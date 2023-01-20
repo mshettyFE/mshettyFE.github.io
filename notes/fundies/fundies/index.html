@@ -8,10 +8,10 @@
 <title>Fundamentals of Computer Systems | mushetty.me</title>
 <meta name="keywords" content="">
 <meta name="description" content="Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.
- Administrative Stuff  Administrative Stuff  Exams  Midterm: Either March 8 or March 9th between 6-9 pm End-of-term exam: Either April 27, or during finals week    ">
+ Administrative Stuff  Exams Grades   Lecture 0 Lecture 1  CPU Models Addition in different bases Definitions Modular Arithmetic Integer format with word size restriction  Unsigned binary numbers:  Binary Addition Algorithm (BAA)   Negative numbers  Signed Magnitude Representation 1&rsquo;s Complement Problems with Signed Magnitude and 1&rsquo;s Complement 2&rsquo;s complement Intuition behind 2&rsquo;s complement        Administrative Stuff Exams  Midterm: On March 8th, 6-9 pm (tentative)  Check for conflicts   End-of-term exam: Either April 27, evening (6-9 pm) or May 5 in the evening Fill in exam conflicts (by 1/24)  Acceptable excuses: conflicting classes and religious conflicts   Fill in P-credit office hours (By 1/21)  Go to web form The top row indicates the start time of the office hours (e.">
 <meta name="author" content="">
 <link rel="canonical" href="https://mushetty.me/notes/fundies/fundies/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c5e8fb7cf778d88f94a46c567e365d250dace54446141434726dce09e8036474.css" integrity="sha256-xej7fPd42I&#43;UpGxWfjZdJQ2s5URGFBQ0cm3OCegDZHQ=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a5456a2fb6485e28d3190c101c9f7fea21d7eddeb7cf1b8dddf20aeb314df0cf.css" integrity="sha256-pUVqL7ZIXijTGQwQHJ9/6iHX7d63zxuN3fIK6zFN8M8=" rel="preload stylesheet" as="style">
 <link rel="stylesheet" href="" />
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -75,16 +75,16 @@
 
 <meta property="og:title" content="Fundamentals of Computer Systems" />
 <meta property="og:description" content="Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.
- Administrative Stuff  Administrative Stuff  Exams  Midterm: Either March 8 or March 9th between 6-9 pm End-of-term exam: Either April 27, or during finals week    " />
+ Administrative Stuff  Exams Grades   Lecture 0 Lecture 1  CPU Models Addition in different bases Definitions Modular Arithmetic Integer format with word size restriction  Unsigned binary numbers:  Binary Addition Algorithm (BAA)   Negative numbers  Signed Magnitude Representation 1&rsquo;s Complement Problems with Signed Magnitude and 1&rsquo;s Complement 2&rsquo;s complement Intuition behind 2&rsquo;s complement        Administrative Stuff Exams  Midterm: On March 8th, 6-9 pm (tentative)  Check for conflicts   End-of-term exam: Either April 27, evening (6-9 pm) or May 5 in the evening Fill in exam conflicts (by 1/24)  Acceptable excuses: conflicting classes and religious conflicts   Fill in P-credit office hours (By 1/21)  Go to web form The top row indicates the start time of the office hours (e." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mushetty.me/notes/fundies/fundies/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-01-17T22:19:34-05:00" />
-<meta property="article:modified_time" content="2023-01-17T23:13:37-05:00" />
+<meta property="article:modified_time" content="2023-01-20T16:39:48-05:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fundamentals of Computer Systems"/>
 <meta name="twitter:description" content="Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.
- Administrative Stuff  Administrative Stuff  Exams  Midterm: Either March 8 or March 9th between 6-9 pm End-of-term exam: Either April 27, or during finals week    "/>
+ Administrative Stuff  Exams Grades   Lecture 0 Lecture 1  CPU Models Addition in different bases Definitions Modular Arithmetic Integer format with word size restriction  Unsigned binary numbers:  Binary Addition Algorithm (BAA)   Negative numbers  Signed Magnitude Representation 1&rsquo;s Complement Problems with Signed Magnitude and 1&rsquo;s Complement 2&rsquo;s complement Intuition behind 2&rsquo;s complement        Administrative Stuff Exams  Midterm: On March 8th, 6-9 pm (tentative)  Check for conflicts   End-of-term exam: Either April 27, evening (6-9 pm) or May 5 in the evening Fill in exam conflicts (by 1/24)  Acceptable excuses: conflicting classes and religious conflicts   Fill in P-credit office hours (By 1/21)  Go to web form The top row indicates the start time of the office hours (e."/>
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "Fundamentals of Computer Systems",
   "name": "Fundamentals of Computer Systems",
-  "description": "Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.\n Administrative Stuff  Administrative Stuff  Exams  Midterm: Either March 8 or March 9th between 6-9 pm End-of-term exam: Either April 27, or during finals week    ",
+  "description": "Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.\n Administrative Stuff  Exams Grades   Lecture 0 Lecture 1  CPU Models Addition in different bases Definitions Modular Arithmetic Integer format with word size restriction  Unsigned binary numbers:  Binary Addition Algorithm (BAA)   Negative numbers  Signed Magnitude Representation 1\u0026rsquo;s Complement Problems with Signed Magnitude and 1\u0026rsquo;s Complement 2\u0026rsquo;s complement Intuition behind 2\u0026rsquo;s complement        Administrative Stuff Exams  Midterm: On March 8th, 6-9 pm (tentative)  Check for conflicts   End-of-term exam: Either April 27, evening (6-9 pm) or May 5 in the evening Fill in exam conflicts (by 1/24)  Acceptable excuses: conflicting classes and religious conflicts   Fill in P-credit office hours (By 1/21)  Go to web form The top row indicates the start time of the office hours (e.",
   "keywords": [
     
   ],
-  "articleBody": "Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.\n Administrative Stuff  Administrative Stuff  Exams  Midterm: Either March 8 or March 9th between 6-9 pm End-of-term exam: Either April 27, or during finals week    ",
-  "wordCount" : "36",
+  "articleBody": "Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.\n Administrative Stuff  Exams Grades   Lecture 0 Lecture 1  CPU Models Addition in different bases Definitions Modular Arithmetic Integer format with word size restriction  Unsigned binary numbers:  Binary Addition Algorithm (BAA)   Negative numbers  Signed Magnitude Representation 1’s Complement Problems with Signed Magnitude and 1’s Complement 2’s complement Intuition behind 2’s complement        Administrative Stuff Exams  Midterm: On March 8th, 6-9 pm (tentative)  Check for conflicts   End-of-term exam: Either April 27, evening (6-9 pm) or May 5 in the evening Fill in exam conflicts (by 1/24)  Acceptable excuses: conflicting classes and religious conflicts   Fill in P-credit office hours (By 1/21)  Go to web form The top row indicates the start time of the office hours (e.g. 12 means 12-1. 12:30 means 12:30-1) Need at least 10 hours selected   Email for help: 3827-staff[at]googlegroups.com  Include 3827 in subject header. Otherwise, it will get overlooked   Use EdStem for class updates instead of Courseworks, as well as to ask questions b/c it will be faster than email  Grades  TL;DR Do Homework, go to office hours, don’t bomb the midterm or final  Lecture 0  Work on HW0 (Not graded) Why should I care about this course?  Shows how computers run “under the hood” Learn “parallel thinking”  Humans think sequentially Circuits run multiple “threads” at once   Useful to understand these ideas in many domains  Systems Programming Languages (Compilers and Interpreters) Quantum Computing ML/AI      Lecture 1 CPU Models  CPU: “brain” of the computer  Control Unit: D oes calculations on data in datapath   Memory: Stores data (for later use) I/O: Interface to the outside (disk, network, monitor, keyboard, mouse, etc.) Simpler model of CPU:  Discrete inputs (over time) Discrete Information Processing System  communicates with System state and output something based on input   System State  Remembers previous information      Addition in different bases  humans: 10 digits: {0,1,2,3,4,5,6,7,8,9}  $(4537.8)_{10} = 4*10^{3}+5*10^{2}+3*10{1}+7*10^{0}+8*10^{-1}$ Shifting everything to the left is multiplication by 10   computers: 2 digits: {0,1}  $(1011.1)_{2} = 1*2^{3}+0*2^{2}+1*2^{1}+1*2^{0}+1*2^{-1} = 11.5$ Shifting everything to the left multiplies by 2   Hex: 16 digits {0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F}  Hex numbers specified as 0x26BA $0x26BA = 2*16^{3}+6*16^{2}+11*16^{1}+10*16^{0} = (9914)_{10}$ We use hex since it is more human readable and is easy to convert to and from binary  a base-2 4 digit can be multiplied by 16 by shifting 4 to the left ($1100 \\rightarrow 1100\\ 0000$) a base-16 1 digit can be multiplied by 16 by shifting 1 to the left ($0xD \\rightarrow 0xD0$) To convert binary to hex, break hex into groups of 4 and convert each group to corresponding binary number  $0010\\ 1011 \\rightarrow 0x2B$   For hex to binary, just convert each hex digit to the corresponding group in binary  $0x2B \\rightarrow 0010\\ 1011$        Definitions  True = 1, False = 0 Everything eventually converted to either 1 or 0  Numbers: 19 base 10 = 10011 base 2 Letters: each character is assigned to a 8 bit number   Bits:  a single binary digit (0 or 1) The leftmost bit is the highest order bit The rightmost bit is the lowest order bit   Byte:  A group of 8 bits. e.g. (10110010)   Word:  a grouping of bits  computer-architecture dependent   The number of bits that the computer architecture can process at once  64-bit word architectures expect data in 64-bit groupings  The number of bits used by an architecture is called the word size     Common notation for k-bit value: $b_{k-1}b_{k-2}…b_{1}b_{0}$    Modular Arithmetic  Def: X mod Y = remainder (X/Y)  remainder constrained between 0 and Y-1 Alternative definition: remainder constrained between $-\\frac{Y}{2}$ and $\\frac{Y}{2}-1$ 100 mod 9 = 1 -10 mod 3 = -1 mod 3 = 2 mod 3  X mod Y = Z mod Y iff  $X = Z+KY$ for some integer K        Integer format with word size restriction  For a given number of digits, how many possible values can you represent?  $b^{d}$, where b is the base and d is the number of digits  For 2 bit word size: {00, 01, 10, 11}   As humans, we can assign whatever value to a distinct bit-sequence:  2 bit word size: {00: .234, 01:i, 10: 234, 11: asdf}  Nonsensical , but allowed        Unsigned binary numbers:  Positive integers of a fixed wordsize e.g. 1111 = 15 for a 4-bit word  Binary Addition Algorithm (BAA)  1+1 = 0 with a carry of 1 eg. wordsize = 5, add 11110 and 10101 (30+21)  11110+10101 = 10011 if restricted to 5 bits  Called overflow: when a result can’t fit within the wordsize constraint The correct answer needs 6 bits (110011)     The answer may not be correct because of overflow, but it is correct up to mod $b^{d}$  Negative numbers Signed Magnitude Representation  Let the highest order bit denote the sign of the number (0 is positive and 1 is negative)  e.g. 0011 = 3 e.g. 1011 = -3 e.g. 1000 = 0000 = 0   To negate, simply flip the highest order bit  1’s Complement  Again, highest order bit indicates sign (0 is positive and 1 is negative) To negate a value, flip all the bits  0010 = 2 1101 = -2   e.g. wordsize of 8, value is 11101001. 1’s Complement rep  We know its negative (1 in highest order) Negate all the bits and read off positive value, then slap on negative sign Using this, 11101001 = -20   000000 = 111111 are both 0 in 1’s complement  Problems with Signed Magnitude and 1’s Complement  0101+1101 = 0010 (after dropping carry of 1) Unsigned binary: 5+8 = 2 (correct mod 16) Signed magnitude: 5+ (-5) = 0 (not 2, even up to mod 16) 1’s complement: 5+(-2) = 3 (not 2, even up to mod 16) TL;DR Binary Addition Algorithm doesn’t work  2’s complement  highest order bit is still sign To negate a number, flip all the bits (like 1’s complement) then add 1 in binary (eg a 4 bit word size, you add 0001)  0010 = 2 so 1101+0001 = 1110 = -2 1101 = -3 so 0010+0001 = 0011 = 3 (works for negative)   0 is unique in 2’s complement (0000 = 1111+0001 = 0000) “100000” maps to itself in 2’s complement (largest negative number of the word size) 2’s complement always work with BAA (meaning that with any overflow, the result is off by mod $2^{wordsize}$)  Intuition behind 2’s complement  Let X be some word of size k Negate all the bits of X and call it Y  e.g. X = 100101, so Y = 011010 $X+Y$ using BAA always equals a a word of size k whose entries are entirely 1s  $X+Y$ = 111111   Adding the the decimal number 1 to $X+Y$ (ie 000001) causes overflow which yields a word of only zeros. So we can think of the operation of flipping all the bits and adding decimal 1 to a string as the negation of X    ",
+  "wordCount" : "1122",
   "inLanguage": "en",
   "datePublished": "2023-01-17T22:19:34-05:00",
-  "dateModified": "2023-01-17T23:13:37-05:00",
+  "dateModified": "2023-01-20T16:39:48-05:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://mushetty.me/notes/fundies/fundies/"
@@ -198,20 +198,333 @@
     <h1 class="post-title">
       Fundamentals of Computer Systems
     </h1>
-    <div class="post-meta"><span title='2023-01-17 22:19:34 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-17 23:13:37 -0500 EST'>Last Modified: January 17, 2023</span>
+    <div class="post-meta"><span title='2023-01-17 22:19:34 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-20 16:39:48 -0500 EST'>Last Modified: January 20, 2023</span>
 
 </div>
   </header> 
   <div class="post-content"><p>Compilation of notes for Fundamentals of Computer Systems class for Spring 2023.</p>
 <ul>
-<li><a href="#administrative-stuff">Administrative Stuff</a></li>
+<li><a href="#administrative-stuff">Administrative Stuff</a>
+<ul>
+<li><a href="#exams">Exams</a></li>
+<li><a href="#grades">Grades</a></li>
+</ul>
+</li>
+<li><a href="#lecture-0">Lecture 0</a></li>
+<li><a href="#lecture-1">Lecture 1</a>
+<ul>
+<li><a href="#cpu-models">CPU Models</a></li>
+<li><a href="#addition-in-different-bases">Addition in different bases</a></li>
+<li><a href="#definitions">Definitions</a></li>
+<li><a href="#modular-arithmetic">Modular Arithmetic</a></li>
+<li><a href="#integer-format-with-word-size-restriction">Integer format with word size restriction</a>
+<ul>
+<li><a href="#unsigned-binary-numbers">Unsigned binary numbers:</a>
+<ul>
+<li><a href="#binary-addition-algorithm-baa">Binary Addition Algorithm (BAA)</a></li>
+</ul>
+</li>
+<li><a href="#negative-numbers">Negative numbers</a>
+<ul>
+<li><a href="#signed-magnitude-representation">Signed Magnitude Representation</a></li>
+<li><a href="#1s-complement">1&rsquo;s Complement</a></li>
+<li><a href="#problems-with-signed-magnitude-and-1s-complement">Problems with Signed Magnitude and 1&rsquo;s Complement</a></li>
+<li><a href="#2s-complement">2&rsquo;s complement</a></li>
+<li><a href="#intuition-behind-2s-complement">Intuition behind 2&rsquo;s complement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="administrative-stuff">Administrative Stuff<a hidden class="anchor" aria-hidden="true" href="#administrative-stuff">#</a></h2>
+<h3 id="exams">Exams<a hidden class="anchor" aria-hidden="true" href="#exams">#</a></h3>
 <ul>
-<li>Exams
+<li>Midterm: On March 8th, 6-9 pm (tentative)
 <ul>
-<li>Midterm: Either March 8 or March 9th between 6-9 pm</li>
-<li>End-of-term exam: Either April 27, or during finals week</li>
+<li>Check for conflicts</li>
+</ul>
+</li>
+<li>End-of-term exam: Either April 27, evening (6-9 pm) or May 5 in the evening</li>
+<li>Fill in exam conflicts (by 1/24)
+<ul>
+<li>Acceptable excuses: conflicting classes and religious conflicts</li>
+</ul>
+</li>
+<li>Fill in P-credit office hours (By 1/21)
+<ul>
+<li>Go to web form</li>
+<li>The top row indicates the start time of the office hours (e.g. 12 means 12-1. 12:30 means 12:30-1)</li>
+<li>Need at least 10 hours selected</li>
+</ul>
+</li>
+<li>Email for help: 3827-staff[at]googlegroups.com
+<ul>
+<li><strong>Include 3827 in subject header. Otherwise, it will get overlooked</strong></li>
+</ul>
+</li>
+<li>Use EdStem for class updates instead of Courseworks, as well as to ask questions b/c it will be faster than email</li>
+</ul>
+<h3 id="grades">Grades<a hidden class="anchor" aria-hidden="true" href="#grades">#</a></h3>
+<ul>
+<li>TL;DR Do Homework, go to office hours, don&rsquo;t bomb the midterm or final</li>
+</ul>
+<h2 id="lecture-0">Lecture 0<a hidden class="anchor" aria-hidden="true" href="#lecture-0">#</a></h2>
+<ul>
+<li>Work on HW0 (Not graded)</li>
+<li>Why should I care about this course?
+<ul>
+<li>Shows how computers run &ldquo;under the hood&rdquo;</li>
+<li>Learn &ldquo;parallel thinking&rdquo;
+<ul>
+<li>Humans think sequentially</li>
+<li>Circuits run multiple &ldquo;threads&rdquo; at once</li>
+</ul>
+</li>
+<li>Useful to understand these ideas in many domains
+<ul>
+<li>Systems</li>
+<li>Programming Languages (Compilers and Interpreters)</li>
+<li>Quantum Computing</li>
+<li>ML/AI</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="lecture-1">Lecture 1<a hidden class="anchor" aria-hidden="true" href="#lecture-1">#</a></h2>
+<h3 id="cpu-models">CPU Models<a hidden class="anchor" aria-hidden="true" href="#cpu-models">#</a></h3>
+<p><img loading="lazy" src="/images/Fundie/CPUDiagram.png" alt="CPU Diagram"  />
+</p>
+<ul>
+<li>CPU: &ldquo;brain&rdquo; of the computer
+<ul>
+<li>Control Unit: D oes calculations on data in <strong>datapath</strong></li>
+</ul>
+</li>
+<li>Memory: Stores data (for later use)</li>
+<li>I/O: Interface to the outside (disk, network, monitor, keyboard, mouse, etc.)</li>
+<li>Simpler model of CPU:
+<img loading="lazy" src="/images/Fundie/SimpleComputer.png" alt="SimpleCPU"  />
+
+<ul>
+<li>Discrete inputs (over time)</li>
+<li>Discrete Information Processing System
+<ul>
+<li>communicates with System state and output something based on input</li>
+</ul>
+</li>
+<li>System State
+<ul>
+<li>Remembers previous information</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="addition-in-different-bases">Addition in different bases<a hidden class="anchor" aria-hidden="true" href="#addition-in-different-bases">#</a></h3>
+<ul>
+<li>humans: 10 digits: {0,1,2,3,4,5,6,7,8,9}
+<ul>
+<li>$(4537.8)_{10} = 4*10^{3}+5*10^{2}+3*10{1}+7*10^{0}+8*10^{-1}$</li>
+<li>Shifting everything to the left is multiplication by 10</li>
+</ul>
+</li>
+<li>computers: 2 digits: {0,1}
+<ul>
+<li>$(1011.1)_{2} = 1*2^{3}+0*2^{2}+1*2^{1}+1*2^{0}+1*2^{-1} = 11.5$</li>
+<li>Shifting everything to the left multiplies by 2</li>
+</ul>
+</li>
+<li>Hex: 16 digits {0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F}
+<ul>
+<li>Hex numbers specified as 0x26BA</li>
+<li>$0x26BA = 2*16^{3}+6*16^{2}+11*16^{1}+10*16^{0} = (9914)_{10}$</li>
+<li>We use hex since it is more human readable and is easy to convert to and from binary
+<ul>
+<li>a base-2 4 digit can be multiplied by 16 by shifting 4 to the left ($1100 \rightarrow 1100\ 0000$)</li>
+<li>a base-16 1 digit can be multiplied by 16 by shifting 1 to the left ($0xD \rightarrow 0xD0$)</li>
+<li>To convert binary to hex, break hex into groups of 4 and convert each group to corresponding binary number
+<ul>
+<li>$0010\ 1011 \rightarrow 0x2B$</li>
+</ul>
+</li>
+<li>For hex to binary, just convert each hex digit to the corresponding group in binary
+<ul>
+<li>$0x2B \rightarrow 0010\ 1011$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="definitions">Definitions<a hidden class="anchor" aria-hidden="true" href="#definitions">#</a></h3>
+<ul>
+<li>True = 1, False = 0</li>
+<li>Everything eventually converted to either 1 or 0
+<ul>
+<li>Numbers: 19 base 10 = 10011 base 2</li>
+<li>Letters: each character is assigned to a 8 bit number</li>
+</ul>
+</li>
+<li>Bits:
+<ul>
+<li>a single binary digit (0 or 1)</li>
+<li>The leftmost bit is the <strong>highest order</strong> bit</li>
+<li>The rightmost bit is the <strong>lowest order</strong> bit</li>
+</ul>
+</li>
+<li>Byte:
+<ul>
+<li>A group of 8 bits. e.g. (10110010)</li>
+</ul>
+</li>
+<li>Word:
+<ul>
+<li>a grouping of bits
+<ul>
+<li>computer-architecture dependent</li>
+</ul>
+</li>
+<li>The number of bits that the computer architecture can process at once
+<ul>
+<li>64-bit word architectures expect data in 64-bit groupings
+<ul>
+<li>The number of bits used by an architecture is called the <strong>word size</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Common notation for k-bit value: $b_{k-1}b_{k-2}&hellip;b_{1}b_{0}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-arithmetic">Modular Arithmetic<a hidden class="anchor" aria-hidden="true" href="#modular-arithmetic">#</a></h3>
+<ul>
+<li>Def: X mod Y = remainder (X/Y)
+<ul>
+<li>remainder constrained between 0 and Y-1</li>
+<li>Alternative definition: remainder constrained between $-\frac{Y}{2}$ and $\frac{Y}{2}-1$</li>
+<li>100 mod 9 = 1</li>
+<li>-10 mod 3 = -1 mod 3 = 2 mod 3
+<ul>
+<li>X mod Y = Z mod Y iff
+<ul>
+<li>$X = Z+KY$ for some integer K</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="integer-format-with-word-size-restriction">Integer format with word size restriction<a hidden class="anchor" aria-hidden="true" href="#integer-format-with-word-size-restriction">#</a></h3>
+<ul>
+<li>For a given number of digits, how many possible values can you represent?
+<ul>
+<li>$b^{d}$, where b is the base and d is the number of digits
+<ul>
+<li>For 2 bit word size: {00, 01, 10, 11}</li>
+</ul>
+</li>
+<li>As humans, we can assign whatever value to a distinct bit-sequence:
+<ul>
+<li>2 bit word size: {00: .234, 01:i, 10: 234, 11: asdf}
+<ul>
+<li>Nonsensical , but allowed</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="unsigned-binary-numbers">Unsigned binary numbers:<a hidden class="anchor" aria-hidden="true" href="#unsigned-binary-numbers">#</a></h4>
+<ul>
+<li>Positive integers of a fixed wordsize</li>
+<li>e.g. 1111 = 15 for a 4-bit word</li>
+</ul>
+<h5 id="binary-addition-algorithm-baa">Binary Addition Algorithm (BAA)<a hidden class="anchor" aria-hidden="true" href="#binary-addition-algorithm-baa">#</a></h5>
+<ul>
+<li>1+1 = 0 with a carry of 1</li>
+<li>eg. wordsize = 5, add 11110 and 10101 (30+21)
+<ul>
+<li>11110+10101 = 10011 if restricted to 5 bits
+<ul>
+<li>Called <strong>overflow</strong>: when a result can&rsquo;t fit within the wordsize constraint</li>
+<li>The correct answer needs 6 bits (110011)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The answer may not be correct because of overflow, but it is correct up to mod $b^{d}$</li>
+</ul>
+<h4 id="negative-numbers">Negative numbers<a hidden class="anchor" aria-hidden="true" href="#negative-numbers">#</a></h4>
+<h5 id="signed-magnitude-representation">Signed Magnitude Representation<a hidden class="anchor" aria-hidden="true" href="#signed-magnitude-representation">#</a></h5>
+<ul>
+<li>Let the highest order bit denote the sign of the number (0 is positive and 1 is negative)
+<ul>
+<li>e.g. 0011 = 3</li>
+<li>e.g. 1011 = -3</li>
+<li>e.g. 1000 = 0000 = 0</li>
+</ul>
+</li>
+<li>To negate, simply flip the highest order bit</li>
+</ul>
+<h5 id="1s-complement">1&rsquo;s Complement<a hidden class="anchor" aria-hidden="true" href="#1s-complement">#</a></h5>
+<ul>
+<li>Again, highest order bit indicates sign (0 is positive and 1 is negative)</li>
+<li>To negate a value, flip all the bits
+<ul>
+<li>0010 = 2</li>
+<li>1101 = -2</li>
+</ul>
+</li>
+<li>e.g. wordsize of 8, value is 11101001. 1&rsquo;s Complement rep
+<ul>
+<li>We know its negative (1 in highest order)</li>
+<li>Negate all the bits and read off positive value, then slap on negative sign</li>
+<li>Using this, 11101001 = -20</li>
+</ul>
+</li>
+<li>000000 = 111111 are both 0 in 1&rsquo;s complement</li>
+</ul>
+<h5 id="problems-with-signed-magnitude-and-1s-complement">Problems with Signed Magnitude and 1&rsquo;s Complement<a hidden class="anchor" aria-hidden="true" href="#problems-with-signed-magnitude-and-1s-complement">#</a></h5>
+<ul>
+<li>0101+1101 = 0010 (after dropping carry of 1)</li>
+<li>Unsigned binary: 5+8 = 2 (correct mod 16)</li>
+<li>Signed magnitude: 5+ (-5) = 0 (not 2, even up to mod 16)</li>
+<li>1&rsquo;s complement: 5+(-2) = 3 (not 2, even up to mod 16)</li>
+<li>TL;DR Binary Addition Algorithm doesn&rsquo;t work</li>
+</ul>
+<h5 id="2s-complement">2&rsquo;s complement<a hidden class="anchor" aria-hidden="true" href="#2s-complement">#</a></h5>
+<ul>
+<li>highest order bit is still sign</li>
+<li>To negate a number, flip all the bits (like 1&rsquo;s complement) then add 1 in binary (eg a 4 bit word size, you add 0001)
+<ul>
+<li>0010 = 2 so 1101+0001 = 1110 = -2</li>
+<li>1101 = -3 so 0010+0001 = 0011 = 3 (works for negative)</li>
+</ul>
+</li>
+<li>0 is unique in 2&rsquo;s complement (0000 = 1111+0001 = 0000)</li>
+<li>&ldquo;100000&rdquo; maps to itself in 2&rsquo;s complement (largest negative number of the word size)</li>
+<li>2&rsquo;s complement always work with BAA (meaning that with any overflow, the result is off by mod $2^{wordsize}$)</li>
+</ul>
+<h5 id="intuition-behind-2s-complement">Intuition behind 2&rsquo;s complement<a hidden class="anchor" aria-hidden="true" href="#intuition-behind-2s-complement">#</a></h5>
+<ul>
+<li>Let X be some word of size k</li>
+<li>Negate all the bits of X and call it Y
+<ul>
+<li>e.g. X = 100101, so Y = 011010</li>
+<li>$X+Y$ using BAA always equals a a word of size k whose entries are entirely 1s
+<ul>
+<li>$X+Y$ = 111111</li>
+</ul>
+</li>
+<li>Adding the the decimal number 1 to $X+Y$ (ie 000001) causes overflow which yields a word of only zeros.</li>
+<li>So we can think of the operation of flipping all the bits and adding decimal 1 to a string as the negation of X</li>
 </ul>
 </li>
 </ul>
