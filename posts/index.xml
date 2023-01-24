@@ -8,14 +8,14 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 27 Dec 2022 17:09:41 -0500</lastBuildDate><atom:link href="https://mushetty.me/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to Set Up a Webserver Pt. 1</title>
+      <title>How to Try (and Fail) to Set up a Webserver</title>
       <link>https://mushetty.me/posts/webserver/</link>
       <pubDate>Tue, 27 Dec 2022 17:09:41 -0500</pubDate>
       
       <guid>https://mushetty.me/posts/webserver/</guid>
       <description>I&amp;rsquo;ve always wanted to create my own website, so during winter break, I decided to do just that. I could have gone about it the smart way by hosting on a cloud provider like AWS or the like.
-I decide to do it the hard way and run my own webserver.
-Do I regret it? A bit, since it cost more than I would like (although hopefully in the long term, I recoup that investment since the only persistent cost is the domain name and minor electricity usage).</description>
+I decide to do it the hard way and run my own webserver. I technically succeed. Here is what I did.
+In this post, I will be going over what hardware you need, how to secure a Ubuntu server, and how to connect your server to a noIP domain.</description>
     </item>
     
   </channel>
