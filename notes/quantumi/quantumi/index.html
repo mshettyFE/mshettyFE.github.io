@@ -8,7 +8,7 @@
 <title>Quantum I | mushetty.me</title>
 <meta name="keywords" content="">
 <meta name="description" content="Compilation of notes for Quantum I class for Spring 2023.
- Administrative Stuff Lecture 1  Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$.">
+ Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest&rsquo;s Principle Uncertainty Princple Time Independent SE    Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$.">
 <meta name="author" content="">
 <link rel="canonical" href="https://mushetty.me/notes/quantumi/quantumi/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.a5456a2fb6485e28d3190c101c9f7fea21d7eddeb7cf1b8dddf20aeb314df0cf.css" integrity="sha256-pUVqL7ZIXijTGQwQHJ9/6iHX7d63zxuN3fIK6zFN8M8=" rel="preload stylesheet" as="style">
@@ -75,16 +75,16 @@
 
 <meta property="og:title" content="Quantum I" />
 <meta property="og:description" content="Compilation of notes for Quantum I class for Spring 2023.
- Administrative Stuff Lecture 1  Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$." />
+ Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest&rsquo;s Principle Uncertainty Princple Time Independent SE    Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mushetty.me/notes/quantumi/quantumi/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-01-17T22:19:25-05:00" />
-<meta property="article:modified_time" content="2023-01-18T21:13:17-05:00" />
+<meta property="article:modified_time" content="2023-01-23T20:38:37-05:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quantum I"/>
 <meta name="twitter:description" content="Compilation of notes for Quantum I class for Spring 2023.
- Administrative Stuff Lecture 1  Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$."/>
+ Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest&rsquo;s Principle Uncertainty Princple Time Independent SE    Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$."/>
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "Quantum I",
   "name": "Quantum I",
-  "description": "Compilation of notes for Quantum I class for Spring 2023.\n Administrative Stuff Lecture 1  Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\\Psi (x,t)$.",
+  "description": "Compilation of notes for Quantum I class for Spring 2023.\n Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest\u0026rsquo;s Principle Uncertainty Princple Time Independent SE    Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\\Psi (x,t)$.",
   "keywords": [
     
   ],
-  "articleBody": "Compilation of notes for Quantum I class for Spring 2023.\n Administrative Stuff Lecture 1  Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\\Psi (x,t)$.  Can be complex Will suppress the inputs from now on, unless needed   It’s evolution is given by the Time Dependent Schrodinger equation  $i \\hbar \\frac{\\partial \\Psi}{\\partial t} = \\frac{-\\hbar^{2}}{2m}\\frac{\\partial^{2} \\Psi}{\\partial^{2} x}+V\\Psi$     Born’s Statistical Interpretation:  The probability of finding the particle between a and b is given by  $\\frac{\\int_{a}^{b} |\\Psi|^{2}dx}{\\int_{-\\infty}^{\\infty} |\\Psi|^{2}dx}$   Classically: Assume there is some $P(x,t)$ that gives the probability of a particle appearing at x at time t  $  = \\int_{\\infty}^{\\infty} xP(x,t)dx$ $\\int_{-\\infty}^{\\infty} P(x,t) dx = 1$ Suppose we have some operator Q. The expectation value: $  = \\int_{\\infty}^{\\infty} QP(x,t)dx$   Quantum: We are given a wave function $\\Psi(x,t)$. You then get:  $  = \\int_{\\infty}^{\\infty} x|\\Psi|^{2}dx$ $\\int_{-\\infty}^{\\infty} |\\Psi|^{2} dx = 1$ Suppose we have some operator Q. The expectation value: $  = \\int_{\\infty}^{\\infty} \\Psi^{*}Q\\Psi dx$     Velocity/momentum $ = \\int_{\\infty}^{\\infty}x|\\Psi|^{2}dx$ $v = \\frac{d}{dt} = \\int_{\\infty}^{\\infty}x \\frac{\\partial}{\\partial t}|\\Psi|^{2}dx$  $\\frac{\\partial}{\\partial t}|\\Psi|^{2} = \\Psi^{*}\\frac{\\partial \\Psi}{\\partial t}+\\Psi\\frac{\\partial \\Psi^{*}}{\\partial t}$ From Schrodinger’s equation, can replace:  $\\frac{\\partial \\Psi}{\\partial t} = \\frac{i\\hbar}{2m}\\frac{\\partial^{2}}{\\partial x^{2}}\\Psi-\\frac{i}{\\hbar}V\\Psi$   Taking the conjugate of Schrodinger’s equation (assuming V is real):  $\\frac{\\partial \\Psi^{*}}{\\partial t} = \\frac{i\\hbar}{2m}\\frac{\\partial^{2}}{\\partial x^{2}}\\Psi^{*}-\\frac{i}{\\hbar}V\\Psi^{*}$   Subbing into above yields:  $\\frac{\\partial}{\\partial t}|\\Psi|^{2} = i\\frac{\\hbar}{2m}(\\Psi^{*}\\frac{\\partial^{2} \\Psi}{\\partial x^{2}} - \\Psi\\frac{\\partial^{2}}{\\partial x^{2}}\\Psi_{*}) = \\frac{\\partial}{\\partial x}(\\frac{i\\hbar}{2m}(\\Psi^{*}\\frac{\\partial \\Psi}{\\partial x}-\\Psi\\frac{\\partial \\Psi^{*}}{\\partial x}))$   Hence:  $\\frac{d}{dt} = \\int x\\frac{\\partial}{\\partial x} (\\frac{i\\hbar}{2m}(\\Psi^{*} \\frac{\\partial \\Psi}{\\partial x} - \\Psi \\frac{\\partial \\Psi^{*}}{\\partial x}))$   Integrate by parts , and utilize the boundary conditions that $|\\Psi(x)|^{2} \\rightarrow 0$ and $|\\Psi^{*}(x)|^{2} \\rightarrow 0$ at $\\pm \\infty$  $v = \\frac{d}{dt} = \\int \\Psi^{*} (\\frac{-i\\hbar}{m} \\frac{\\partial}{\\partial x}) \\Psi$   We call operator $\\hat{p} = -i\\hbar \\frac{\\partial}{\\partial x}$    ",
-  "wordCount" : "309",
+  "articleBody": "Compilation of notes for Quantum I class for Spring 2023.\n Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest’s Principle Uncertainty Princple Time Independent SE    Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\\Psi (x,t)$.  Can be complex Will suppress the inputs from now on, unless needed   It’s evolution is given by the Time Dependent Schrodinger equation  $i \\hbar \\frac{\\partial \\Psi}{\\partial t} = \\frac{-\\hbar^{2}}{2m}\\frac{\\partial^{2} \\Psi}{\\partial^{2} x}+V\\Psi$     Born’s Statistical Interpretation:  The probability of finding the particle between a and b is given by  $\\frac{\\int_{a}^{b} |\\Psi|^{2}dx}{\\int_{-\\infty}^{\\infty} |\\Psi|^{2}dx}$   Classically: Assume there is some $P(x,t)$ that gives the probability of a particle appearing at x at time t  $  = \\int_{\\infty}^{\\infty} xP(x,t)dx$ $\\int_{-\\infty}^{\\infty} P(x,t) dx = 1$ Suppose we have some operator Q. The expectation value: $  = \\int_{\\infty}^{\\infty} QP(x,t)dx$   Quantum: We are given a wave function $\\Psi(x,t)$. You then get:  $  = \\int_{\\infty}^{\\infty} x|\\Psi|^{2}dx$ $\\int_{-\\infty}^{\\infty} |\\Psi|^{2} dx = 1$ Suppose we have some operator Q. The expectation value: $  = \\int_{\\infty}^{\\infty} \\Psi^{*}Q\\Psi dx$     Velocity/momentum $ = \\int_{\\infty}^{\\infty}x|\\Psi|^{2}dx$ $v = \\frac{d}{dt} = \\int_{\\infty}^{\\infty}x \\frac{\\partial}{\\partial t}|\\Psi|^{2}dx$  $\\frac{\\partial}{\\partial t}|\\Psi|^{2} = \\Psi^{*}\\frac{\\partial \\Psi}{\\partial t}+\\Psi\\frac{\\partial \\Psi^{*}}{\\partial t}$ From Schrodinger’s equation, can replace:  $\\frac{\\partial \\Psi}{\\partial t} = \\frac{i\\hbar}{2m}\\frac{\\partial^{2}}{\\partial x^{2}}\\Psi-\\frac{i}{\\hbar}V\\Psi$   Taking the conjugate of Schrodinger’s equation (assuming V is real):  $\\frac{\\partial \\Psi^{*}}{\\partial t} = \\frac{i\\hbar}{2m}\\frac{\\partial^{2}}{\\partial x^{2}}\\Psi^{*}-\\frac{i}{\\hbar}V\\Psi^{*}$   Subbing into above yields:  $\\frac{\\partial}{\\partial t}|\\Psi|^{2} = i\\frac{\\hbar}{2m}(\\Psi^{*}\\frac{\\partial^{2} \\Psi}{\\partial x^{2}} - \\Psi\\frac{\\partial^{2}}{\\partial x^{2}}\\Psi_{*}) = \\frac{\\partial}{\\partial x}(\\frac{i\\hbar}{2m}(\\Psi^{*}\\frac{\\partial \\Psi}{\\partial x}-\\Psi\\frac{\\partial \\Psi^{*}}{\\partial x}))$   Hence:  $\\frac{d}{dt} = \\int x\\frac{\\partial}{\\partial x} (\\frac{i\\hbar}{2m}(\\Psi^{*} \\frac{\\partial \\Psi}{\\partial x} - \\Psi \\frac{\\partial \\Psi^{*}}{\\partial x}))$   Integrate by parts , and utilize the boundary conditions that $|\\Psi(x)|^{2} \\rightarrow 0$ and $|\\Psi^{*}(x)|^{2} \\rightarrow 0$ at $\\pm \\infty$  $v = \\frac{d}{dt} = \\int \\Psi^{*} (\\frac{-i\\hbar}{m} \\frac{\\partial}{\\partial x}) \\Psi$   We call operator $\\hat{p} = -i\\hbar \\frac{\\partial}{\\partial x}$    Lecture 2 The Current Density Operator (probability current)  probability current J is defined as $\\hat{J}(x,t) = \\frac{i\\hbar}{2m}(\\Psi\\frac{\\partial \\Psi^{*}}{\\partial x}-\\Psi^{*}\\frac{\\partial \\Psi}{\\partial x})$ We can think of this as the “flow” of probability across a boundary Can be derived by finding $\\frac{\\partial}{\\partial t}|\\Psi|^{2}$ rewrite this time derivative using Schrodinger’s equation like in Lecture 1  Use conservation of probability: $\\frac{\\partial}{\\partial t}|\\Psi|^{2} = -\\frac{\\partial J}{\\partial x}$   Rationale: Imagine a wavefunction as a plane wave:  $\\Psi(x,t)=Ae^{i(kx-\\omega t)}$ $P=|\\Psi|^{2}=|A|^{2}$ $J = \\frac{\\hbar k}{m} |A|^{2}$  $\\frac{\\hbar k}{m}$ has units of speed, and $|A|^{2}$ is a probability density, so J can be interpreted as a probability flux      Erenhfest’s Principle  P1:  $ = \\frac{d}{dt}$ Namely, that quantum mechanic predictions approach the classical predictions  Proved in Lecture 1     P2:  The equivalent of Newton’s Law in Quantum Mechanics $\\frac{d}{dt}= -$  Write out the formula for the expectation value of $p = -i\\hbar\\frac{\\partial}{\\partial x}$ Expand out derivatives and utilize equivalence of mixed partials to swap $\\frac{\\partial^{2}}{\\partial t \\partial x}$ to $\\frac{\\partial^{2}}{\\partial x \\partial t}$ Use Schrodinger’s equation to substitute first order time derivatives with second order spatial derivatives (Don’t forgot to conjugate for $\\Psi^{*}$ term!) Use integration by parts twice in a row to eliminate $\\frac{\\partial^{3}}{\\partial x^{3}}$ term (remember the boundary conditions $\\Psi(\\pm \\infty) \\rightarrow 0$ and $\\Psi^{*}(\\pm \\infty) \\rightarrow 0$) Expand all the partials and things should cancel to P2 of Erenhfest’s Theorem      Uncertainty Princple  $\\sigma_{i} = \\sqrt{-^2}$ for a coordinate and its associated momentum:  $\\sigma_{x}\\sigma_{p_{x}} \\geq \\frac{\\hbar}{2}$   For a coordinate with another coordinate:  $\\sigma_{x}\\sigma_{y} \\geq 0$   For a momentum with a momentum:  $\\sigma_{p_{x}}\\sigma_{p_{y}} \\geq 0$    Time Independent SE  $\\Psi(x,t) = \\psi(x)\\phi(t)$ is only possible iff $V(x,t) = V(x)$ Making this assumption, use seperation of variables, take the partials. You will notice that the LHS only depends on time and the RHS only depends on space. So each side must equal some constant (call this constant E)  The time equation yields $\\phi(t) = \\phi(0)exp(\\frac{-i Et}{\\hbar})$  $\\omega=\\frac{E}{\\hbar}$ as shorthand $\\phi(0)$ is a constant at $t=0$   The space equation (called the time-dependent schrodinger equation) is:  $\\frac{-\\hbar}{2m}\\frac{d^{2}\\psi}{dx^{2}}+V(x)\\psi(x) = E\\psi(x)$  Alternatively: $\\hat{H}\\psi = E\\psi$ This is an eigenvalue problem in an infinite dimensional space     So $\\Psi(x,t) = \\psi(x)exp(\\frac{-iEt}{\\hbar})$ Observe that $|\\Psi(x,t)|^{2}$ is independent of time and the expectation value of any operator is time-independent  Importantly, the expectation value of the energy is independent of time and has a definite value ($\\sigma_{E} = 0$)      ",
+  "wordCount" : "716",
   "inLanguage": "en",
   "datePublished": "2023-01-17T22:19:25-05:00",
-  "dateModified": "2023-01-18T21:13:17-05:00",
+  "dateModified": "2023-01-23T20:38:37-05:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://mushetty.me/notes/quantumi/quantumi/"
@@ -198,7 +198,7 @@
     <h1 class="post-title">
       Quantum I
     </h1>
-    <div class="post-meta"><span title='2023-01-17 22:19:25 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-18 21:13:17 -0500 EST'>Last Modified: January 18, 2023</span>
+    <div class="post-meta"><span title='2023-01-17 22:19:25 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-23 20:38:37 -0500 EST'>Last Modified: January 23, 2023</span>
 
 </div>
   </header> 
@@ -206,6 +206,14 @@
 <ul>
 <li><a href="#administrative-stuff">Administrative Stuff</a></li>
 <li><a href="#lecture-1">Lecture 1</a></li>
+<li><a href="#lecture-2">Lecture 2</a>
+<ul>
+<li><a href="#the-current-density-operator-probability-current">The Current Density Operator (probability current)</a></li>
+<li><a href="#erenhfests-principle">Erenhfest&rsquo;s Principle</a></li>
+<li><a href="#uncertainty-princple">Uncertainty Princple</a></li>
+<li><a href="#time-independent-se">Time Independent SE</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="administrative-stuff">Administrative Stuff<a hidden class="anchor" aria-hidden="true" href="#administrative-stuff">#</a></h2>
 <ul>
@@ -298,6 +306,105 @@
 </ul>
 </li>
 <li>We call operator $\hat{p} = -i\hbar \frac{\partial}{\partial x}$</li>
+</ul>
+</li>
+</ul>
+<h2 id="lecture-2">Lecture 2<a hidden class="anchor" aria-hidden="true" href="#lecture-2">#</a></h2>
+<h3 id="the-current-density-operator-probability-current">The Current Density Operator (probability current)<a hidden class="anchor" aria-hidden="true" href="#the-current-density-operator-probability-current">#</a></h3>
+<ul>
+<li>probability current J is defined as $\hat{J}(x,t) = \frac{i\hbar}{2m}(\Psi\frac{\partial \Psi^{*}}{\partial x}-\Psi^{*}\frac{\partial \Psi}{\partial x})$</li>
+<li>We can think of this as the &ldquo;flow&rdquo; of probability across a boundary</li>
+<li>Can be derived by finding $\frac{\partial}{\partial t}|\Psi|^{2}$</li>
+<li>rewrite this time derivative using Schrodinger&rsquo;s equation like in <a href="#lecture-1">Lecture 1</a>
+<ul>
+<li>Use conservation of probability: $\frac{\partial}{\partial t}|\Psi|^{2} = -\frac{\partial J}{\partial x}$</li>
+</ul>
+</li>
+<li>Rationale: Imagine a wavefunction as a plane wave:
+<ul>
+<li>$\Psi(x,t)=Ae^{i(kx-\omega t)}$</li>
+<li>$P=|\Psi|^{2}=|A|^{2}$</li>
+<li>$J = \frac{\hbar k}{m} |A|^{2}$
+<ul>
+<li>$\frac{\hbar k}{m}$ has units of speed, and $|A|^{2}$ is a probability density, so J can be interpreted as a probability flux</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="erenhfests-principle">Erenhfest&rsquo;s Principle<a hidden class="anchor" aria-hidden="true" href="#erenhfests-principle">#</a></h3>
+<ul>
+<li>P1:
+<ul>
+<li>$&lt;v&gt; = \frac{d}{dt}&lt;x&gt;$</li>
+<li>Namely, that quantum mechanic predictions approach the classical predictions
+<ul>
+<li>Proved in <a href="#lecture-1">Lecture 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>P2:
+<ul>
+<li>The equivalent of Newton&rsquo;s Law in Quantum Mechanics</li>
+<li>$\frac{d}{dt}&lt;p &gt; = -&lt;\frac{\partial V}{\partial x}&gt;$
+<ul>
+<li>Write out the formula for the expectation value of $p = -i\hbar\frac{\partial}{\partial x}$</li>
+<li>Expand out derivatives and utilize equivalence of mixed partials to swap $\frac{\partial^{2}}{\partial t \partial x}$ to $\frac{\partial^{2}}{\partial x \partial t}$</li>
+<li>Use Schrodinger&rsquo;s equation to substitute first order time derivatives with second order spatial derivatives (Don&rsquo;t forgot to conjugate for $\Psi^{*}$ term!)</li>
+<li>Use integration by parts twice in a row to eliminate $\frac{\partial^{3}}{\partial x^{3}}$ term (remember the boundary conditions $\Psi(\pm \infty) \rightarrow 0$ and $\Psi^{*}(\pm \infty) \rightarrow 0$)</li>
+<li>Expand all the partials and things should cancel to P2 of Erenhfest&rsquo;s Theorem</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="uncertainty-princple">Uncertainty Princple<a hidden class="anchor" aria-hidden="true" href="#uncertainty-princple">#</a></h3>
+<ul>
+<li>$\sigma_{i} = \sqrt{&lt;i^{2}&gt;-&lt;i&gt;^2}$</li>
+<li>for a coordinate and its associated momentum:
+<ul>
+<li>$\sigma_{x}\sigma_{p_{x}} \geq \frac{\hbar}{2}$</li>
+</ul>
+</li>
+<li>For a coordinate with another coordinate:
+<ul>
+<li>$\sigma_{x}\sigma_{y} \geq 0$</li>
+</ul>
+</li>
+<li>For a momentum with a momentum:
+<ul>
+<li>$\sigma_{p_{x}}\sigma_{p_{y}} \geq 0$</li>
+</ul>
+</li>
+</ul>
+<h3 id="time-independent-se">Time Independent SE<a hidden class="anchor" aria-hidden="true" href="#time-independent-se">#</a></h3>
+<ul>
+<li>$\Psi(x,t) = \psi(x)\phi(t)$ is only possible iff $V(x,t) = V(x)$</li>
+<li>Making this assumption, use seperation of variables, take the partials. You will notice that the LHS only depends on time and the RHS only depends on space. So each side must equal some constant (call this constant E)
+<ul>
+<li>The time equation yields $\phi(t) = \phi(0)exp(\frac{-i Et}{\hbar})$
+<ul>
+<li>$\omega=\frac{E}{\hbar}$ as shorthand</li>
+<li>$\phi(0)$ is a constant at $t=0$</li>
+</ul>
+</li>
+<li>The space equation (called the time-dependent schrodinger equation) is:
+<ul>
+<li>$\frac{-\hbar}{2m}\frac{d^{2}\psi}{dx^{2}}+V(x)\psi(x) = E\psi(x)$
+<ul>
+<li>Alternatively: $\hat{H}\psi = E\psi$</li>
+<li>This is an eigenvalue problem in an infinite dimensional space</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>So $\Psi(x,t) = \psi(x)exp(\frac{-iEt}{\hbar})$</li>
+<li>Observe that $|\Psi(x,t)|^{2}$ is independent of time and the expectation value of any operator is time-independent
+<ul>
+<li>Importantly, the expectation value of the energy is independent of time and has a definite value ($\sigma_{E} = 0$)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
