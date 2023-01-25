@@ -79,7 +79,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mushetty.me/notes/machinelearning/machine/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-01-17T22:19:16-05:00" />
-<meta property="article:modified_time" content="2023-01-19T23:55:12-05:00" />
+<meta property="article:modified_time" content="2023-01-24T22:08:29-05:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Machine Learning Notes"/>
@@ -111,11 +111,11 @@
   "keywords": [
     
   ],
-  "articleBody": "Compilation of notes for Machine Learning class for Spring 2023.\n Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \\in X$):  $\\vec{x} = $ Can think of each component as a measurement that you make   Output is another vector ($y \\in Y$):  $\\vec{y} = $   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})… \\in X \\times Y$  Example: $X = \\mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a “relatively simple” function $f^{*}: X \\rightarrow Y$ such that $f^{*}(\\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1. For the same image, the true $y_{i}$ could be either 7 or 1 (depending on the person’s intentions). Hence, to force $f^{*}$ be a correct for all inputs misses this uncertainty in the true output   Learning task: given $n$ examples from the data, from $\\hat{f} \\approx f^{*}$  $\\hat{f}$ denotes a function that tries its best to be optimal   Goal: $\\hat{f}$ gives mostly correct prediction on unseen examples    Statistical Approach  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})…(\\vec{x_{n}},y_{n})$ samples are drawn from the underlying distribution  For simplicity, we assume each sample is drawn independently from the same underlying distribution is (called i.i.d. assumption)   The learning algorithm draws $\\hat{f}$ from a pool of models $\\mathbb{F}$ that maximizes the label agreement with the training data  How do we select $f \\in \\mathbb{F}$? Maximum likelihood (best fits the data) Maximum a posteriori (best fits the data but incorporates prior assumptions) Optimization of ‘loss’ criterion (best discriminates the labels)    Classifier  We are given a joint input/output space ($X \\times Y$)  The data is distributed like $D(X \\times Y)$  You have a region where your inputs can reside in ($X \\times Y$) and D tells you the density of inputs on the space You can visualize this space by either:  Taking slices at a fixed variable value ($P[Y,X=x]$) or the conditional distribution Adding up all the slices along a variable ($P[Y]$) or the marginal distribution       A classifier is a measurable function of the type $f: x \\in Y$  Ex1 (Constant): $f_{1}(\\vec{x}) = y$ for some fixed $y \\in Y$. Ex2(Threshold): $f_{2}(x) = \\begin{cases} 0\\ if \\ x \\geq 5 \\\\ 1 \\ otherwise \\end{cases}$ Ex3 (Majority class): $f_{3}(x) = arg\\ max_{y\\in Y} P[Y=y]$  This asks: What argument in Y yields the maximum probability? Implicitly, this probability is the marginalized distribution on X More explicitly, you can write probability as: $P[Y=y] = P_{y \\approx D}|_{Y}[Y=y]$  In words, you draw a (x,y) pair from D, and you only pay attention to the y part     None of these are particularly good/generally applicable classifiers    Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9 ",
-  "wordCount" : "585",
+  "articleBody": "Compilation of notes for Machine Learning class for Spring 2023.\n Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \\in X$):  $\\vec{x} = $ Can think of each component as a measurement that you make   Output is another vector ($y \\in Y$):  $\\vec{y} = $   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})… \\in X \\times Y$  Example: $X = \\mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a “relatively simple” function $f^{*}: X \\rightarrow Y$ such that $f^{*}(\\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1. For the same image, the true $y_{i}$ could be either 7 or 1 (depending on the person’s intentions). Hence, to force $f^{*}$ be a correct for all inputs misses this uncertainty in the true output   Learning task: given $n$ examples from the data, from $\\hat{f} \\approx f^{*}$  $\\hat{f}$ denotes a function that tries its best to be optimal   Goal: $\\hat{f}$ gives mostly correct prediction on unseen examples    Statistical Approach  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})…(\\vec{x_{n}},y_{n})$ samples are drawn from the underlying distribution  For simplicity, we assume each sample is drawn independently from the same underlying distribution is (called i.i.d. assumption)   The learning algorithm draws $\\hat{f}$ from a pool of models $\\mathbb{F}$ that maximizes the label agreement with the training data  How do we select $f \\in \\mathbb{F}$? Maximum likelihood (best fits the data) Maximum a posteriori (best fits the data but incorporates prior assumptions) Optimization of ‘loss’ criterion (best discriminates the labels)    Classifier  We are given a joint input/output space ($X \\times Y$)  The data is distributed like $D(X \\times Y)$  You have a region where your inputs can reside in ($X \\times Y$) and D tells you the density of inputs on the space You can visualize this space by either:  Taking slices at a fixed variable value ($P[Y,X=x]$) or the conditional distribution Adding up all the slices along a variable ($P[Y]$) or the marginal distribution       A classifier is a measurable function of the type $f: x \\in Y$  Ex1 (Constant): $f_{1}(\\vec{x}) = y$ for some fixed $y \\in Y$. Ex2(Threshold): $f_{2}(x) = \\begin{cases} 0\\ if \\ x \\geq 5 \\\\ 1 \\ otherwise \\end{cases}$ Ex3 (Majority class): $f_{3}(x) = arg\\ max_{y\\in Y} P[Y=y]$  This asks: What argument in Y yields the maximum probability? Implicitly, this probability is the marginalized distribution on X More explicitly, you can write probability as: $P[Y=y] = P_{y \\approx D}|_{Y}[Y=y]$  In words, you draw a (x,y) pair from D, and you only pay attention to the y part     None of these are particularly good/generally applicable classifiers Ex4 (Sample Average Class):  $\\frac{1}{n}\\Sigma \\mathbb{I}[f(x_{i}) = y_{i}]$  $\\mathbb{I}$ is the indicator function that maps a boolean expression (like $f(x_{i}) = y_{i}$) to either 0 (false) or 1 (true) This is from a sample     Ex5 (Population Average):  $\\mathbb{E}_{(x,y)\\in D}[\\mathbb{I}[f(x)=y]]= P[f(x)=y]$  This is on the entire population. Essentially a probability that states how often this classifier f gets the output correct called the accuracy function acc(f)       Let’s look at the following classifier:  $f(\\vec{x})= arg\\ max_{y\\in Y}\\ P[y=Y|X=\\vec{x}]$  In words, find y that maximizes the probability given a particular x (called Bayes classifier) This is the best classifier. But most of the time, you can’t actually compute $P[y=Y|X=\\vec{x}]$ for all inputs. You try your best to estimate these probabilities Proof:  Assume binary classification for output space (for simplicity)  Let $f(\\vec{x})= arg\\ max_{y\\in Y}\\ P[y=Y|X=\\vec{x}]$. Let $g(\\vec{x})\\rightarrow \\{0,1\\}$. Then $P_{(\\vec{x},y)}[g(\\vec{x})=y] \\leq P_{(\\vec{x},y)}[f(\\vec{x})=y]$   Let’s look at a single example (Fix $\\vec{x}\\in X$). Then for any classifier h  $P[h(\\vec{x})=y|X=\\vec{x}]=P[h(\\vec{x})=1|X=\\vec{x}]+P[h(\\vec{x})=0|X=\\vec{x}]$ Since $h(\\vec{x})=1$ is a constant, we can use $\\mathbb{I}$ to rewrite above  $\\mathbb{I}[h(\\vec{x})=1]P[Y=1|X=\\vec{x}]+\\mathbb{I}[h(\\vec{x})=0]P[Y=0|X=\\vec{x}] =\\mathbb{I}[h(\\vec{x})=1]\\eta(\\vec{x})+\\mathbb{I}[h(\\vec{x})=0](1- \\eta(\\vec{x}))$  Where $\\eta(\\vec{x}) := P[Y=1|X=\\vec{x}]$     Hence we need to show that $P[f(\\vec{x})=y|X=\\vec{x})]-P[g(\\vec{x})=y|X=\\vec{x})] \\geq 0$  This equals $\\eta(\\vec{x})[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]+(1-\\eta(\\vec{x}))[\\mathbb{I}[f(\\vec{x})=0]-\\mathbb{I}[g(\\vec{x})=0]] = (2\\eta(\\vec{x})-1)[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]$  You use $\\mathbb{I}[f(\\vec{x})=0] = 1 -\\mathbb{I}[f(\\vec{x})=1]$   If both classifiers guess the same output, there is no degradation in the performance in either classifier What happens if the outputs are different?  In either case$[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]=\\pm 1$ depending on if $f(x)$ is correct or $g(x)$ is correct, Say $f(x)$ returns 1:  This means that probability of $f(x)$ selecting 1 is greater than 0.5, hence $P[Y=1|X-\\vec{x}] =\\eta(\\vec{x}) \\geq 0.5$ so $(2\\eta(\\vec{x})-1)[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]] \\geq 0$   A similar argument holds for $f(x)$ returning 0 (ie. the bayes classifier fails and the alternate classifier works)         Since we know that this works for a fixed example, we can integrate across all $x\\in X$ to prove the original theorem $P_{(\\vec{x},y)}[g(\\vec{x})=y] \\leq P_{(\\vec{x},y)}[f(\\vec{x})=y]$  Want to show $\\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]] - \\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]] \\geq 0$  $\\mathbb{E}[\\alpha(\\vec{x},y)] = \\int_{(\\vec({x},y)\\in X\\times Y)} \\alpha(\\vec{x},y)P((\\vec{x},y))d((\\vec{x},y))$ So we can rewrite the expectation values using linearity: $\\alpha(x,y)=\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]$ and $\\beta(x,y)=\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]$:  $\\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]] - \\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]] = \\int (\\alpha(\\vec{x},y)-\\beta(\\vec{x},y)) p(\\vec{x},y)d(x,y)=\\int_{x}[\\int_{y} (\\alpha-\\beta) p(y|x)dy]dx$  The inner integral is the probability we calculated earlier (the one that was always greater than zero). Hence the double integral is always greater than or equal to 0              Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9 ",
+  "wordCount" : "948",
   "inLanguage": "en",
   "datePublished": "2023-01-17T22:19:16-05:00",
-  "dateModified": "2023-01-19T23:55:12-05:00",
+  "dateModified": "2023-01-24T22:08:29-05:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://mushetty.me/notes/machinelearning/machine/"
@@ -198,7 +198,7 @@
     <h1 class="post-title">
       Machine Learning Notes
     </h1>
-    <div class="post-meta"><span title='2023-01-17 22:19:16 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-19 23:55:12 -0500 EST'>Last Modified: January 19, 2023</span>
+    <div class="post-meta"><span title='2023-01-17 22:19:16 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-24 22:08:29 -0500 EST'>Last Modified: January 24, 2023</span>
 
 </div>
   </header> 
@@ -332,6 +332,98 @@
 </ul>
 </li>
 <li>None of these are particularly good/generally applicable classifiers</li>
+<li>Ex4 (Sample Average Class):
+<ul>
+<li>$\frac{1}{n}\Sigma \mathbb{I}[f(x_{i}) = y_{i}]$
+<ul>
+<li>$\mathbb{I}$ is the indicator function that maps a boolean expression (like $f(x_{i}) = y_{i}$) to either 0 (false) or 1 (true)</li>
+<li>This is from a sample</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ex5 (Population Average):
+<ul>
+<li>$\mathbb{E}_{(x,y)\in D}[\mathbb{I}[f(x)=y]]= P[f(x)=y]$
+<ul>
+<li>This is on the entire population. Essentially a probability that states how often this classifier f gets the output correct</li>
+<li>called the <strong>accuracy function</strong> acc(f)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Let&rsquo;s look at the following classifier:
+<ul>
+<li>$f(\vec{x})= arg\ max_{y\in Y}\ P[y=Y|X=\vec{x}]$
+<ul>
+<li>In words, find y that maximizes the probability given a particular x (called <strong>Bayes</strong> classifier)</li>
+<li>This is the best classifier. But most of the time, you can&rsquo;t actually compute $P[y=Y|X=\vec{x}]$ for all inputs. You try your best to estimate these probabilities</li>
+<li>Proof:
+<ul>
+<li>Assume binary classification for output space (for simplicity)
+<ul>
+<li>Let $f(\vec{x})= arg\ max_{y\in Y}\ P[y=Y|X=\vec{x}]$. Let $g(\vec{x})\rightarrow \{0,1\}$. Then $P_{(\vec{x},y)}[g(\vec{x})=y] \leq P_{(\vec{x},y)}[f(\vec{x})=y]$</li>
+</ul>
+</li>
+<li>Let&rsquo;s look at a single example (Fix $\vec{x}\in X$). Then for any classifier h
+<ul>
+<li>$P[h(\vec{x})=y|X=\vec{x}]=P[h(\vec{x})=1|X=\vec{x}]+P[h(\vec{x})=0|X=\vec{x}]$</li>
+<li>Since $h(\vec{x})=1$ is a constant, we can use $\mathbb{I}$ to rewrite above
+<ul>
+<li>$\mathbb{I}[h(\vec{x})=1]P[Y=1|X=\vec{x}]+\mathbb{I}[h(\vec{x})=0]P[Y=0|X=\vec{x}] =\mathbb{I}[h(\vec{x})=1]\eta(\vec{x})+\mathbb{I}[h(\vec{x})=0](1- \eta(\vec{x}))$
+<ul>
+<li>Where $\eta(\vec{x}) := P[Y=1|X=\vec{x}]$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hence we need to show that $P[f(\vec{x})=y|X=\vec{x})]-P[g(\vec{x})=y|X=\vec{x})] \geq 0$
+<ul>
+<li>This equals $\eta(\vec{x})[\mathbb{I}[f(\vec{x})=1]-\mathbb{I}[g(\vec{x})=1]]+(1-\eta(\vec{x}))[\mathbb{I}[f(\vec{x})=0]-\mathbb{I}[g(\vec{x})=0]] = (2\eta(\vec{x})-1)[\mathbb{I}[f(\vec{x})=1]-\mathbb{I}[g(\vec{x})=1]]$
+<ul>
+<li>You use $\mathbb{I}[f(\vec{x})=0] = 1 -\mathbb{I}[f(\vec{x})=1]$</li>
+</ul>
+</li>
+<li>If both classifiers guess the same output, there is no degradation in the performance in either classifier</li>
+<li>What happens if the outputs are different?
+<ul>
+<li>In either case$[\mathbb{I}[f(\vec{x})=1]-\mathbb{I}[g(\vec{x})=1]]=\pm 1$ depending on if $f(x)$ is correct or $g(x)$ is correct,</li>
+<li>Say $f(x)$ returns 1:
+<ul>
+<li>This means that probability of $f(x)$ selecting 1 is greater than 0.5, hence $P[Y=1|X-\vec{x}] =\eta(\vec{x}) \geq 0.5$ so $(2\eta(\vec{x})-1)[\mathbb{I}[f(\vec{x})=1]-\mathbb{I}[g(\vec{x})=1]] \geq 0$</li>
+</ul>
+</li>
+<li>A similar argument holds for $f(x)$ returning 0 (ie. the bayes classifier fails and the alternate classifier works)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Since we know that this works for a fixed example, we can integrate across all $x\in X$ to prove the original theorem $P_{(\vec{x},y)}[g(\vec{x})=y] \leq P_{(\vec{x},y)}[f(\vec{x})=y]$
+<ul>
+<li>Want to show $\mathbb{E}[\mathbb{I}[P_{(\vec{x},y)}[g(\vec{x})=y]]] - \mathbb{E}[\mathbb{I}[P_{(\vec{x},y)}[f(\vec{x})=y]]] \geq 0$
+<ul>
+<li>$\mathbb{E}[\alpha(\vec{x},y)] = \int_{(\vec({x},y)\in X\times Y)} \alpha(\vec{x},y)P((\vec{x},y))d((\vec{x},y))$</li>
+<li>So we can rewrite the expectation values using linearity: $\alpha(x,y)=\mathbb{I}[P_{(\vec{x},y)}[f(\vec{x})=y]]$ and $\beta(x,y)=\mathbb{I}[P_{(\vec{x},y)}[g(\vec{x})=y]]$:
+<ul>
+<li>$\mathbb{E}[\mathbb{I}[P_{(\vec{x},y)}[g(\vec{x})=y]]] - \mathbb{E}[\mathbb{I}[P_{(\vec{x},y)}[f(\vec{x})=y]]] = \int (\alpha(\vec{x},y)-\beta(\vec{x},y)) p(\vec{x},y)d(x,y)=\int_{x}[\int_{y} (\alpha-\beta) p(y|x)dy]dx$
+<ul>
+<li>The inner integral is the probability we calculated earlier (the one that was always greater than zero). Hence the double integral is always greater than or equal to 0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

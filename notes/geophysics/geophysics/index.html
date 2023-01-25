@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Geophysical Fluid Dynamics | mushetty.me</title>
+<title>Geophysical Fluid Dynamics (GFD) | mushetty.me</title>
 <meta name="keywords" content="">
 <meta name="description" content="Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
- Administrative Stuff  Administrative Stuff ">
+ Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6.">
 <meta name="author" content="">
 <link rel="canonical" href="https://mushetty.me/notes/geophysics/geophysics/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.a5456a2fb6485e28d3190c101c9f7fea21d7eddeb7cf1b8dddf20aeb314df0cf.css" integrity="sha256-pUVqL7ZIXijTGQwQHJ9/6iHX7d63zxuN3fIK6zFN8M8=" rel="preload stylesheet" as="style">
@@ -73,18 +73,18 @@
 </script>
 
 
-<meta property="og:title" content="Geophysical Fluid Dynamics" />
+<meta property="og:title" content="Geophysical Fluid Dynamics (GFD)" />
 <meta property="og:description" content="Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
- Administrative Stuff  Administrative Stuff " />
+ Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mushetty.me/notes/geophysics/geophysics/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-01-17T22:19:05-05:00" />
-<meta property="article:modified_time" content="2023-01-17T23:13:37-05:00" />
+<meta property="article:modified_time" content="2023-01-24T22:08:29-05:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Geophysical Fluid Dynamics"/>
+<meta name="twitter:title" content="Geophysical Fluid Dynamics (GFD)"/>
 <meta name="twitter:description" content="Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
- Administrative Stuff  Administrative Stuff "/>
+ Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6."/>
 
 
 <script type="application/ld+json">
@@ -95,7 +95,7 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Geophysical Fluid Dynamics",
+      "name": "Geophysical Fluid Dynamics (GFD)",
       "item": "https://mushetty.me/notes/geophysics/geophysics/"
     }
   ]
@@ -105,17 +105,17 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Geophysical Fluid Dynamics",
-  "name": "Geophysical Fluid Dynamics",
-  "description": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff  Administrative Stuff ",
+  "headline": "Geophysical Fluid Dynamics (GFD)",
+  "name": "Geophysical Fluid Dynamics (GFD)",
+  "description": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6.",
   "keywords": [
     
   ],
-  "articleBody": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff  Administrative Stuff ",
-  "wordCount" : "15",
+  "articleBody": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6. Maybe Ch 8.   Other texts:  J. Pedlosky: GFD Adrian Gill: Atmosphere Ocean Dynamics More Specialized  Rich Salmon Jim McWilliams Benoit Cushman-Roisin     Grading Scheme  Based on HW (6 or so)    Chapter 1  We deal with rotating and stratified fluids  Rotating: spinning around an axis Statified: a gradient in the density exists (light density higher, heavier density lower)   Dealing with large scale motion of fluid (can ignore convection effects)  ocean basins continental US    Material Derivative (Lagrangian Derivative)  $\\frac{D}{\\cancel{D}t} = \\frac{\\partial}{\\partial t}+ \\vec{v}\\cdot \\nabla = \\frac{\\partial}{\\partial t}+v_{x}\\frac{\\partial}{\\partial x}+v_{y}\\frac{\\partial}{\\partial y}+v_{z}\\frac{\\partial}{\\partial z}$  The first part is the Eulerian deriviative (local change) The second part is the nonlinear term (ie. the good stuff) $v = \\vec{v}(x,y,z,t)$    Conservation of Mass  $\\frac{D}{\\cancel{D}t}\\rho+\\rho \\nabla\\cdot\\vec{v} = 0$  $\\rho = \\rho(x,y,z,t)$ $\\frac{\\partial \\rho}{\\partial t}+\\nabla \\cdot (\\rho \\vec{v}) = 0$    Momentum Equation  $\\frac{\\partial \\vec{v}}{\\partial t}+(\\vec{v}\\cdot\\nabla)\\vec{v} = \\frac{-1}{\\rho}\\nabla P + \\nu \\nabla^{2}\\vec{v}+F_{b}$  $\\rho$ is pressure, $P$ is pressure, $\\mu$ is the friction coefficient First term: pressure term Second term: friction term Third term: “body” forces (most common forces: gravity, EM forces) Newton Law analogy: $\\vec{a}=\\frac{\\vec{F}}{m}$ (ie the every term is a force per unit mass)   Ex: Consider an inviscid (non viscous) fluid ($\\nu=0$) at rest ($\\vec{v}=0$) with gravity ($F_{b} = -g\\hat{k}$)  LHS=0. 2nd term on RHS is zero. Spliting into components  $\\frac{\\partial \\rho}{\\partial x}=0$ $\\frac{\\partial \\rho}{\\partial y}=0$ $\\frac{\\partial \\rho}{\\partial z} = -\\rho g \\rightarrow p(z) = -\\int_{z}^{TOA}\\rho g\\ dz$  $\\rho = \\rho(z)$ and $g = g(z)$ (normally a constant) $TOA$ is the top of atmosphere where pressure falls to basically zero        Equation of State  So far, we have 4 equations and 5 unknowns ($\\rho,P$ and 3 components of $\\vec{v}$) Need to connect $\\rho$ to $P$ with an equation of state Can also use a conservation law (ie. conservation of energy)  Sound Waves  Longitudinal Pressure and density waves Take conservation of mass and momentum equations and linearize them (Let $\\vec{v}=\\vec{v_{0}+\\vec{v}^{'}} $ and $\\rho_{0}+\\rho^{'}$, then multiply out, and drop all the quadratic terms):  $\\frac{D\\rho}{\\cancel{D}t}+\\rho\\nabla\\vec{v}=0\\rightarrow\\frac{\\partial \\rho^{'}}{\\partial t}+\\rho_{0}\\nabla\\cdot\\vec{v^{'}} = 0$ $\\frac{D\\vec{v}}{\\cancel{D}t} = \\frac{-\\nabla P}{\\rho}\\rightarrow \\frac{\\partial \\vec{v}}{\\partial t} = \\frac{-\\nabla P}{\\rho}$ From thermodynamics, we know for an ideal gas that $P = c\\rho^{\\gamma}$. We linearize like the other equations, and then make the approximation $(1+\\frac{\\rho^{'}}{\\rho_{0}})^{\\gamma}\\approx 1+\\gamma(\\frac{\\rho^{'}}{\\rho_{0}})$ and recall $P_{0}= C\\rho_{0}^{\\gamma}$ to get that:  $P{'} = \\gamma\\frac{\\rho_{0}}{P_{0}}\\rho^{'} = (\\gamma RT_{0})\\rho^{'}$   Can take partials w.r.t time and replace $\\rho^{'}$ with $P^{'}$ and eventually, you get a wave equation:  $\\frac{\\partial^{2}P^{'}}{\\partial t^{2}} = c_{s}^{2}\\nabla^{2}P^{'}$ where $c_{s}^{2} = \\gamma RT$ is the speed of sound      ",
+  "wordCount" : "469",
   "inLanguage": "en",
   "datePublished": "2023-01-17T22:19:05-05:00",
-  "dateModified": "2023-01-17T23:13:37-05:00",
+  "dateModified": "2023-01-24T22:08:29-05:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://mushetty.me/notes/geophysics/geophysics/"
@@ -196,17 +196,141 @@
   <header class="post-header">
     
     <h1 class="post-title">
-      Geophysical Fluid Dynamics
+      Geophysical Fluid Dynamics (GFD)
     </h1>
-    <div class="post-meta"><span title='2023-01-17 22:19:05 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-17 23:13:37 -0500 EST'>Last Modified: January 17, 2023</span>
+    <div class="post-meta"><span title='2023-01-17 22:19:05 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-24 22:08:29 -0500 EST'>Last Modified: January 24, 2023</span>
 
 </div>
   </header> 
   <div class="post-content"><p>Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.</p>
 <ul>
 <li><a href="#administrative-stuff">Administrative Stuff</a></li>
+<li><a href="#chapter-1">Chapter 1</a>
+<ul>
+<li><a href="#material-derivative-lagrangian-derivative">Material Derivative (Lagrangian Derivative)</a></li>
+<li><a href="#conservation-of-mass">Conservation of Mass</a></li>
+<li><a href="#momentum-equation">Momentum Equation</a></li>
+<li><a href="#equation-of-state">Equation of State</a></li>
+<li><a href="#sound-waves">Sound Waves</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="administrative-stuff">Administrative Stuff<a hidden class="anchor" aria-hidden="true" href="#administrative-stuff">#</a></h2>
+<ul>
+<li>Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM)</li>
+<li>TA: Eojin Lee el3080[at]columbia.edu</li>
+<li>Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)
+<ul>
+<li>Course covers Ch 1-6. Maybe Ch 8.</li>
+</ul>
+</li>
+<li>Other texts:
+<ul>
+<li>J. Pedlosky: GFD</li>
+<li>Adrian Gill: Atmosphere Ocean Dynamics</li>
+<li>More Specialized
+<ul>
+<li>Rich Salmon</li>
+<li>Jim McWilliams</li>
+<li>Benoit Cushman-Roisin</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Grading Scheme
+<ul>
+<li>Based on HW (6 or so)</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter-1">Chapter 1<a hidden class="anchor" aria-hidden="true" href="#chapter-1">#</a></h2>
+<ul>
+<li>We deal with <strong>rotating</strong> and <strong>stratified</strong> fluids
+<ul>
+<li>Rotating: spinning around an axis</li>
+<li>Statified: a gradient in the density exists (light density higher, heavier density lower)</li>
+</ul>
+</li>
+<li>Dealing with large scale motion of fluid (can ignore convection effects)
+<ul>
+<li>ocean basins</li>
+<li>continental US</li>
+</ul>
+</li>
+</ul>
+<h3 id="material-derivative-lagrangian-derivative">Material Derivative (Lagrangian Derivative)<a hidden class="anchor" aria-hidden="true" href="#material-derivative-lagrangian-derivative">#</a></h3>
+<ul>
+<li>$\frac{D}{\cancel{D}t} = \frac{\partial}{\partial t}+ \vec{v}\cdot \nabla = \frac{\partial}{\partial t}+v_{x}\frac{\partial}{\partial x}+v_{y}\frac{\partial}{\partial y}+v_{z}\frac{\partial}{\partial z}$
+<ul>
+<li>The first part is the Eulerian deriviative (local change)</li>
+<li>The second part is the nonlinear term (ie. the good stuff)</li>
+<li>$v = \vec{v}(x,y,z,t)$</li>
+</ul>
+</li>
+</ul>
+<h3 id="conservation-of-mass">Conservation of Mass<a hidden class="anchor" aria-hidden="true" href="#conservation-of-mass">#</a></h3>
+<ul>
+<li>$\frac{D}{\cancel{D}t}\rho+\rho \nabla\cdot\vec{v} = 0$
+<ul>
+<li>$\rho = \rho(x,y,z,t)$</li>
+<li>$\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \vec{v}) = 0$</li>
+</ul>
+</li>
+</ul>
+<h3 id="momentum-equation">Momentum Equation<a hidden class="anchor" aria-hidden="true" href="#momentum-equation">#</a></h3>
+<ul>
+<li>$\frac{\partial \vec{v}}{\partial t}+(\vec{v}\cdot\nabla)\vec{v} = \frac{-1}{\rho}\nabla P + \nu \nabla^{2}\vec{v}+F_{b}$
+<ul>
+<li>$\rho$ is pressure, $P$ is pressure, $\mu$ is the friction coefficient</li>
+<li>First term: pressure term</li>
+<li>Second term: friction term</li>
+<li>Third term: &ldquo;body&rdquo; forces (most common forces: gravity, EM forces)</li>
+<li>Newton Law analogy: $\vec{a}=\frac{\vec{F}}{m}$ (ie the every term is a force per unit mass)</li>
+</ul>
+</li>
+<li>Ex: Consider an inviscid (non viscous) fluid ($\nu=0$) at rest  ($\vec{v}=0$) with gravity ($F_{b} = -g\hat{k}$)
+<ul>
+<li>LHS=0. 2nd term on RHS is zero. Spliting into components
+<ul>
+<li>$\frac{\partial \rho}{\partial x}=0$</li>
+<li>$\frac{\partial \rho}{\partial y}=0$</li>
+<li>$\frac{\partial \rho}{\partial z} = -\rho g \rightarrow p(z) = -\int_{z}^{TOA}\rho g\ dz$
+<ul>
+<li>$\rho = \rho(z)$ and $g = g(z)$ (normally a constant)</li>
+<li>$TOA$ is the top of atmosphere where pressure falls to basically zero</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="equation-of-state">Equation of State<a hidden class="anchor" aria-hidden="true" href="#equation-of-state">#</a></h3>
+<ul>
+<li>So far, we have 4 equations and 5 unknowns ($\rho,P$ and 3 components of $\vec{v}$)</li>
+<li>Need to connect $\rho$ to $P$ with an equation of state</li>
+<li>Can also use a conservation law (ie. conservation of energy)</li>
+</ul>
+<h3 id="sound-waves">Sound Waves<a hidden class="anchor" aria-hidden="true" href="#sound-waves">#</a></h3>
+<ul>
+<li>Longitudinal Pressure and density waves</li>
+<li>Take conservation of mass and momentum equations and linearize them (Let $\vec{v}=\vec{v_{0}+\vec{v}^{'}} $ and $\rho_{0}+\rho^{'}$, then multiply out, and drop all the quadratic terms):
+<ul>
+<li>$\frac{D\rho}{\cancel{D}t}+\rho\nabla\vec{v}=0\rightarrow\frac{\partial \rho^{'}}{\partial t}+\rho_{0}\nabla\cdot\vec{v^{'}} = 0$</li>
+<li>$\frac{D\vec{v}}{\cancel{D}t} = \frac{-\nabla P}{\rho}\rightarrow \frac{\partial \vec{v}}{\partial t} = \frac{-\nabla P}{\rho}$</li>
+<li>From thermodynamics, we know for an ideal gas that $P = c\rho^{\gamma}$. We linearize like the other equations, and then make the approximation $(1+\frac{\rho^{'}}{\rho_{0}})^{\gamma}\approx 1+\gamma(\frac{\rho^{'}}{\rho_{0}})$ and recall $P_{0}= C\rho_{0}^{\gamma}$ to get that:
+<ul>
+<li>$P{'} = \gamma\frac{\rho_{0}}{P_{0}}\rho^{'} = (\gamma RT_{0})\rho^{'}$</li>
+</ul>
+</li>
+<li>Can take partials w.r.t time and replace $\rho^{'}$ with $P^{'}$ and eventually, you get a wave equation:
+<ul>
+<li>$\frac{\partial^{2}P^{'}}{\partial t^{2}} = c_{s}^{2}\nabla^{2}P^{'}$ where $c_{s}^{2} = \gamma RT$ is the speed of sound</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 
   </div>
