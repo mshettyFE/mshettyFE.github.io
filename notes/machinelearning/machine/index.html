@@ -8,7 +8,7 @@
 <title>Machine Learning Notes | mushetty.me</title>
 <meta name="keywords" content="">
 <meta name="description" content="Compilation of notes for Machine Learning class for Spring 2023.
- Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \in X$):  $\vec{x} = &lt;x_{1},x_{2},&hellip;x_{n}&gt;$ Can think of each component as a measurement that you make   Output is another vector ($y \in Y$):  $\vec{y} = &lt;y_{1},y_{2},&hellip;y_{m}&gt;$   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\vec{x_{1}},y_{1}),(\vec{x_{2}},y_{2})&hellip; \in X \times Y$  Example: $X = \mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a &ldquo;relatively simple&rdquo; function $f^{*}: X \rightarrow Y$ such that $f^{*}(\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1.">
+ Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.">
 <meta name="author" content="">
 <link rel="canonical" href="https://mushetty.me/notes/machinelearning/machine/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.a5456a2fb6485e28d3190c101c9f7fea21d7eddeb7cf1b8dddf20aeb314df0cf.css" integrity="sha256-pUVqL7ZIXijTGQwQHJ9/6iHX7d63zxuN3fIK6zFN8M8=" rel="preload stylesheet" as="style">
@@ -75,16 +75,16 @@
 
 <meta property="og:title" content="Machine Learning Notes" />
 <meta property="og:description" content="Compilation of notes for Machine Learning class for Spring 2023.
- Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \in X$):  $\vec{x} = &lt;x_{1},x_{2},&hellip;x_{n}&gt;$ Can think of each component as a measurement that you make   Output is another vector ($y \in Y$):  $\vec{y} = &lt;y_{1},y_{2},&hellip;y_{m}&gt;$   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\vec{x_{1}},y_{1}),(\vec{x_{2}},y_{2})&hellip; \in X \times Y$  Example: $X = \mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a &ldquo;relatively simple&rdquo; function $f^{*}: X \rightarrow Y$ such that $f^{*}(\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1." />
+ Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mushetty.me/notes/machinelearning/machine/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-01-17T22:19:16-05:00" />
-<meta property="article:modified_time" content="2023-01-24T22:08:29-05:00" />
+<meta property="article:modified_time" content="2023-01-26T22:43:57-05:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Machine Learning Notes"/>
 <meta name="twitter:description" content="Compilation of notes for Machine Learning class for Spring 2023.
- Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \in X$):  $\vec{x} = &lt;x_{1},x_{2},&hellip;x_{n}&gt;$ Can think of each component as a measurement that you make   Output is another vector ($y \in Y$):  $\vec{y} = &lt;y_{1},y_{2},&hellip;y_{m}&gt;$   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\vec{x_{1}},y_{1}),(\vec{x_{2}},y_{2})&hellip; \in X \times Y$  Example: $X = \mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a &ldquo;relatively simple&rdquo; function $f^{*}: X \rightarrow Y$ such that $f^{*}(\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1."/>
+ Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset."/>
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "Machine Learning Notes",
   "name": "Machine Learning Notes",
-  "description": "Compilation of notes for Machine Learning class for Spring 2023.\n Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \\in X$):  $\\vec{x} = \u0026lt;x_{1},x_{2},\u0026hellip;x_{n}\u0026gt;$ Can think of each component as a measurement that you make   Output is another vector ($y \\in Y$):  $\\vec{y} = \u0026lt;y_{1},y_{2},\u0026hellip;y_{m}\u0026gt;$   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})\u0026hellip; \\in X \\times Y$  Example: $X = \\mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a \u0026ldquo;relatively simple\u0026rdquo; function $f^{*}: X \\rightarrow Y$ such that $f^{*}(\\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1.",
+  "description": "Compilation of notes for Machine Learning class for Spring 2023.\n Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.",
   "keywords": [
     
   ],
-  "articleBody": "Compilation of notes for Machine Learning class for Spring 2023.\n Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \\in X$):  $\\vec{x} = $ Can think of each component as a measurement that you make   Output is another vector ($y \\in Y$):  $\\vec{y} = $   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})… \\in X \\times Y$  Example: $X = \\mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a “relatively simple” function $f^{*}: X \\rightarrow Y$ such that $f^{*}(\\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1. For the same image, the true $y_{i}$ could be either 7 or 1 (depending on the person’s intentions). Hence, to force $f^{*}$ be a correct for all inputs misses this uncertainty in the true output   Learning task: given $n$ examples from the data, from $\\hat{f} \\approx f^{*}$  $\\hat{f}$ denotes a function that tries its best to be optimal   Goal: $\\hat{f}$ gives mostly correct prediction on unseen examples    Statistical Approach  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})…(\\vec{x_{n}},y_{n})$ samples are drawn from the underlying distribution  For simplicity, we assume each sample is drawn independently from the same underlying distribution is (called i.i.d. assumption)   The learning algorithm draws $\\hat{f}$ from a pool of models $\\mathbb{F}$ that maximizes the label agreement with the training data  How do we select $f \\in \\mathbb{F}$? Maximum likelihood (best fits the data) Maximum a posteriori (best fits the data but incorporates prior assumptions) Optimization of ‘loss’ criterion (best discriminates the labels)    Classifier  We are given a joint input/output space ($X \\times Y$)  The data is distributed like $D(X \\times Y)$  You have a region where your inputs can reside in ($X \\times Y$) and D tells you the density of inputs on the space You can visualize this space by either:  Taking slices at a fixed variable value ($P[Y,X=x]$) or the conditional distribution Adding up all the slices along a variable ($P[Y]$) or the marginal distribution       A classifier is a measurable function of the type $f: x \\in Y$  Ex1 (Constant): $f_{1}(\\vec{x}) = y$ for some fixed $y \\in Y$. Ex2(Threshold): $f_{2}(x) = \\begin{cases} 0\\ if \\ x \\geq 5 \\\\ 1 \\ otherwise \\end{cases}$ Ex3 (Majority class): $f_{3}(x) = arg\\ max_{y\\in Y} P[Y=y]$  This asks: What argument in Y yields the maximum probability? Implicitly, this probability is the marginalized distribution on X More explicitly, you can write probability as: $P[Y=y] = P_{y \\approx D}|_{Y}[Y=y]$  In words, you draw a (x,y) pair from D, and you only pay attention to the y part     None of these are particularly good/generally applicable classifiers Ex4 (Sample Average Class):  $\\frac{1}{n}\\Sigma \\mathbb{I}[f(x_{i}) = y_{i}]$  $\\mathbb{I}$ is the indicator function that maps a boolean expression (like $f(x_{i}) = y_{i}$) to either 0 (false) or 1 (true) This is from a sample     Ex5 (Population Average):  $\\mathbb{E}_{(x,y)\\in D}[\\mathbb{I}[f(x)=y]]= P[f(x)=y]$  This is on the entire population. Essentially a probability that states how often this classifier f gets the output correct called the accuracy function acc(f)       Let’s look at the following classifier:  $f(\\vec{x})= arg\\ max_{y\\in Y}\\ P[y=Y|X=\\vec{x}]$  In words, find y that maximizes the probability given a particular x (called Bayes classifier) This is the best classifier. But most of the time, you can’t actually compute $P[y=Y|X=\\vec{x}]$ for all inputs. You try your best to estimate these probabilities Proof:  Assume binary classification for output space (for simplicity)  Let $f(\\vec{x})= arg\\ max_{y\\in Y}\\ P[y=Y|X=\\vec{x}]$. Let $g(\\vec{x})\\rightarrow \\{0,1\\}$. Then $P_{(\\vec{x},y)}[g(\\vec{x})=y] \\leq P_{(\\vec{x},y)}[f(\\vec{x})=y]$   Let’s look at a single example (Fix $\\vec{x}\\in X$). Then for any classifier h  $P[h(\\vec{x})=y|X=\\vec{x}]=P[h(\\vec{x})=1|X=\\vec{x}]+P[h(\\vec{x})=0|X=\\vec{x}]$ Since $h(\\vec{x})=1$ is a constant, we can use $\\mathbb{I}$ to rewrite above  $\\mathbb{I}[h(\\vec{x})=1]P[Y=1|X=\\vec{x}]+\\mathbb{I}[h(\\vec{x})=0]P[Y=0|X=\\vec{x}] =\\mathbb{I}[h(\\vec{x})=1]\\eta(\\vec{x})+\\mathbb{I}[h(\\vec{x})=0](1- \\eta(\\vec{x}))$  Where $\\eta(\\vec{x}) := P[Y=1|X=\\vec{x}]$     Hence we need to show that $P[f(\\vec{x})=y|X=\\vec{x})]-P[g(\\vec{x})=y|X=\\vec{x})] \\geq 0$  This equals $\\eta(\\vec{x})[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]+(1-\\eta(\\vec{x}))[\\mathbb{I}[f(\\vec{x})=0]-\\mathbb{I}[g(\\vec{x})=0]] = (2\\eta(\\vec{x})-1)[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]$  You use $\\mathbb{I}[f(\\vec{x})=0] = 1 -\\mathbb{I}[f(\\vec{x})=1]$   If both classifiers guess the same output, there is no degradation in the performance in either classifier What happens if the outputs are different?  In either case$[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]=\\pm 1$ depending on if $f(x)$ is correct or $g(x)$ is correct, Say $f(x)$ returns 1:  This means that probability of $f(x)$ selecting 1 is greater than 0.5, hence $P[Y=1|X-\\vec{x}] =\\eta(\\vec{x}) \\geq 0.5$ so $(2\\eta(\\vec{x})-1)[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]] \\geq 0$   A similar argument holds for $f(x)$ returning 0 (ie. the bayes classifier fails and the alternate classifier works)         Since we know that this works for a fixed example, we can integrate across all $x\\in X$ to prove the original theorem $P_{(\\vec{x},y)}[g(\\vec{x})=y] \\leq P_{(\\vec{x},y)}[f(\\vec{x})=y]$  Want to show $\\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]] - \\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]] \\geq 0$  $\\mathbb{E}[\\alpha(\\vec{x},y)] = \\int_{(\\vec({x},y)\\in X\\times Y)} \\alpha(\\vec{x},y)P((\\vec{x},y))d((\\vec{x},y))$ So we can rewrite the expectation values using linearity: $\\alpha(x,y)=\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]$ and $\\beta(x,y)=\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]$:  $\\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]] - \\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]] = \\int (\\alpha(\\vec{x},y)-\\beta(\\vec{x},y)) p(\\vec{x},y)d(x,y)=\\int_{x}[\\int_{y} (\\alpha-\\beta) p(y|x)dy]dx$  The inner integral is the probability we calculated earlier (the one that was always greater than zero). Hence the double integral is always greater than or equal to 0              Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9 ",
-  "wordCount" : "948",
+  "articleBody": "Compilation of notes for Machine Learning class for Spring 2023.\n Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example     Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.  Written parts must be PDFs and be typeset.  Plots and data analysis from programming part must be included in written part   Programming parts are mostly turned in as a separate assignment on Gradescope   40 % HW, 30% Midterm, 30% Final  Topic 1  Inputs encoded as vectors ($x \\in X$):  $\\vec{x} = $ Can think of each component as a measurement that you make   Output is another vector ($y \\in Y$):  $\\vec{y} = $   Goal is to figure out the function that maps x to y  You only have a limited number of samples from X  You need to make predictions from this limited sample size      Workflow of Classification Problems (Supervised Learning)  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})… \\in X \\times Y$  Example: $X = \\mathbb{R^{d}}$ and $Y = {0,1}$ for a binary classification from a image with d pixels Assumption: there exists a “relatively simple” function $f^{*}: X \\rightarrow Y$ such that $f^{*}(\\vec{x_{i}}) = y_{i}$ for most i  $*$ in ML implies some optimum value (in this case, an optimal function) Most includes that possibility that there is some fundamental noise in your data Say someone wrote a number that kind of looks like 7 and kinda looks like 1. For the same image, the true $y_{i}$ could be either 7 or 1 (depending on the person’s intentions). Hence, to force $f^{*}$ be a correct for all inputs misses this uncertainty in the true output   Learning task: given $n$ examples from the data, from $\\hat{f} \\approx f^{*}$  $\\hat{f}$ denotes a function that tries its best to be optimal   Goal: $\\hat{f}$ gives mostly correct prediction on unseen examples    Statistical Approach  $(\\vec{x_{1}},y_{1}),(\\vec{x_{2}},y_{2})…(\\vec{x_{n}},y_{n})$ samples are drawn from the underlying distribution  For simplicity, we assume each sample is drawn independently from the same underlying distribution is (called i.i.d. assumption)   The learning algorithm draws $\\hat{f}$ from a pool of models $\\mathbb{F}$ that maximizes the label agreement with the training data  How do we select $f \\in \\mathbb{F}$? Maximum likelihood (best fits the data) Maximum a posteriori (best fits the data but incorporates prior assumptions) Optimization of ‘loss’ criterion (best discriminates the labels)    Classifier  We are given a joint input/output space ($X \\times Y$)  The data is distributed like $D(X \\times Y)$  You have a region where your inputs can reside in ($X \\times Y$) and D tells you the density of inputs on the space You can visualize this space by either:  Taking slices at a fixed variable value ($P[Y,X=x]$) or the conditional distribution Adding up all the slices along a variable ($P[Y]$) or the marginal distribution       A classifier is a measurable function of the type $f: x \\in Y$  Ex1 (Constant): $f_{1}(\\vec{x}) = y$ for some fixed $y \\in Y$. Ex2(Threshold): $f_{2}(x) = \\begin{cases} 0\\ if \\ x \\geq 5 \\\\ 1 \\ otherwise \\end{cases}$ Ex3 (Majority class): $f_{3}(x) = arg\\ max_{y\\in Y} P[Y=y]$  This asks: What argument in Y yields the maximum probability? Implicitly, this probability is the marginalized distribution on X More explicitly, you can write probability as: $P[Y=y] = P_{y \\approx D}|_{Y}[Y=y]$  In words, you draw a (x,y) pair from D, and you only pay attention to the y part     None of these are particularly good/generally applicable classifiers Ex4 (Sample Average Class):  $\\frac{1}{n}\\Sigma \\mathbb{I}[f(x_{i}) = y_{i}]$  $\\mathbb{I}$ is the indicator function that maps a boolean expression (like $f(x_{i}) = y_{i}$) to either 0 (false) or 1 (true) This is from a sample     Ex5 (Population Average):  $\\mathbb{E}_{(x,y)\\in D}[\\mathbb{I}[f(x)=y]]= P[f(x)=y]$  This is on the entire population. Essentially a probability that states how often this classifier f gets the output correct called the accuracy function acc(f)       Let’s look at the following classifier:  $f(\\vec{x})= arg\\ max_{y\\in Y}\\ P[y=Y|X=\\vec{x}]$  In words, find y that maximizes the probability given a particular x (called Bayes classifier) This is the best classifier. But most of the time, you can’t actually compute $P[y=Y|X=\\vec{x}]$ for all inputs. You try your best to estimate these probabilities Proof:  Assume binary classification for output space (for simplicity)  Let $f(\\vec{x})= arg\\ max_{y\\in Y}\\ P[y=Y|X=\\vec{x}]$. Let $g(\\vec{x})\\rightarrow \\{0,1\\}$. Then $P_{(\\vec{x},y)}[g(\\vec{x})=y] \\leq P_{(\\vec{x},y)}[f(\\vec{x})=y]$   Let’s look at a single example (Fix $\\vec{x}\\in X$). Then for any classifier h  $P[h(\\vec{x})=y|X=\\vec{x}]=P[h(\\vec{x})=1|X=\\vec{x}]+P[h(\\vec{x})=0|X=\\vec{x}]$ Since $h(\\vec{x})=1$ is a constant, we can use $\\mathbb{I}$ to rewrite above  $\\mathbb{I}[h(\\vec{x})=1]P[Y=1|X=\\vec{x}]+\\mathbb{I}[h(\\vec{x})=0]P[Y=0|X=\\vec{x}] =\\mathbb{I}[h(\\vec{x})=1]\\eta(\\vec{x})+\\mathbb{I}[h(\\vec{x})=0](1- \\eta(\\vec{x}))$  Where $\\eta(\\vec{x}) := P[Y=1|X=\\vec{x}]$     Hence we need to show that $P[f(\\vec{x})=y|X=\\vec{x})]-P[g(\\vec{x})=y|X=\\vec{x})] \\geq 0$  This equals $\\eta(\\vec{x})[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]+(1-\\eta(\\vec{x}))[\\mathbb{I}[f(\\vec{x})=0]-\\mathbb{I}[g(\\vec{x})=0]] = (2\\eta(\\vec{x})-1)[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]$  You use $\\mathbb{I}[f(\\vec{x})=0] = 1 -\\mathbb{I}[f(\\vec{x})=1]$   If both classifiers guess the same output, there is no degradation in the performance in either classifier What happens if the outputs are different?  In either case$[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]]=\\pm 1$ depending on if $f(x)$ is correct or $g(x)$ is correct, Say $f(x)$ returns 1:  This means that probability of $f(x)$ selecting 1 is greater than 0.5, hence $P[Y=1|X-\\vec{x}] =\\eta(\\vec{x}) \\geq 0.5$ so $(2\\eta(\\vec{x})-1)[\\mathbb{I}[f(\\vec{x})=1]-\\mathbb{I}[g(\\vec{x})=1]] \\geq 0$   A similar argument holds for $f(x)$ returning 0 (ie. the bayes classifier fails and the alternate classifier works)         Since we know that this works for a fixed example, we can integrate across all $x\\in X$ to prove the original theorem $P_{(\\vec{x},y)}[g(\\vec{x})=y] \\leq P_{(\\vec{x},y)}[f(\\vec{x})=y]$  Want to show $\\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]] - \\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]] \\geq 0$  $\\mathbb{E}[\\alpha(\\vec{x},y)] = \\int_{(\\vec({x},y)\\in X\\times Y)} \\alpha(\\vec{x},y)P((\\vec{x},y))d((\\vec{x},y))$ So we can rewrite the expectation values using linearity: $\\alpha(x,y)=\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]$ and $\\beta(x,y)=\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]$:  $\\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[g(\\vec{x})=y]]] - \\mathbb{E}[\\mathbb{I}[P_{(\\vec{x},y)}[f(\\vec{x})=y]]] = \\int (\\alpha(\\vec{x},y)-\\beta(\\vec{x},y)) p(\\vec{x},y)d(x,y)=\\int_{x}[\\int_{y} (\\alpha-\\beta) p(y|x)dy]dx$  The inner integral is the probability we calculated earlier (the one that was always greater than zero). Hence the double integral is always greater than or equal to 0             Since we can’t normally acheive this classifier, how can we estimate it?  $f(\\vec{x})= argmax_{y\\in Y} P[Y=y|X=\\vec{x}]= argmax_{y\\in Y}\\frac{P[X=\\vec{x}|Y=y]\\cdot P[Y=y]}{P[X=\\vec{x}]}$  denominator independent of Y. This means that  $argmax_{y\\in Y}\\frac{P[X=\\vec{x}|Y=y]\\cdot P[Y=y]}{P[X=\\vec{x}]} = argmax_{y\\in Y}P[X=\\vec{x}|Y=y]\\cdot P[Y=y]$  The value of the function on the LHS is not the same as the RHS, but the y that maximizes the LHS and RHS is the same Instead of figuring out an infinite number of estimates (1 for each $\\vec{x}$ in $\\R^{d}$ space) you instead make 1 estimate for each $y\\in Y$, which is a much smaller space  Instead of an infinite number of Bernoulli distributions, you have a finite number of multidimensional distributions   $P[Y=y]$ is called the Class Prior or the prior $P[X=\\vec{x}|Y=y]$ is called the Class Conditional or the Conditional $P[Y=y|X=\\vec{x}]$ is called the Class Posterior or the Posterior          Maximum Likelihood Estimation  We are given some data $\\vec{x_{1}}… \\vec{x_{n}} \\in X$ independently draw Say we have a model class $P = \\{p_{\\theta}|\\theta\\in\\Theta\\}$ where $\\Theta$ is the parameter space  For Gaussians, $\\in \\Theta$ and $p_{\\theta} = \\frac{1}{\\sqrt{2\\pi\\sigma^{2}}}exp(\\frac{-1}{2}\\frac{(x-\\mu)^{2}}{\\sigma^{2}})$   Find the model that best fits the data Define the likelihood function $\\mathbb{L}(\\theta|X)= P(X|\\theta)=P(x_{1},…,x_{n}|\\theta)=\\Pi_{i=1}^{n}P(\\vec{x_{i}}|\\theta) = \\Pi_{i=1}^{n}p_{\\theta}(\\vec{x_{i}})$  The likelihood function defines how probable (or how likely) is the data given the model $p_{\\theta}$   we want to find $\\theta$ that maximizes the likelihood function: $argmax_{\\theta\\in\\Theta}\\mathbb{L} = argmax_{\\theta\\in\\Theta}\\Pi_{i=1}^{n}p_{\\theta}(\\vec{x_{i}})$ Say for instance, that we have some data and we want to fit a Gaussian to it:  Find $argmax_{\\mu,\\sigma^{2}}\\Pi_{i=1}^{n}p_{\\mu,\\sigma^{2}}(\\vec{x_{i}})$ A trick to avoid using the product rule too much:  $argmax_{\\theta}\\mathbb{L}(\\theta|X)= argmax_{\\theta} log(\\mathbb{L}(\\theta|X))$ This turns the product into sums and eliminates the exp of the Guassian. After doing this manipulation, we get: find $argmax_{\\mu,\\sigma^{2}} \\Sigma_{i=1}^{n}[\\frac{-1}{2}log(2\\pi\\sigma^{2})-\\frac{(x_{i}-\\mu)^{2}}{2\\sigma^{2}}]$ Maximize w.r.t $\\mu$ to and solve for the stationary points yield $\\mu_{ML} = \\frac{1}{n}\\Sigma_{i=1}^{n}x_{i}$  This is an unbiased estimator that converges to the true $\\mu$ as the number of samples go to infinity   Can also take w.r.t. $\\sigma^{2}$: $\\sigma_{ML}^{2}=\\frac{1}{n}\\Sigma_{i=1}^{n}(x_{i}-\\mu)^{2}$  We can find the sample variance by plugging in $\\mu_{ML}$ for the true $\\mu$ (This is where the $\\frac{1}{n-1}$ thing comes from)        Example  Say that we want to estimate biological gender (male or female) based on weight and height The distribution is spread like $D[X\\times Y]$ The Bayes classifier is thus:  $f(\\vec{x}) = argmax_{y\\in\\{male,female\\}} P[X=\\vec{x}|Y=y]\\cdot P[Y=y]$  $\\hat{P}[Y=male]=$ fraction of training data labelled as male $\\hat{P}[Y=female]=$ fraction of training data labelled as female $\\hat{P}[X|Y=male]=p_{\\theta(male)}(X)$  Use MLE with only male data   $\\hat{P}[X|Y=female]=p_{\\theta(female)}(X)$  Use MLE with only female data   Say that the conditional follows a 2D Gaussian distribution     Another way to put this:  We have a bunch of labelled points in $\\mathbb{R^{2}}$  Look only at the male labels. Fit a 2D Gaussian to this data (Find some mean center and the covariance matrix) Do the same with the female labels     Once you have gotten your distributions, say that you get a new data point. The distribution (male or female) that yields the higher probability is your Bayes classifier’s output  Topic 2 Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9 ",
+  "wordCount" : "1427",
   "inLanguage": "en",
   "datePublished": "2023-01-17T22:19:16-05:00",
-  "dateModified": "2023-01-24T22:08:29-05:00",
+  "dateModified": "2023-01-26T22:43:57-05:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://mushetty.me/notes/machinelearning/machine/"
@@ -198,7 +198,7 @@
     <h1 class="post-title">
       Machine Learning Notes
     </h1>
-    <div class="post-meta"><span title='2023-01-17 22:19:16 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-24 22:08:29 -0500 EST'>Last Modified: January 24, 2023</span>
+    <div class="post-meta"><span title='2023-01-17 22:19:16 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-26 22:43:57 -0500 EST'>Last Modified: January 26, 2023</span>
 
 </div>
   </header> 
@@ -211,6 +211,11 @@
 <li><a href="#statistical-approach">Statistical Approach</a>
 <ul>
 <li><a href="#classifier">Classifier</a></li>
+</ul>
+</li>
+<li><a href="#maximum-likelihood-estimation">Maximum Likelihood Estimation</a>
+<ul>
+<li><a href="#example">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -426,6 +431,106 @@
 </li>
 </ul>
 </li>
+<li>Since we can&rsquo;t normally acheive this classifier, how can we estimate it?
+<ul>
+<li>$f(\vec{x})= argmax_{y\in Y} P[Y=y|X=\vec{x}]= argmax_{y\in Y}\frac{P[X=\vec{x}|Y=y]\cdot P[Y=y]}{P[X=\vec{x}]}$
+<ul>
+<li>denominator independent of Y. This means that
+<ul>
+<li>$argmax_{y\in Y}\frac{P[X=\vec{x}|Y=y]\cdot P[Y=y]}{P[X=\vec{x}]} = argmax_{y\in Y}P[X=\vec{x}|Y=y]\cdot P[Y=y]$
+<ul>
+<li>The value of the function on the LHS is not the same as the RHS, but the y that maximizes the LHS and RHS is the same</li>
+<li>Instead of figuring out an infinite number of estimates (1 for each $\vec{x}$ in $\R^{d}$ space) you instead make 1 estimate for each $y\in Y$, which is a much smaller space
+<ul>
+<li>Instead of an infinite number of Bernoulli distributions, you have a finite number of multidimensional distributions</li>
+</ul>
+</li>
+<li>$P[Y=y]$ is called the <strong>Class Prior</strong> or the <strong>prior</strong></li>
+<li>$P[X=\vec{x}|Y=y]$ is called the <strong>Class Conditional</strong> or the <strong>Conditional</strong></li>
+<li>$P[Y=y|X=\vec{x}]$ is called the <strong>Class Posterior</strong> or the <strong>Posterior</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="maximum-likelihood-estimation">Maximum Likelihood Estimation<a hidden class="anchor" aria-hidden="true" href="#maximum-likelihood-estimation">#</a></h3>
+<ul>
+<li>We are given some data $\vec{x_{1}}&hellip; \vec{x_{n}} \in X$ independently draw</li>
+<li>Say we have a model class $P = \{p_{\theta}|\theta\in\Theta\}$ where $\Theta$ is the parameter space
+<ul>
+<li>For Gaussians, $&lt;\mu,\sigma&gt;\in \Theta$ and $p_{\theta} = \frac{1}{\sqrt{2\pi\sigma^{2}}}exp(\frac{-1}{2}\frac{(x-\mu)^{2}}{\sigma^{2}})$</li>
+</ul>
+</li>
+<li>Find the model that best fits the data</li>
+<li>Define the likelihood function $\mathbb{L}(\theta|X)= P(X|\theta)=P(x_{1},&hellip;,x_{n}|\theta)=\Pi_{i=1}^{n}P(\vec{x_{i}}|\theta) = \Pi_{i=1}^{n}p_{\theta}(\vec{x_{i}})$
+<ul>
+<li>The likelihood function defines how <strong>probable</strong> (or how likely) is the data given the model $p_{\theta}$</li>
+</ul>
+</li>
+<li>we want to find $\theta$ that maximizes the likelihood function: $argmax_{\theta\in\Theta}\mathbb{L} = argmax_{\theta\in\Theta}\Pi_{i=1}^{n}p_{\theta}(\vec{x_{i}})$</li>
+<li>Say for instance, that we have some data and we want to fit a Gaussian to it:
+<ul>
+<li>Find $argmax_{\mu,\sigma^{2}}\Pi_{i=1}^{n}p_{\mu,\sigma^{2}}(\vec{x_{i}})$</li>
+<li>A trick to avoid using the product rule too much:
+<ul>
+<li>$argmax_{\theta}\mathbb{L}(\theta|X)= argmax_{\theta} log(\mathbb{L}(\theta|X))$</li>
+<li>This turns the product into sums and eliminates the exp of the Guassian. After doing this manipulation, we get:</li>
+<li>find $argmax_{\mu,\sigma^{2}} \Sigma_{i=1}^{n}[\frac{-1}{2}log(2\pi\sigma^{2})-\frac{(x_{i}-\mu)^{2}}{2\sigma^{2}}]$</li>
+<li>Maximize w.r.t $\mu$ to and solve for the stationary points yield $\mu_{ML} = \frac{1}{n}\Sigma_{i=1}^{n}x_{i}$
+<ul>
+<li>This is an unbiased estimator that converges to the true $\mu$ as the number of samples go to infinity</li>
+</ul>
+</li>
+<li>Can also take w.r.t. $\sigma^{2}$: $\sigma_{ML}^{2}=\frac{1}{n}\Sigma_{i=1}^{n}(x_{i}-\mu)^{2}$
+<ul>
+<li>We can find the sample variance by plugging in $\mu_{ML}$ for the true $\mu$ (This is where the $\frac{1}{n-1}$ thing comes from)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="example">Example<a hidden class="anchor" aria-hidden="true" href="#example">#</a></h4>
+<ul>
+<li>Say that we want to estimate biological gender (male or female) based on weight and height</li>
+<li>The distribution is spread like $D[X\times Y]$</li>
+<li>The Bayes classifier is thus:
+<ul>
+<li>$f(\vec{x}) = argmax_{y\in\{male,female\}} P[X=\vec{x}|Y=y]\cdot P[Y=y]$
+<ul>
+<li>$\hat{P}[Y=male]=$ fraction of training data labelled as male</li>
+<li>$\hat{P}[Y=female]=$ fraction of training data labelled as female</li>
+<li>$\hat{P}[X|Y=male]=p_{\theta(male)}(X)$
+<ul>
+<li>Use MLE with only male data</li>
+</ul>
+</li>
+<li>$\hat{P}[X|Y=female]=p_{\theta(female)}(X)$
+<ul>
+<li>Use MLE with only female data</li>
+</ul>
+</li>
+<li>Say that the conditional follows a 2D Gaussian distribution</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Another way to put this:
+<ul>
+<li>We have a bunch of labelled points in $\mathbb{R^{2}}$
+<ul>
+<li>Look only at the male labels. Fit a 2D Gaussian to this data (Find some mean center and the covariance matrix)</li>
+<li>Do the same with the female labels</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Once you have gotten your distributions, say that you get a new data point. The distribution (male or female) that yields the higher probability is your Bayes classifier&rsquo;s output</li>
 </ul>
 <h2 id="topic-2">Topic 2<a hidden class="anchor" aria-hidden="true" href="#topic-2">#</a></h2>
 <h2 id="topic-3">Topic 3<a hidden class="anchor" aria-hidden="true" href="#topic-3">#</a></h2>
