@@ -33,7 +33,7 @@
       
       <guid>https://mushetty.me/notes/quantumi/quantumi/</guid>
       <description>Compilation of notes for Quantum I class for Spring 2023.
- Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest&amp;rsquo;s Principle Uncertainty Princple Time Independent SE   Lecture 3  Interference of Stationary States Solving TISE  $V(x)=V_{0}$ Infinite Square Well      Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$.</description>
+ Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest&amp;rsquo;s Principle Uncertainty Princple Time Independent SE   Lecture 3  Interference of Stationary States Solving TISE  $V(x)=V_{0}$ Infinite Square Well     Lecture 4  Properties of Eigen Functions Finite Square Well    Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$.</description>
     </item>
     
     <item>
@@ -54,16 +54,6 @@
       <guid>https://mushetty.me/notes/geophysics/geophysics/</guid>
       <description>Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
  Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6.</description>
-    </item>
-    
-    <item>
-      <title>Particle Astrophysics &amp; Cosmology</title>
-      <link>https://mushetty.me/notes/astroandcosmo/astrocosmo/</link>
-      <pubDate>Tue, 17 Jan 2023 22:16:41 -0500</pubDate>
-      
-      <guid>https://mushetty.me/notes/astroandcosmo/astrocosmo/</guid>
-      <description>Compilation of notes for Astrophysics and Cosmology class for Spring 2023.
- Administrative Stuff Special Relativity  Spacetime Diagrams  Worldline Inertial Frames Postulates of SR Deriving Time Dilation from diagrams Deriving Doppler Shift from Diagram   Metrics  Metric tensor (SR) Covariant versus contravariant vectors Metric in Spherical Coordinates 4-Momentum  Example       Classical Cosmology  The Cosmological Principle Comoving Coordinates Hubble&amp;rsquo;s Law  Wavelength relation to scale factor   Luminosity Distance (L)   Non-Euclidean Geometry  Metric of a 2-Sphere Metric of the 3-sphere Metric of the Pseudosphere (hyperbolic geometry)   Particle Physics Theory Dark Matter Early Universe Physics Classical and Quantum Theory of the Scalar Field Inflationary cosmology revisited, and structure formation The Cosmic Microwave Background (CMB) Primordial Black Holes and Hawking Radiation  Administrative Stuff  Homework assignment assigned as a group.</description>
     </item>
     
     <item>
