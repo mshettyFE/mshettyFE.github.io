@@ -57,6 +57,16 @@
     </item>
     
     <item>
+      <title>Particle Astrophysics &amp; Cosmology</title>
+      <link>https://mushetty.me/notes/astroandcosmo/astrocosmo/</link>
+      <pubDate>Tue, 17 Jan 2023 22:16:41 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/astroandcosmo/astrocosmo/</guid>
+      <description>Compilation of notes for Astrophysics and Cosmology class for Spring 2023.
+ Administrative Stuff Special Relativity  Spacetime Diagrams  Worldline Inertial Frames Postulates of SR Deriving Time Dilation from diagrams Deriving Doppler Shift from Diagram   Metrics  Metric tensor (SR) Covariant versus contravariant vectors Metric in Spherical Coordinates 4-Momentum  Example       Classical Cosmology  The Cosmological Principle Comoving Coordinates Hubble&amp;rsquo;s Law  Wavelength relation to scale factor   Luminosity Distance (L)   Non-Euclidean Geometry  Metric of a 2-Sphere Metric of the 3-sphere Metric of the Pseudosphere (hyperbolic geometry) Most general homogeneous isotropic metric What is $a(t)?</description>
+    </item>
+    
+    <item>
       <title>ML Refresher Notes</title>
       <link>https://mushetty.me/notes/mlnotes/ml_notes/</link>
       <pubDate>Sat, 07 Jan 2023 17:29:54 -0500</pubDate>
