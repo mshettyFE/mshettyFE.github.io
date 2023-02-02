@@ -8,7 +8,7 @@
 <title>Geophysical Fluid Dynamics (GFD) | mushetty.me</title>
 <meta name="keywords" content="">
 <meta name="description" content="Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
- Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6.">
+ Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves   Chapter 2  Why a rotating frame? Derivation of Velocity and Acceleration in Rotating Frames Fluid Equations in Rotating Frame  Encoding The Spherical Earth in Equations Primitive Equations (Dynamical Core, because you can&rsquo;t get rid of the air)  What is $\vec{f}$ physically        Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.">
 <meta name="author" content="">
 <link rel="canonical" href="https://mushetty.me/notes/geophysics/geophysics/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.a5456a2fb6485e28d3190c101c9f7fea21d7eddeb7cf1b8dddf20aeb314df0cf.css" integrity="sha256-pUVqL7ZIXijTGQwQHJ9/6iHX7d63zxuN3fIK6zFN8M8=" rel="preload stylesheet" as="style">
@@ -75,16 +75,16 @@
 
 <meta property="og:title" content="Geophysical Fluid Dynamics (GFD)" />
 <meta property="og:description" content="Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
- Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6." />
+ Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves   Chapter 2  Why a rotating frame? Derivation of Velocity and Acceleration in Rotating Frames Fluid Equations in Rotating Frame  Encoding The Spherical Earth in Equations Primitive Equations (Dynamical Core, because you can&rsquo;t get rid of the air)  What is $\vec{f}$ physically        Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mushetty.me/notes/geophysics/geophysics/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-01-17T22:19:05-05:00" />
-<meta property="article:modified_time" content="2023-01-24T22:08:29-05:00" />
+<meta property="article:modified_time" content="2023-02-01T20:49:38-05:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Geophysical Fluid Dynamics (GFD)"/>
 <meta name="twitter:description" content="Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
- Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6."/>
+ Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves   Chapter 2  Why a rotating frame? Derivation of Velocity and Acceleration in Rotating Frames Fluid Equations in Rotating Frame  Encoding The Spherical Earth in Equations Primitive Equations (Dynamical Core, because you can&rsquo;t get rid of the air)  What is $\vec{f}$ physically        Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia."/>
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "Geophysical Fluid Dynamics (GFD)",
   "name": "Geophysical Fluid Dynamics (GFD)",
-  "description": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6.",
+  "description": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves   Chapter 2  Why a rotating frame? Derivation of Velocity and Acceleration in Rotating Frames Fluid Equations in Rotating Frame  Encoding The Spherical Earth in Equations Primitive Equations (Dynamical Core, because you can\u0026rsquo;t get rid of the air)  What is $\\vec{f}$ physically        Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.",
   "keywords": [
     
   ],
-  "articleBody": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves    Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6. Maybe Ch 8.   Other texts:  J. Pedlosky: GFD Adrian Gill: Atmosphere Ocean Dynamics More Specialized  Rich Salmon Jim McWilliams Benoit Cushman-Roisin     Grading Scheme  Based on HW (6 or so)    Chapter 1  We deal with rotating and stratified fluids  Rotating: spinning around an axis Statified: a gradient in the density exists (light density higher, heavier density lower)   Dealing with large scale motion of fluid (can ignore convection effects)  ocean basins continental US    Material Derivative (Lagrangian Derivative)  $\\frac{D}{\\cancel{D}t} = \\frac{\\partial}{\\partial t}+ \\vec{v}\\cdot \\nabla = \\frac{\\partial}{\\partial t}+v_{x}\\frac{\\partial}{\\partial x}+v_{y}\\frac{\\partial}{\\partial y}+v_{z}\\frac{\\partial}{\\partial z}$  The first part is the Eulerian deriviative (local change) The second part is the nonlinear term (ie. the good stuff) $v = \\vec{v}(x,y,z,t)$    Conservation of Mass  $\\frac{D}{\\cancel{D}t}\\rho+\\rho \\nabla\\cdot\\vec{v} = 0$  $\\rho = \\rho(x,y,z,t)$ $\\frac{\\partial \\rho}{\\partial t}+\\nabla \\cdot (\\rho \\vec{v}) = 0$    Momentum Equation  $\\frac{\\partial \\vec{v}}{\\partial t}+(\\vec{v}\\cdot\\nabla)\\vec{v} = \\frac{-1}{\\rho}\\nabla P + \\nu \\nabla^{2}\\vec{v}+F_{b}$  $\\rho$ is pressure, $P$ is pressure, $\\mu$ is the friction coefficient First term: pressure term Second term: friction term Third term: “body” forces (most common forces: gravity, EM forces) Newton Law analogy: $\\vec{a}=\\frac{\\vec{F}}{m}$ (ie the every term is a force per unit mass)   Ex: Consider an inviscid (non viscous) fluid ($\\nu=0$) at rest ($\\vec{v}=0$) with gravity ($F_{b} = -g\\hat{k}$)  LHS=0. 2nd term on RHS is zero. Spliting into components  $\\frac{\\partial \\rho}{\\partial x}=0$ $\\frac{\\partial \\rho}{\\partial y}=0$ $\\frac{\\partial \\rho}{\\partial z} = -\\rho g \\rightarrow p(z) = -\\int_{z}^{TOA}\\rho g\\ dz$  $\\rho = \\rho(z)$ and $g = g(z)$ (normally a constant) $TOA$ is the top of atmosphere where pressure falls to basically zero        Equation of State  So far, we have 4 equations and 5 unknowns ($\\rho,P$ and 3 components of $\\vec{v}$) Need to connect $\\rho$ to $P$ with an equation of state Can also use a conservation law (ie. conservation of energy)  Sound Waves  Longitudinal Pressure and density waves Take conservation of mass and momentum equations and linearize them (Let $\\vec{v}=\\vec{v_{0}+\\vec{v}^{'}} $ and $\\rho_{0}+\\rho^{'}$, then multiply out, and drop all the quadratic terms):  $\\frac{D\\rho}{\\cancel{D}t}+\\rho\\nabla\\vec{v}=0\\rightarrow\\frac{\\partial \\rho^{'}}{\\partial t}+\\rho_{0}\\nabla\\cdot\\vec{v^{'}} = 0$ $\\frac{D\\vec{v}}{\\cancel{D}t} = \\frac{-\\nabla P}{\\rho}\\rightarrow \\frac{\\partial \\vec{v}}{\\partial t} = \\frac{-\\nabla P}{\\rho}$ From thermodynamics, we know for an ideal gas that $P = c\\rho^{\\gamma}$. We linearize like the other equations, and then make the approximation $(1+\\frac{\\rho^{'}}{\\rho_{0}})^{\\gamma}\\approx 1+\\gamma(\\frac{\\rho^{'}}{\\rho_{0}})$ and recall $P_{0}= C\\rho_{0}^{\\gamma}$ to get that:  $P{'} = \\gamma\\frac{\\rho_{0}}{P_{0}}\\rho^{'} = (\\gamma RT_{0})\\rho^{'}$   Can take partials w.r.t time and replace $\\rho^{'}$ with $P^{'}$ and eventually, you get a wave equation:  $\\frac{\\partial^{2}P^{'}}{\\partial t^{2}} = c_{s}^{2}\\nabla^{2}P^{'}$ where $c_{s}^{2} = \\gamma RT$ is the speed of sound      ",
-  "wordCount" : "469",
+  "articleBody": "Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.\n Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves   Chapter 2  Why a rotating frame? Derivation of Velocity and Acceleration in Rotating Frames Fluid Equations in Rotating Frame  Encoding The Spherical Earth in Equations Primitive Equations (Dynamical Core, because you can’t get rid of the air)  What is $\\vec{f}$ physically        Administrative Stuff  Office Hours: Engineering Terrace 287 on Thursdays during class time (4:00-5:00 PM) TA: Eojin Lee el3080[at]columbia.edu Primary Textbook: Geoff Vallis: Atmospheric and Oceanic Fluid Dynamics 1st Edition (pdf available on Columbia Library)  Course covers Ch 1-6. Maybe Ch 8.   Other texts:  J. Pedlosky: GFD Adrian Gill: Atmosphere Ocean Dynamics More Specialized  Rich Salmon Jim McWilliams Benoit Cushman-Roisin     Grading Scheme  Based on HW (6 or so)    Chapter 1  We deal with rotating and stratified fluids  Rotating: spinning around an axis Statified: a gradient in the density exists (light density higher, heavier density lower)   Dealing with large scale motion of fluid (can ignore convection effects)  ocean basins continental US    Material Derivative (Lagrangian Derivative)  $\\frac{D}{\\cancel{D}t} = \\frac{\\partial}{\\partial t}+ \\vec{v}\\cdot \\nabla = \\frac{\\partial}{\\partial t}+v_{x}\\frac{\\partial}{\\partial x}+v_{y}\\frac{\\partial}{\\partial y}+v_{z}\\frac{\\partial}{\\partial z}$  The first part is the Eulerian deriviative (local change) The second part is the nonlinear term (ie. the good stuff) $v = \\vec{v}(x,y,z,t)$    Conservation of Mass  $\\frac{D}{\\cancel{D}t}\\rho+\\rho \\nabla\\cdot\\vec{v} = 0$  $\\rho = \\rho(x,y,z,t)$ $\\frac{\\partial \\rho}{\\partial t}+\\nabla \\cdot (\\rho \\vec{v}) = 0$    Momentum Equation  $\\frac{\\partial \\vec{v}}{\\partial t}+(\\vec{v}\\cdot\\nabla)\\vec{v} = \\frac{-1}{\\rho}\\nabla P + \\nu \\nabla^{2}\\vec{v}+F_{b}$  $\\rho$ is pressure, $P$ is pressure, $\\mu$ is the friction coefficient First term: pressure term Second term: friction term Third term: “body” forces (most common forces: gravity, EM forces) Newton Law analogy: $\\vec{a}=\\frac{\\vec{F}}{m}$ (ie the every term is a force per unit mass)   Ex: Consider an inviscid (non viscous) fluid ($\\nu=0$) at rest ($\\vec{v}=0$) with gravity ($F_{b} = -g\\hat{k}$)  LHS=0. 2nd term on RHS is zero. Spliting into components  $\\frac{\\partial \\rho}{\\partial x}=0$ $\\frac{\\partial \\rho}{\\partial y}=0$ $\\frac{\\partial \\rho}{\\partial z} = -\\rho g \\rightarrow p(z) = -\\int_{z}^{TOA}\\rho g\\ dz$  $\\rho = \\rho(z)$ and $g = g(z)$ (normally a constant) $TOA$ is the top of atmosphere where pressure falls to basically zero        Equation of State  So far, we have 4 equations and 5 unknowns ($\\rho,P$ and 3 components of $\\vec{v}$) Need to connect $\\rho$ to $P$ with an equation of state Can also use a conservation law (ie. conservation of energy)  Sound Waves  Longitudinal Pressure and density waves Take conservation of mass and momentum equations and linearize them (Let $\\vec{v}=\\vec{v_{0}+\\vec{v}^{'}} $ and $\\rho_{0}+\\rho^{'}$, then multiply out, and drop all the quadratic terms):  $\\frac{D\\rho}{\\cancel{D}t}+\\rho\\nabla\\vec{v}=0\\rightarrow\\frac{\\partial \\rho^{'}}{\\partial t}+\\rho_{0}\\nabla\\cdot\\vec{v^{'}} = 0$ $\\frac{D\\vec{v}}{\\cancel{D}t} = \\frac{-\\nabla P}{\\rho}\\rightarrow \\frac{\\partial \\vec{v}}{\\partial t} = \\frac{-\\nabla P}{\\rho}$ From thermodynamics, we know for an ideal gas that $P = c\\rho^{\\gamma}$. We linearize like the other equations, and then make the approximation $(1+\\frac{\\rho^{'}}{\\rho_{0}})^{\\gamma}\\approx 1+\\gamma(\\frac{\\rho^{'}}{\\rho_{0}})$ and recall $P_{0}= C\\rho_{0}^{\\gamma}$ to get that:  $P{'} = \\gamma\\frac{\\rho_{0}}{P_{0}}\\rho^{'} = (\\gamma RT_{0})\\rho^{'}$   Can take partials w.r.t time and replace $\\rho^{'}$ with $P^{'}$ and eventually, you get a wave equation:  $\\frac{\\partial^{2}P^{'}}{\\partial t^{2}} = c_{s}^{2}\\nabla^{2}P^{'}$ where $c_{s}^{2} = \\gamma RT$ is the speed of sound      Chapter 2 Why a rotating frame?  We live on Earth. Earth rotates. We should use a rotating frame to describe the Navier Stokes equations By translating to a rotating frame, we remove the “solid body” rotation   We have the Earth with a thin layer of fluid on its surface. It rotates around the z axis. The atmosphere gets “dragged” along by the Earth (the solid body) and rotates together with the Earth at a rate of $2\\pi$ per day up down velocity (vertical) is zero ($w=0$) North South velocity is zero ($v=0$) East West velocity is only a function of latitude $\\theta$ (ie. $u=u(\\theta)$)  Radius of Earth is 6400 km. So $u(\\theta=0) = 465 \\frac{m}{s}$. This is typically orders of magnitude larger than any relevant phenomena      Derivation of Velocity and Acceleration in Rotating Frames  Consider a constant length vector $\\vec{v}$ (originating from the origin) rotating around an axis $\\vec{\\Omega}$. Longitude in xy plane denoted by $\\lambda$ and latitude denoted by $\\theta$. We can always choose $\\vec{\\Omega}$ to lie along the z-axis.  $(\\frac{d\\vec{v}}{dt})_{I} = \\Omega \\times \\vec{v}$  rate of change of $\\vec{v}$ in the inertial frame     consider a vector $\\vec{B}$ that varies in time  $\\frac{d\\vec{B_{I}}}{dt} = \\frac{d\\vec{B_{r}}}{dt}+ \\Omega\\times\\vec{B}$ Ie. The inertial change over time is related to the rotating change over time with the addition of the rotation velocity This applies to the position vector $\\vec{r}$ as well. We can interpret the time derivatives as velocities in their respective frames   Take the time derivative of the velocity terms. The time derivative formula above still holds for the velocity vectors (use $\\vec{v_{I}}$ instead of $\\vec{r}$). You then replace all the inertial frame values with rotating frame values. You eventually get: $\\frac{d\\vec{v_{I}}}{dt^2} = \\frac{d\\vec{v_{r}}}{dt^2}+2\\Omega\\times\\vec{v}_{r}+\\Omega\\times(\\Omega\\times\\vec{r})$ $2\\Omega\\times\\vec{v_{r}}$ is the Coriolis force.  This does no work because it is orthogonal to the direction of motion   $\\Omega\\times(\\Omega\\times\\vec{r})$ is the centifugal force  It is a potential force (ie. only depends on position) $\\Omega\\times\\vec{r_{\\perp}} = \\Omega\\times\\vec{r}$ Recall the CAB-BAC rule:  $\\vec{A}\\times\\vec{B}\\times\\vec{C} = (\\vec{C}\\cdot\\vec{A})\\vec{B} -(\\vec{B}\\cdot\\vec{A})\\vec{C}$   The CAB-BAC rule can be used to simplify the Centrifugal force to $-\\Omega^{2}\\vec{r_{\\perp}} = -\\nabla \\Phi_{centrifugal}$, where $\\Phi_{centrifugal} = \\frac{\\Omega^{2}r^{2}}{2}$ We can redefine the potential such that we can ignore the centrifugal force    Fluid Equations in Rotating Frame  In the rotating frame, we find that  $\\frac{d\\vec{v}}{dt} = 2\\Omega\\times\\vec{v} = \\frac{-\\nabla P}{\\rho} -\\nabla \\Phi - \\nu \\nabla^{2}\\vec{v}$   The material derivative is unchanged when shifting frames  $\\frac{D\\rho_{R}}{\\cancel{D}t}=\\frac{D\\rho_{I}}{\\cancel{D}t} \\rightarrow \\frac{D}{\\cancel{D}t}\\rho +\\rho \\nabla \\cdot \\vec{v} = 0$  Time derivative is trivially unchanged. The $\\nabla\\cdot v$ term is zero when you expand out in terms of components     Conservation of Energy is $\\frac{D}{Dt}\\Eta = 0$ and $\\Eta = (\\frac{P}{P_{0}})^{\\kappa}$ are unchanged  Encoding The Spherical Earth in Equations   We draw a sphere and make the x,y,z projections  Define $\\lambda$ to be the longitude (east to west) that varies from 0 to $2\\pi$, $\\theta$ to be the latitude(north to south) that varies from $\\frac{-\\pi}{2}$ to $\\frac{\\pi}{2}$, and $r$ is the distance from the center of the earth The velocities can be written as $\\vec{v} = (u,v,w) = (r\\cos\\theta \\frac{D\\lambda}{\\cancel{D}t}, r\\frac{D\\theta}{\\cancel{D}t}, \\frac{Dr}{\\cancel{D}t}) = u\\hat{i}+v\\hat{j}+w\\hat{k}$ To find $\\frac{D\\vec{v}}{\\cancel{D}t}$, you have to remember that the basis vectors are no longer constant; they change with time.  $\\frac{D\\hat{i}}{\\cancel{D}t} = \\frac{u}{\\cos\\theta}(\\sin\\theta\\hat{j}-\\cos\\theta\\hat{k})$ $\\frac{D\\hat{j}}{\\cancel{D}t} = \\frac{-u}{r} \\tan\\theta \\hat{j}-\\frac{v}{r}\\hat{k}$ $\\frac{D\\hat{k}}{\\cancel{D}t} = \\frac{u}{r}\\hat{i}+\\frac{v}{r}\\hat{j}$     You get the spherical versions of the fluid equations with the above substitutions. Way to complicated. Practically, we need to approximate  Primitive Equations (Dynamical Core, because you can’t get rid of the air)  Some approximations we can make:  Let $r = z+a$, where a is the radius of the Earth and z is the position in the atmosphere (z« a). This means that $\\frac{1}{r} = \\frac{1}{a}$ and $\\frac{\\partial}{\\partial r} = \\frac{\\partial}{\\partial z}$  called the shallow fluid approximation   Assume that w « v and w « u  Kill all terms quadratic in velocities that involve w (metric terms) Kill the Coreolis terms involving w   Make the momentum equation in R hydrostatic (no dependency on time) Define $\\vec{v} = u+\\hat{i}+v\\hat{j}+w\\hat{k}$ and $\\vec{u} = u+\\hat{i}+v\\hat{j}$ (ie. we can ignore w term) We then get:  $\\frac{D\\vec{u}}{\\cancel{D}t}+\\vec{f}\\times\\vec{u} = \\frac{\\nabla_{z} P}{\\rho}$  $\\vec{f} = 2\\Omega\\sin\\theta\\hat{k}$ is called the Coriolis parameter   $\\frac{D\\vec{\\rho}}{\\cancel{D}t}+\\rho \\nabla \\cdot \\vec{v} = 0$ $\\frac{D\\Eta}{\\cancel{D}t} = 0$ $\\frac{\\partial p}{\\partial z}= -\\rho g$      What is $\\vec{f}$ physically  Recall that $(\\vec{v}\\cdot \\nabla)\\vec{v} = (\\nabla\\times\\vec{v})\\times\\vec{v}+\\frac{1}{2}\\nabla|\\vec{v}|^{2}$  Define $\\nabla\\times\\vec{v}=\\omega$ as the vorticity of the flow (or the relative vorticity)   Plug this into the momentum equation shows you that we can interpret $\\vec{f}$ as a vorticity (planetary vorticity) because it gets added to $\\omega$ We define $\\vec{\\zeta}$ as the Vorticity in the direction orthogonal to the surface of the Earth (ie $\\vec{\\zeta} = \\vec{\\omega}\\cdot\\hat{k}$)  ",
+  "wordCount" : "1263",
   "inLanguage": "en",
   "datePublished": "2023-01-17T22:19:05-05:00",
-  "dateModified": "2023-01-24T22:08:29-05:00",
+  "dateModified": "2023-02-01T20:49:38-05:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://mushetty.me/notes/geophysics/geophysics/"
@@ -198,7 +198,7 @@
     <h1 class="post-title">
       Geophysical Fluid Dynamics (GFD)
     </h1>
-    <div class="post-meta"><span title='2023-01-17 22:19:05 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-01-24 22:08:29 -0500 EST'>Last Modified: January 24, 2023</span>
+    <div class="post-meta"><span title='2023-01-17 22:19:05 -0500 EST'>Date Created: January 17, 2023</span>&nbsp;·&nbsp;<span title='2023-02-01 20:49:38 -0500 EST'>Last Modified: February 1, 2023</span>
 
 </div>
   </header> 
@@ -212,6 +212,22 @@
 <li><a href="#momentum-equation">Momentum Equation</a></li>
 <li><a href="#equation-of-state">Equation of State</a></li>
 <li><a href="#sound-waves">Sound Waves</a></li>
+</ul>
+</li>
+<li><a href="#chapter-2">Chapter 2</a>
+<ul>
+<li><a href="#why-a-rotating-frame">Why a rotating frame?</a></li>
+<li><a href="#derivation-of-velocity-and-acceleration-in-rotating-frames">Derivation of Velocity and Acceleration in Rotating Frames</a></li>
+<li><a href="#fluid-equations-in-rotating-frame">Fluid Equations in Rotating Frame</a>
+<ul>
+<li><a href="#encoding-the-spherical-earth-in-equations">Encoding The Spherical Earth in Equations</a></li>
+<li><a href="#primitive-equations-dynamical-core-because-you-cant-get-rid-of-the-air">Primitive Equations (Dynamical Core, because you can&rsquo;t get rid of the air)</a>
+<ul>
+<li><a href="#what-is-vecf-physically">What is $\vec{f}$ physically</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -330,6 +346,145 @@
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="chapter-2">Chapter 2<a hidden class="anchor" aria-hidden="true" href="#chapter-2">#</a></h2>
+<h3 id="why-a-rotating-frame">Why a rotating frame?<a hidden class="anchor" aria-hidden="true" href="#why-a-rotating-frame">#</a></h3>
+<ul>
+<li>We live on Earth. Earth rotates. We should use a rotating frame to describe the Navier Stokes equations</li>
+<li>By translating to a rotating frame, we remove the &ldquo;solid body&rdquo; rotation
+<ul>
+<li><img loading="lazy" src="/images/Geo/GFDSolidRotation.png" alt="FluidOnSphere"  />
+</li>
+<li>We have the Earth with a thin layer of fluid on its surface. It rotates around the z axis. The atmosphere gets &ldquo;dragged&rdquo; along by the Earth (the solid body) and rotates together with the Earth at a rate of $2\pi$ per day</li>
+<li>up down velocity (vertical) is zero ($w=0$)</li>
+<li>North South velocity is zero ($v=0$)</li>
+<li>East West velocity is only a function of latitude $\theta$ (ie. $u=u(\theta)$)
+<ul>
+<li>Radius of Earth is 6400 km. So $u(\theta=0) = 465 \frac{m}{s}$. This is typically orders of magnitude larger than any relevant phenomena</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="derivation-of-velocity-and-acceleration-in-rotating-frames">Derivation of Velocity and Acceleration in Rotating Frames<a hidden class="anchor" aria-hidden="true" href="#derivation-of-velocity-and-acceleration-in-rotating-frames">#</a></h3>
+<p><img loading="lazy" src="/static/images/Geo/RotatingVector.png" alt="RotatingVector"  />
+</p>
+<ul>
+<li>Consider a constant length vector $\vec{v}$ (originating from the origin) rotating around an axis $\vec{\Omega}$. Longitude in xy plane denoted by $\lambda$ and latitude denoted by $\theta$. We can always choose $\vec{\Omega}$ to lie along the z-axis.
+<ul>
+<li>$(\frac{d\vec{v}}{dt})_{I} = \Omega \times \vec{v}$
+<ul>
+<li>rate of change of $\vec{v}$ in the inertial frame</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>consider a vector $\vec{B}$ that varies in time
+<ul>
+<li>$\frac{d\vec{B_{I}}}{dt} = \frac{d\vec{B_{r}}}{dt}+ \Omega\times\vec{B}$</li>
+<li>Ie. The inertial change over time is related to the rotating change over time with the addition of the rotation velocity</li>
+<li>This applies to the position vector $\vec{r}$ as well. We can interpret the time derivatives as velocities in their respective frames</li>
+</ul>
+</li>
+<li>Take the time derivative of the velocity terms. The time derivative formula above still holds for the velocity vectors (use $\vec{v_{I}}$ instead of $\vec{r}$). You then replace all the inertial frame values with rotating frame values. You eventually get:</li>
+<li>$\frac{d\vec{v_{I}}}{dt^2} = \frac{d\vec{v_{r}}}{dt^2}+2\Omega\times\vec{v}_{r}+\Omega\times(\Omega\times\vec{r})$</li>
+<li>$2\Omega\times\vec{v_{r}}$ is the Coriolis force.
+<ul>
+<li>This does no work because it is orthogonal to the direction of motion</li>
+</ul>
+</li>
+<li>$\Omega\times(\Omega\times\vec{r})$ is the centifugal force
+<ul>
+<li>It is a potential force (ie. only depends on position)</li>
+<li>$\Omega\times\vec{r_{\perp}} = \Omega\times\vec{r}$</li>
+<li>Recall the CAB-BAC rule:
+<ul>
+<li>$\vec{A}\times\vec{B}\times\vec{C} = (\vec{C}\cdot\vec{A})\vec{B} -(\vec{B}\cdot\vec{A})\vec{C}$</li>
+</ul>
+</li>
+<li>The CAB-BAC rule can be used to simplify the Centrifugal force to $-\Omega^{2}\vec{r_{\perp}} = -\nabla \Phi_{centrifugal}$, where $\Phi_{centrifugal} = \frac{\Omega^{2}r^{2}}{2}$</li>
+<li>We can redefine the potential such that we can ignore the centrifugal force</li>
+</ul>
+</li>
+</ul>
+<h3 id="fluid-equations-in-rotating-frame">Fluid Equations in Rotating Frame<a hidden class="anchor" aria-hidden="true" href="#fluid-equations-in-rotating-frame">#</a></h3>
+<ul>
+<li>In the rotating frame, we find that
+<ul>
+<li>$\frac{d\vec{v}}{dt} = 2\Omega\times\vec{v} = \frac{-\nabla P}{\rho} -\nabla \Phi - \nu \nabla^{2}\vec{v}$</li>
+</ul>
+</li>
+<li>The material derivative is unchanged when shifting frames
+<ul>
+<li>$\frac{D\rho_{R}}{\cancel{D}t}=\frac{D\rho_{I}}{\cancel{D}t} \rightarrow \frac{D}{\cancel{D}t}\rho +\rho \nabla \cdot \vec{v} = 0$
+<ul>
+<li>Time derivative is trivially unchanged. The $\nabla\cdot v$ term is zero when you expand out in terms of components</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Conservation of Energy is $\frac{D}{Dt}\Eta = 0$ and $\Eta = (\frac{P}{P_{0}})^{\kappa}$ are unchanged</li>
+</ul>
+<h4 id="encoding-the-spherical-earth-in-equations">Encoding The Spherical Earth in Equations<a hidden class="anchor" aria-hidden="true" href="#encoding-the-spherical-earth-in-equations">#</a></h4>
+<ul>
+<li><img loading="lazy" src="/images/Geo/GeoSphericalCoordinates.png" alt="GeoSphericalCoordinates"  />
+</li>
+<li>We draw a sphere and make the x,y,z projections
+<ul>
+<li>Define $\lambda$ to be the longitude (east to west) that varies from 0 to $2\pi$, $\theta$ to be the latitude(north to south) that varies from $\frac{-\pi}{2}$ to $\frac{\pi}{2}$, and $r$ is the distance from the center of the earth</li>
+<li>The velocities can be written as $\vec{v} = (u,v,w) = (r\cos\theta \frac{D\lambda}{\cancel{D}t}, r\frac{D\theta}{\cancel{D}t}, \frac{Dr}{\cancel{D}t}) = u\hat{i}+v\hat{j}+w\hat{k}$</li>
+<li>To find $\frac{D\vec{v}}{\cancel{D}t}$, you have to remember that the basis vectors are no longer constant; they change with time.
+<ul>
+<li>$\frac{D\hat{i}}{\cancel{D}t} = \frac{u}{\cos\theta}(\sin\theta\hat{j}-\cos\theta\hat{k})$</li>
+<li>$\frac{D\hat{j}}{\cancel{D}t} = \frac{-u}{r} \tan\theta \hat{j}-\frac{v}{r}\hat{k}$</li>
+<li>$\frac{D\hat{k}}{\cancel{D}t} = \frac{u}{r}\hat{i}+\frac{v}{r}\hat{j}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>You get the spherical versions of the fluid equations with the above substitutions. Way to complicated. Practically, we need to approximate</li>
+</ul>
+<h4 id="primitive-equations-dynamical-core-because-you-cant-get-rid-of-the-air">Primitive Equations (Dynamical Core, because you can&rsquo;t get rid of the air)<a hidden class="anchor" aria-hidden="true" href="#primitive-equations-dynamical-core-because-you-cant-get-rid-of-the-air">#</a></h4>
+<ul>
+<li>Some approximations we can make:
+<ul>
+<li>Let $r = z+a$, where a is the radius of the Earth and z is the position in the atmosphere (z&laquo; a). This means that $\frac{1}{r} = \frac{1}{a}$ and $\frac{\partial}{\partial r} = \frac{\partial}{\partial z}$
+<ul>
+<li>called the shallow fluid approximation</li>
+</ul>
+</li>
+<li>Assume that w &laquo; v and w &laquo; u
+<ul>
+<li>Kill all terms quadratic in velocities that involve w (metric terms)</li>
+<li>Kill the Coreolis terms involving w</li>
+</ul>
+</li>
+<li>Make the momentum equation in R hydrostatic (no dependency on time)</li>
+<li>Define $\vec{v} = u+\hat{i}+v\hat{j}+w\hat{k}$ and $\vec{u} = u+\hat{i}+v\hat{j}$ (ie. we can ignore w term)</li>
+<li>We then get:
+<ul>
+<li>$\frac{D\vec{u}}{\cancel{D}t}+\vec{f}\times\vec{u} = \frac{\nabla_{z} P}{\rho}$
+<ul>
+<li>$\vec{f} = 2\Omega\sin\theta\hat{k}$ is called the Coriolis parameter</li>
+</ul>
+</li>
+<li>$\frac{D\vec{\rho}}{\cancel{D}t}+\rho \nabla \cdot \vec{v} = 0$</li>
+<li>$\frac{D\Eta}{\cancel{D}t} = 0$</li>
+<li>$\frac{\partial p}{\partial z}= -\rho g$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-is-vecf-physically">What is $\vec{f}$ physically<a hidden class="anchor" aria-hidden="true" href="#what-is-vecf-physically">#</a></h5>
+<ul>
+<li>Recall that $(\vec{v}\cdot \nabla)\vec{v} = (\nabla\times\vec{v})\times\vec{v}+\frac{1}{2}\nabla|\vec{v}|^{2}$
+<ul>
+<li>Define $\nabla\times\vec{v}=\omega$ as the vorticity of the flow (or the relative vorticity)</li>
+</ul>
+</li>
+<li>Plug this into the momentum equation shows you that we can interpret $\vec{f}$ as a vorticity (planetary vorticity) because it gets added to $\omega$</li>
+<li>We define $\vec{\zeta}$ as the Vorticity in the direction orthogonal to the surface of the Earth (ie $\vec{\zeta} = \vec{\omega}\cdot\hat{k}$)</li>
 </ul>
 
 
