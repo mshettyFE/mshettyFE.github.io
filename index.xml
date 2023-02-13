@@ -43,7 +43,7 @@
       
       <guid>https://mushetty.me/notes/machinelearning/machine/</guid>
       <description>Compilation of notes for Machine Learning class for Spring 2023.
- Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example   Convergence Naive Bayes Classifier How do you quantify the quality of a classifier? Approaches to Classification  Generative Approach  Advantages Disadvantages   Discriminative Approach  Advantages Disadvantages       Topic 2  Nearest K-Neighbor  Importance of Closeness for k-Nearest Neighbors  Distances Similarities   Issues with the nearest neighbor k-NN Optimality  Proof Practical Considerations of k-nearest neighbor  Finding the k-th nearest neighbors takes time   Metric of Closeness is Sometimes Unclear       Topic 3 Topic 4 Topic 5 Topic 6 Topic 7 Topic 8 Topic 9  Administrative Stuff  All homework is submitted via Gradescope.</description>
+ Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example   Convergence Naive Bayes Classifier How do you quantify the quality of a classifier? Approaches to Classification  Generative Approach  Advantages Disadvantages   Discriminative Approach  Advantages Disadvantages       Topic 2  Nearest K-Neighbor  Importance of Closeness for k-Nearest Neighbors  Distances Similarities   Issues with the nearest neighbor k-NN Optimality  Proof Practical Considerations of k-nearest neighbor  Finding the k-th nearest neighbors takes time   Metric of Closeness is Sometimes Unclear  Derivative w.</description>
     </item>
     
     <item>
