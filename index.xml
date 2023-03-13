@@ -27,6 +27,16 @@
     </item>
     
     <item>
+      <title>Quantum I</title>
+      <link>https://mushetty.me/notes/quantumi/quantumi/</link>
+      <pubDate>Tue, 17 Jan 2023 22:19:25 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/quantumi/quantumi/</guid>
+      <description>Compilation of notes for Quantum I class for Spring 2023.
+ Administrative Stuff Lecture 1 Lecture 2  The Current Density Operator (probability current) Erenhfest&amp;rsquo;s Principle Uncertainty Princple Time Independent SE   Lecture 3  Interference of Stationary States Solving TISE  $V(x)=V_{0}$ Infinite Square Well     Lecture 4  Properties of Eigenfunctions Finite Square Well   Lecture 5  Dirac Delta Function Free Particle  Fourier Transform Definition     Lecture 6  Scattering States SHO  Commutation relation of $\hat{x}$ and $\hat{p}$ Ladder Operators     Lecture 7  Quantizing EM Fields   Lecture 8  Generalized Uncertainty Relationship    Administrative Stuff  10-minute quizzes (5 questions, multiple choice) 10%:  around February 8 around Around March 1 around April 26   Midterm 25%  around March 22   Final 45% HW 20%  Lecture 1  First HW due 6 pm Jan 25th The Wavefunction  Written in 1 spatial dimension as $\Psi (x,t)$.</description>
+    </item>
+    
+    <item>
       <title>Machine Learning Notes</title>
       <link>https://mushetty.me/notes/machinelearning/machine/</link>
       <pubDate>Tue, 17 Jan 2023 22:19:16 -0500</pubDate>
@@ -34,6 +44,16 @@
       <guid>https://mushetty.me/notes/machinelearning/machine/</guid>
       <description>Compilation of notes for Machine Learning class for Spring 2023.
  Administrative Stuff Topic 1  Workflow of Classification Problems (Supervised Learning) Statistical Approach  Classifier   Maximum Likelihood Estimation  Example   Convergence Naive Bayes Classifier How do you quantify the quality of a classifier? Approaches to Classification  Generative Approach  Advantages Disadvantages   Discriminative Approach  Advantages Disadvantages       Topic 2  Nearest K-Neighbor  Importance of Closeness for k-Nearest Neighbors  Distances Similarities   Issues with the nearest neighbor k-NN Optimality  Proof Practical Considerations of k-nearest neighbor  Finding the k-th nearest neighbors takes time   Metric of Closeness is Sometimes Unclear  Derivative w.</description>
+    </item>
+    
+    <item>
+      <title>Geophysical Fluid Dynamics (GFD)</title>
+      <link>https://mushetty.me/notes/geophysics/geophysics/</link>
+      <pubDate>Tue, 17 Jan 2023 22:19:05 -0500</pubDate>
+      
+      <guid>https://mushetty.me/notes/geophysics/geophysics/</guid>
+      <description>Compilation of notes for Geophysical Fluid Dynamics class for Spring 2023.
+ Administrative Stuff Chapter 1  Material Derivative (Lagrangian Derivative) Conservation of Mass Momentum Equation Equation of State Sound Waves   Chapter 2  Why a rotating frame? Derivation of Velocity and Acceleration in Rotating Frames Fluid Equations in Rotating Frame  Encoding The Spherical Earth in Equations Primitive Equations (Dynamical Core, because you can&amp;rsquo;t get rid of the air)  What is $\vec{f}$ physically     Stratification  Boussinesq Equation Anelastic Equations   Alternative Vertical Coordinates Under What Conditions does Hydrostatic Balance Holds?</description>
     </item>
     
     <item>
